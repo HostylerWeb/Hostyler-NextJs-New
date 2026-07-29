@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: hostyler
+          POSTGRES_PASSWORD: hostyler
+          POSTGRES_DB: hostyler
+        ports:
+          - 5434:5432
+        options: >-
+          --health-cmd "pg_isready -U hostyler -d hostyler"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DATABASE_URL: postgresql://hostyler:hostyler@localhost:5434/hostyler
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      AUTH_SECRET: ci-test-auth-secret
+      AUTH_URL: http://localhost:3000
+      INVOICE_PAY_TOKEN_SECRET: ci-test-invoice-secret
+      CRON_SECRET: ci-test-cron-secret
+      HEALTH_CHECK_SECRET: ci-test-health-secret
+      NODE_ENV: test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm db:migrate:deploy
+
+      - run: pnpm db:seed
+
+      - run: pnpm foundation:verify
+
+      - run: pnpm db:verify
+
+      - run: pnpm db:integrity
+
+      - run: pnpm test
+
+      - run: pnpm lint
+
+      - run: pnpm build

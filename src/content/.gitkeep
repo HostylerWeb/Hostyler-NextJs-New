@@ -1,0 +1,2 @@
+/** Static marketing content for v1 (testimonials, team, FAQ stay out of DB). */
+export const STATIC_CONTENT_VERSION = "1";
