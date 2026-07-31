@@ -71,5 +71,6 @@ export const adminNavigation = [
   { label: "Clients", href: "/admin/clients" },
   { label: "Support", href: "/admin/support" },
   { label: "Case Studies", href: "/admin/case-studies" },
+  { label: "Reviews", href: "/admin/testimonials" },
   { label: "Contacts", href: "/admin/contacts" },
 ] as const;

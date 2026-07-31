@@ -9,8 +9,8 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main id="main-content">
-        <Section className="pt-40">
+      <main id="main-content" className="site-main">
+        <Section pageTop>
           <Wrap className="max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
               404

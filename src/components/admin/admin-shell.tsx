@@ -6,6 +6,7 @@ import { type ReactNode } from "react";
 import { adminNavigation } from "@/content/navigation";
 import { cn } from "@/lib/cn";
 import { AdminHeader } from "@/components/admin/admin-header";
+import { AdminLogoutButton } from "@/components/admin/admin-logout-button";
 import { SiteLogo } from "@/components/layout/site-logo";
 
 type AdminShellProps = {
@@ -19,8 +20,8 @@ export function AdminShell({ children, breadcrumbs }: AdminShellProps) {
   return (
     <div className="app-shell min-h-screen bg-paper">
       <div className="flex min-h-screen">
-        <aside className="hidden w-64 shrink-0 border-r-2.5 border-ink bg-ink p-5 text-paper md:block">
-          <SiteLogo className="mb-8" height={70} src="/admin-logo.png" />
+        <aside className="hidden w-64 shrink-0 flex-col border-r-2.5 border-ink bg-ink p-5 text-paper md:flex">
+          <SiteLogo linkClassName="mb-8" height={70} src="/admin-logo.png" />
           <p className="mb-4 font-mono text-[10px] tracking-wider text-paper/60 uppercase">
             Admin
           </p>
@@ -38,6 +39,9 @@ export function AdminShell({ children, breadcrumbs }: AdminShellProps) {
               </Link>
             ))}
           </nav>
+          <div className="mt-auto border-t border-paper/15 pt-4">
+            <AdminLogoutButton variant="sidebar" />
+          </div>
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col">

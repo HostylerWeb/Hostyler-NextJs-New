@@ -5,13 +5,15 @@ import { hashPassword, verifyPassword } from "@/lib/password-utils";
 import { consumeRateLimit, getRequestIp } from "@/lib/rate-limit";
 import {
   createEmailVerificationToken,
-  createPasswordResetToken,
+  createPasswordResetOtp,
   consumeEmailVerificationToken,
   consumePasswordResetToken,
+  verifyPasswordResetOtp,
 } from "@/lib/auth-tokens";
 import {
   createUser,
   findUserByEmail,
+  findUserById,
   markEmailVerified,
   updateUserPassword,
   updateLastLogin,
@@ -21,16 +23,18 @@ import {
   loginSchema,
   registerSchema,
   resetPasswordSchema,
+  verifyPasswordResetOtpSchema,
 } from "@/lib/validators/contact";
 import {
   sendEmailVerification,
-  sendPasswordReset,
+  sendPasswordResetOtp,
   sendWelcomeEmail,
 } from "@/lib/mail";
 
 export type AuthFormState = {
   error?: string;
   success?: string;
+  resetToken?: string;
 };
 
 export async function registerAction(
@@ -156,18 +160,54 @@ export async function forgotPasswordAction(
   }
 
   const user = await findUserByEmail(parsed.data.email);
-  if (user) {
-    const token = await createPasswordResetToken(user.id);
-    await sendPasswordReset(user, token);
+  if (user?.is_active) {
+    const otp = await createPasswordResetOtp(user.id);
+    try {
+      await sendPasswordResetOtp(user, otp);
+    } catch {
+      return { error: "Could not send the reset code. Try again later." };
+    }
   }
 
   return {
-    success: "If an account exists for that email, we sent a reset link.",
+    success: "If an account exists for that email, we sent a 6-digit reset code.",
+  };
+}
+
+export async function verifyPasswordResetOtpAction(
+  _prev: AuthFormState,
+  formData: FormData,
+): Promise<AuthFormState> {
+  const parsed = verifyPasswordResetOtpSchema.safeParse({
+    email: formData.get("email"),
+    otp: formData.get("otp"),
+  });
+
+  if (!parsed.success) {
+    return { error: parsed.error.issues[0]?.message ?? "Invalid code" };
+  }
+
+  const ip = await getRequestIp();
+  const [emailRate, ipRate] = await Promise.all([
+    consumeRateLimit(`reset-otp:email:${parsed.data.email.toLowerCase()}`, 8, 15 * 60 * 1000),
+    consumeRateLimit(`reset-otp:ip:${ip}`, 20, 15 * 60 * 1000),
+  ]);
+  if (!emailRate.allowed || !ipRate.allowed) {
+    return { error: "Too many attempts. Try again later." };
+  }
+
+  const resetToken = await verifyPasswordResetOtp(parsed.data.email, parsed.data.otp);
+  if (!resetToken) {
+    return { error: "That code is invalid or has expired. Request a new one." };
+  }
+
+  return {
+    success: "Code verified. Choose a new password below.",
+    resetToken,
   };
 }
 
 export async function resetPasswordAction(
-  token: string,
   _prev: AuthFormState,
   formData: FormData,
 ): Promise<AuthFormState> {
@@ -180,13 +220,37 @@ export async function resetPasswordAction(
     return { error: parsed.error.issues[0]?.message ?? "Invalid password" };
   }
 
-  const userId = await consumePasswordResetToken(token);
+  const resetToken = String(formData.get("resetToken") ?? "");
+  if (!resetToken) {
+    return { error: "Your reset session expired. Start again from the login page." };
+  }
+
+  const userId = await consumePasswordResetToken(resetToken);
   if (!userId) {
-    return { error: "This reset link is invalid or has expired." };
+    return { error: "Your reset session expired. Start again from the login page." };
+  }
+
+  const user = await findUserById(userId);
+  if (!user || !user.is_active) {
+    return { error: "Account not found." };
   }
 
   await updateUserPassword(userId, await hashPassword(parsed.data.password));
-  return { success: "Password updated. You can log in now." };
+
+  if (!user.email_verified_at) {
+    return {
+      success: "Password updated. Verify your email, then log in with your new password.",
+    };
+  }
+
+  await updateLastLogin(user.id);
+  await signIn("credentials", {
+    email: user.email,
+    password: parsed.data.password,
+    redirectTo: user.role === "admin" ? "/admin" : "/portal",
+  });
+
+  return {};
 }
 
 export async function verifyEmailAction(token: string): Promise<AuthFormState> {

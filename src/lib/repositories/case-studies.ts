@@ -23,6 +23,13 @@ export async function listPublishedCaseStudies(): Promise<case_studies[]> {
   });
 }
 
+export async function getFeaturedCaseStudy(): Promise<case_studies | null> {
+  return prisma.case_studies.findFirst({
+    where: { published: true, featured: true },
+    orderBy: [{ sort_order: "asc" }, { published_at: "desc" }],
+  });
+}
+
 export async function getCaseStudyBySlug(
   slug: string,
 ): Promise<case_studies | null> {

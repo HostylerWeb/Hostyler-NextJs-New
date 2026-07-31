@@ -20,6 +20,7 @@
     "verify:all": "tsx scripts/verify-all.ts",
     "audit": "pnpm audit",
     "dev": "next dev",
+    "predev": "prisma generate",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

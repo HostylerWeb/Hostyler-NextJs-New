@@ -50,7 +50,7 @@ const requiredFiles = [
   "src/content/why-us.ts",
   "src/content/pricing.ts",
   "src/content/faq.ts",
-  "src/content/testimonials.ts",
+  "src/components/sections/testimonials-section.tsx",
   "src/content/team.ts",
   "src/content/trust.ts",
   "src/content/site.ts",

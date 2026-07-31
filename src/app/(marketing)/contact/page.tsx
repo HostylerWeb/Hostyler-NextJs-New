@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <Section className="pt-40">
+    <Section pageTop>
       <Wrap className="max-w-2xl">
         <SectionHead
           eyebrow="Contact"

@@ -3,6 +3,12 @@ import { services } from "@/content/services";
 import { getHomepageServiceBlocks } from "@/content/service-pages";
 import { ServiceVisual } from "@/components/sections/service-visual";
 
+const serviceButtonVariant = {
+  violet: "primary",
+  coral: "coral",
+  lime: "lime",
+} as const;
+
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
@@ -61,7 +67,11 @@ export function ServicesSection() {
                   </ul>
                 </div>
               </div>
-              <Button href={block.href} className="btn btn-primary">
+              <Button
+                href={block.href}
+                variant={serviceButtonVariant[service.tint]}
+                className="btn"
+              >
                 {block.cta}
                 <ArrowIcon />
               </Button>

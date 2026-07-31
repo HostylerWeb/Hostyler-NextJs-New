@@ -10,6 +10,8 @@ const buttonVariants = cva(
       variant: {
         primary:
           "bg-violet text-white shadow-brutal hover:-translate-x-[3px] hover:-translate-y-[3px] hover:bg-[#7B4FFF] hover:shadow-brutal-hover",
+        coral:
+          "bg-coral text-white shadow-brutal hover:-translate-x-[3px] hover:-translate-y-[3px] hover:bg-[#E84D2A] hover:shadow-brutal-hover",
         ghost:
           "bg-paper text-ink shadow-brutal-sm hover:-translate-x-[3px] hover:-translate-y-[3px] hover:bg-lime hover:shadow-brutal-hover",
         ink: "bg-ink text-paper shadow-brutal hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-brutal-hover",

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCaseStudyBySlug } from "@/lib/repositories/case-studies";
+import { getCaseStudyDetail } from "@/content/case-studies";
+import { CaseStudyDetailContent } from "@/components/marketing/case-study-detail-content";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
 import { Wrap } from "@/components/layout/wrap";
@@ -19,12 +21,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function parseTags(tags: unknown): string[] {
+  if (Array.isArray(tags)) {
+    return tags.filter((tag): tag is string => typeof tag === "string");
+  }
+  return [];
+}
+
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
   const study = await getCaseStudyBySlug(slug);
   if (!study) notFound();
 
-  const tags = Array.isArray(study.tags) ? (study.tags as string[]) : [];
+  const detail = getCaseStudyDetail(slug);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -40,8 +49,22 @@ export default async function CaseStudyPage({ params }: Props) {
     image: study.cover_image_url,
   };
 
+  if (detail) {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        />
+        <CaseStudyDetailContent study={study} detail={detail} />
+      </>
+    );
+  }
+
+  const tags = parseTags(study.tags);
+
   return (
-    <Section className="pt-40">
+    <Section pageTop>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}

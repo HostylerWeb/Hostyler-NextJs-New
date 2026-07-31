@@ -78,6 +78,12 @@ enum ticket_reply_by {
   staff
 }
 
+enum testimonial_tint {
+  violet
+  coral
+  lime
+}
+
 // ─── Auth (Auth.js Prisma adapter + credentials) ─────────────────────────────
 
 model users {
@@ -217,6 +223,23 @@ model case_studies {
 
   @@index([published, sort_order])
   @@map("case_studies")
+}
+
+model testimonials {
+  id          String           @id @default(uuid()) @db.Uuid
+  slug        String           @unique @db.VarChar(255)
+  name        String           @db.VarChar(255)
+  role        String           @db.VarChar(255)
+  quote       String           @db.Text
+  avatar_url  String           @db.VarChar(500)
+  tint        testimonial_tint @default(violet)
+  sort_order  Int              @default(0)
+  published   Boolean          @default(false)
+  created_at  DateTime         @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime         @updatedAt @db.Timestamptz(6)
+
+  @@index([published, sort_order])
+  @@map("testimonials")
 }
 
 // ─── Invoicing ───────────────────────────────────────────────────────────────

@@ -61,7 +61,7 @@ export default function MarketingLayout({
       <HashScroll />
       <ScrollProgress />
       <Header />
-      <main id="main-content">{children}</main>
+      <main id="main-content" className="site-main">{children}</main>
       <Footer />
       <BackToTop />
     </>

@@ -53,7 +53,7 @@ export function Header() {
           <div className="flex items-center justify-between gap-5 rounded-full border-2.5 border-ink bg-paper/88 px-3 py-2.5 pl-6 shadow-brutal-sm backdrop-blur-md max-[940px]:gap-3 max-[940px]:py-1.5 max-[940px]:pr-2.5 max-[940px]:pl-3.5">
             <SiteLogo
               height={80}
-              className="[&_img]:max-[940px]:!h-11"
+              className="h-20 w-auto max-[940px]:h-11"
               priority
             />
 

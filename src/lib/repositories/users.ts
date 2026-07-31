@@ -17,6 +17,14 @@ export type UpdateUserProfileInput = {
   phone?: string | null;
 };
 
+export type UpdateClientByAdminInput = {
+  name: string;
+  email: string;
+  company?: string | null;
+  phone?: string | null;
+  is_active: boolean;
+};
+
 export async function findUserByEmail(email: string): Promise<users | null> {
   return prisma.users.findUnique({
     where: { email: email.toLowerCase().trim() },
@@ -41,6 +49,73 @@ export async function updateUserProfile(
   data: UpdateUserProfileInput,
 ): Promise<users> {
   return prisma.users.update({ where: { id }, data });
+}
+
+export async function updateClientByAdmin(
+  id: string,
+  data: UpdateClientByAdminInput,
+): Promise<users> {
+  return prisma.users.update({
+    where: { id },
+    data: {
+      name: data.name,
+      email: data.email.toLowerCase().trim(),
+      company: data.company ?? null,
+      phone: data.phone ?? null,
+      is_active: data.is_active,
+    },
+  });
+}
+
+export async function deleteClientUser(clientId: string): Promise<void> {
+  await prisma.$transaction(async (tx) => {
+    const user = await tx.users.findUnique({ where: { id: clientId } });
+    if (!user || user.role !== "client") {
+      throw new Error("Client not found");
+    }
+
+    const createdInvoices = await tx.invoices.count({
+      where: { created_by_id: clientId },
+    });
+    if (createdInvoices > 0) {
+      throw new Error("Cannot delete this account because it created invoices.");
+    }
+
+    const ticketIds = (
+      await tx.support_tickets.findMany({
+        where: { user_id: clientId },
+        select: { id: true },
+      })
+    ).map((ticket) => ticket.id);
+
+    if (ticketIds.length > 0) {
+      await tx.support_messages.deleteMany({
+        where: { ticket_id: { in: ticketIds } },
+      });
+      await tx.support_tickets.deleteMany({ where: { user_id: clientId } });
+    }
+
+    await tx.support_messages.deleteMany({ where: { author_id: clientId } });
+
+    const invoiceIds = (
+      await tx.invoices.findMany({
+        where: { user_id: clientId },
+        select: { id: true },
+      })
+    ).map((invoice) => invoice.id);
+
+    if (invoiceIds.length > 0) {
+      await tx.payments.deleteMany({ where: { invoice_id: { in: invoiceIds } } });
+      await tx.invoices.deleteMany({ where: { user_id: clientId } });
+    }
+
+    await tx.contact_submissions.updateMany({
+      where: { user_id: clientId },
+      data: { user_id: null },
+    });
+
+    await tx.users.delete({ where: { id: clientId } });
+  });
 }
 
 export async function updateUserPassword(

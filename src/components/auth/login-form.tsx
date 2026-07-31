@@ -1,11 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState } from "react";
 import { loginAction, type AuthFormState } from "@/lib/actions/auth";
+import { AuthFormLayout } from "@/components/auth/auth-form-layout";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { EyebrowChip } from "@/components/ui/eyebrow-chip";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
@@ -20,15 +20,11 @@ export function LoginForm({ callbackUrl, inactive = false }: LoginFormProps) {
   const [state, formAction, pending] = useActionState(loginAction, initialState);
 
   return (
-    <Card className="space-y-6 p-8">
-      <div>
-        <EyebrowChip>Client portal</EyebrowChip>
-        <h1 className="mt-4 font-display text-3xl">Log in</h1>
-        <p className="mt-2 text-sm text-muted">
-          Access invoices, payments, and support tickets.
-        </p>
-      </div>
-
+    <AuthFormLayout
+      eyebrow="Welcome back"
+      title="Log in"
+      description="Access invoices, payments, and support tickets for your Hostyler projects."
+    >
       {inactive ? (
         <Alert variant="error">
           This account has been deactivated. Contact hello@hostyler.dev if you need access.
@@ -51,10 +47,22 @@ export function LoginForm({ callbackUrl, inactive = false }: LoginFormProps) {
             required
           />
         </Field>
+        <div className="flex justify-end">
+          <Link href="/forgot-password" className="text-sm font-semibold text-violet hover:underline">
+            Forgot password?
+          </Link>
+        </div>
         <Button className="w-full justify-center" type="submit" disabled={pending}>
           {pending ? "Signing in…" : "Log in"}
         </Button>
       </form>
-    </Card>
+
+      <p className="text-center text-sm text-muted">
+        Don&apos;t have an account?{" "}
+        <Link href="/register" className="font-semibold text-violet hover:underline">
+          Create one
+        </Link>
+      </p>
+    </AuthFormLayout>
   );
 }

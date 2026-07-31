@@ -3,10 +3,9 @@
 import Link from "next/link";
 import { useActionState } from "react";
 import { registerAction, type AuthFormState } from "@/lib/actions/auth";
+import { AuthFormLayout } from "@/components/auth/auth-form-layout";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { EyebrowChip } from "@/components/ui/eyebrow-chip";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
@@ -16,15 +15,11 @@ export function RegisterForm() {
   const [state, formAction, pending] = useActionState(registerAction, initialState);
 
   return (
-    <Card className="space-y-6 p-8">
-      <div>
-        <EyebrowChip>Create account</EyebrowChip>
-        <h1 className="mt-4 font-display text-3xl">Register</h1>
-        <p className="mt-2 text-sm text-muted">
-          Create a client account to view invoices and support.
-        </p>
-      </div>
-
+    <AuthFormLayout
+      eyebrow="Create account"
+      title="Register"
+      description="Create a client account to view invoices and support."
+    >
       {state.error ? <Alert variant="error">{state.error}</Alert> : null}
       {state.success ? <Alert variant="success">{state.success}</Alert> : null}
 
@@ -63,10 +58,10 @@ export function RegisterForm() {
 
       <p className="text-center text-sm text-muted">
         Already have an account?{" "}
-        <Link href="/login" className="font-semibold text-violet">
+        <Link href="/login" className="font-semibold text-violet hover:underline">
           Log in
         </Link>
       </p>
-    </Card>
+    </AuthFormLayout>
   );
 }

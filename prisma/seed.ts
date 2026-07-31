@@ -1,7 +1,13 @@
 import { randomBytes } from "node:crypto";
 import bcrypt from "bcrypt";
 import { prisma } from "../src/lib/db";
+import {
+  caseStudySeeds,
+  legacyCaseStudySlugs,
+} from "./data/case-studies";
+import { testimonialSeeds } from "./data/testimonials";
 import { upsertCaseStudy } from "../src/lib/repositories/case-studies";
+import { upsertTestimonial } from "../src/lib/repositories/testimonials";
 import { createInvoice } from "../src/lib/repositories/invoices";
 import { upsertUserByEmail } from "../src/lib/repositories/users";
 import { createSupportTicket } from "../src/lib/repositories/support";
@@ -44,79 +50,20 @@ async function seedUsers() {
   return { admin, client };
 }
 
-async function seedCaseStudies() {
-  const studies = [
-    {
-      slug: "northstar",
-      title: "Northstar Finance",
-      client_name: "Northstar Finance",
-      excerpt:
-        "Rebuilt a legacy dashboard into a real-time analytics platform.",
-      body: "Northstar's reporting tool was a legacy dashboard that analysts avoided. We rebuilt it as a real-time analytics platform with AI-generated summaries on top of their existing data warehouse.",
-      cover_image_url:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-      tags: ["Web", "AI"],
-      stats: [
-        { metric: "6 weeks", label: "to first launch" },
-        { metric: "0", label: "data migrations" },
-      ],
-      featured: true,
-      sort_order: 1,
-      published: true,
-      published_at: new Date("2025-11-01"),
-    },
-    {
-      slug: "loop-health",
-      title: "Loop Health",
-      client_name: "Loop Health",
-      excerpt:
-        "Cross-platform care app connecting patients with clinicians.",
-      body: "Patient-clinician app shipped on iOS, Android, and web in 8 weeks with offline-first sync and HIPAA-aware architecture.",
-      cover_image_url:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80",
-      tags: ["App", "HealthTech"],
-      stats: [{ metric: "8 weeks", label: "to ship" }],
-      featured: false,
-      sort_order: 2,
-      published: true,
-      published_at: new Date("2025-09-15"),
-    },
-    {
-      slug: "fieldnote",
-      title: "Fieldnote",
-      client_name: "Fieldnote",
-      excerpt:
-        "AI-powered field reporting that turns voice notes into reports.",
-      body: "Voice-to-report AI that cut field reporting time by 62% with guardrails and human review loops.",
-      cover_image_url:
-        "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80",
-      tags: ["AI", "Automation"],
-      stats: [{ metric: "62%", label: "faster reporting" }],
-      featured: false,
-      sort_order: 3,
-      published: true,
-      published_at: new Date("2025-08-01"),
-    },
-    {
-      slug: "currency-co",
-      title: "Currency Co.",
-      client_name: "Currency Co.",
-      excerpt: "Headless storefront rebuild that cut load times by 68%.",
-      body: "Headless commerce rebuild with Next.js and a modern CDN pipeline for global buyers.",
-      cover_image_url:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
-      tags: ["Web", "Performance"],
-      stats: [{ metric: "68%", label: "faster loads" }],
-      featured: false,
-      sort_order: 4,
-      published: true,
-      published_at: new Date("2025-06-01"),
-    },
-  ];
+async function seedTestimonials() {
+  for (const testimonial of testimonialSeeds) {
+    await upsertTestimonial(testimonial.slug, testimonial);
+  }
+}
 
-  for (const study of studies) {
+async function seedCaseStudies() {
+  for (const study of caseStudySeeds) {
     await upsertCaseStudy(study.slug, study);
   }
+
+  await prisma.case_studies.deleteMany({
+    where: { slug: { in: legacyCaseStudySlugs } },
+  });
 }
 
 async function seedInvoices(
@@ -234,7 +181,10 @@ async function main() {
   console.log(`  Users: admin=${admin.email}, client=${client.email}`);
 
   await seedCaseStudies();
-  console.log("  Case studies: 4 upserted");
+  console.log(`  Case studies: ${caseStudySeeds.length} upserted`);
+
+  await seedTestimonials();
+  console.log(`  Reviews: ${testimonialSeeds.length} upserted`);
 
   await seedInvoices(admin.id, client.id);
   console.log("  Invoices: draft + paid sample");

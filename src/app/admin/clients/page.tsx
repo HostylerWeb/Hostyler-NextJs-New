@@ -47,6 +47,7 @@ export default async function AdminClientsPage() {
                 <TableHeader scope="col">Company</TableHeader>
                 <TableHeader scope="col">Status</TableHeader>
                 <TableHeader scope="col">Joined</TableHeader>
+                <TableHeader scope="col">Actions</TableHeader>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -69,6 +70,14 @@ export default async function AdminClientsPage() {
                     />
                   </TableCell>
                   <TableCell>{formatDate(client.created_at)}</TableCell>
+                  <TableCell>
+                    <Link
+                      href={`/admin/clients/${client.id}`}
+                      className="text-sm font-semibold text-violet hover:underline"
+                    >
+                      Edit
+                    </Link>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

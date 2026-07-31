@@ -1,13 +1,10 @@
-import { Wrap } from "@/components/layout/wrap";
+import "@/styles/marketing.css";
+import { AuthShell } from "@/components/auth/auth-shell";
 
 export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div className="min-h-screen bg-paper px-4 py-24">
-      <Wrap className="mx-auto max-w-md">{children}</Wrap>
-    </div>
-  );
+  return <AuthShell>{children}</AuthShell>;
 }

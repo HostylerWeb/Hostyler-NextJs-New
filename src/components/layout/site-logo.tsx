@@ -21,6 +21,7 @@ export function SiteLogoMark({
   aspect = LOGO_ASPECT,
 }: SiteLogoMarkProps) {
   const width = Math.round(height * aspect);
+  const sizedWithCss = Boolean(className);
 
   return (
     <Image
@@ -30,17 +31,22 @@ export function SiteLogoMark({
       height={height}
       priority={priority}
       className={cn("w-auto shrink-0", className)}
-      style={{ height, width: "auto" }}
+      style={{
+        width: "auto",
+        height: sizedWithCss ? "auto" : height,
+      }}
     />
   );
 }
 
 type SiteLogoProps = SiteLogoMarkProps & {
   href?: string;
+  linkClassName?: string;
 };
 
 export function SiteLogo({
   className,
+  linkClassName,
   height = 32,
   priority = false,
   href = "/",
@@ -50,9 +56,10 @@ export function SiteLogo({
   return (
     <Link
       href={href}
-      className={cn("inline-flex shrink-0 items-center", className)}
+      className={cn("inline-flex shrink-0 items-center", linkClassName)}
     >
       <SiteLogoMark
+        className={className}
         height={height}
         priority={priority}
         src={src}

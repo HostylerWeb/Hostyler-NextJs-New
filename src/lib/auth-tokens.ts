@@ -1,8 +1,13 @@
-import { createHash, randomBytes } from "node:crypto";
+import { createHash, randomBytes, randomInt } from "node:crypto";
 import { prisma } from "@/lib/db";
+import { findUserByEmail } from "@/lib/repositories/users";
 
 export function createToken(): string {
   return randomBytes(32).toString("hex");
+}
+
+export function createOtpCode(): string {
+  return String(randomInt(100000, 1000000));
 }
 
 export function hashToken(token: string): string {
@@ -48,21 +53,49 @@ export async function consumeEmailVerificationToken(token: string) {
   return record.identifier;
 }
 
-export async function createPasswordResetToken(userId: string) {
-  const token = createToken();
-  const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
+export async function createPasswordResetOtp(userId: string) {
+  const otp = createOtpCode();
+  const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
 
   await prisma.password_reset_tokens.deleteMany({ where: { user_id: userId } });
 
   await prisma.password_reset_tokens.create({
     data: {
       user_id: userId,
-      token_hash: hashToken(token),
+      token_hash: hashToken(`otp:${otp}`),
       expires_at: expiresAt,
     },
   });
 
-  return token;
+  return otp;
+}
+
+export async function verifyPasswordResetOtp(email: string, otp: string) {
+  const user = await findUserByEmail(email);
+  if (!user) return null;
+
+  const record = await prisma.password_reset_tokens.findFirst({
+    where: {
+      user_id: user.id,
+      token_hash: hashToken(`otp:${otp}`),
+      expires_at: { gt: new Date() },
+      used_at: null,
+    },
+  });
+
+  if (!record) return null;
+
+  const sessionToken = createToken();
+
+  await prisma.password_reset_tokens.update({
+    where: { id: record.id },
+    data: {
+      token_hash: hashToken(sessionToken),
+      expires_at: new Date(Date.now() + 30 * 60 * 1000),
+    },
+  });
+
+  return sessionToken;
 }
 
 export async function consumePasswordResetToken(token: string) {

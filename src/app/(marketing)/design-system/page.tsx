@@ -35,7 +35,7 @@ export default function DesignSystemPage() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
-    <Section tight>
+    <Section tight pageTop>
       <Wrap className="space-y-16">
         <SectionHead
           eyebrow="Phase 2"

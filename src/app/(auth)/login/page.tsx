@@ -9,7 +9,11 @@ export default async function LoginPage({ searchParams }: Props) {
   const { callbackUrl, error } = await searchParams;
 
   return (
-    <Suspense fallback={<p className="text-sm text-muted">Loading…</p>}>
+    <Suspense
+      fallback={
+        <p className="text-sm text-muted">Loading…</p>
+      }
+    >
       <LoginForm
         callbackUrl={callbackUrl ?? "/portal"}
         inactive={error === "account_inactive"}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdminLogoutButton } from "@/components/admin/admin-logout-button";
 
 type AdminHeaderProps = {
   breadcrumbs?: Array<{ label: string; href?: string }>;
@@ -6,8 +7,8 @@ type AdminHeaderProps = {
 
 export function AdminHeader({ breadcrumbs = [] }: AdminHeaderProps) {
   return (
-    <header className="border-b-2.5 border-ink bg-paper/90 px-[var(--shell-padding)] py-4 backdrop-blur">
-      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm">
+    <header className="flex items-center justify-between gap-4 border-b-2.5 border-ink bg-paper/90 px-[var(--shell-padding)] py-4 backdrop-blur">
+      <nav aria-label="Breadcrumb" className="flex min-w-0 flex-wrap items-center gap-2 text-sm">
         {breadcrumbs.map((crumb, index) => (
           <span key={`${crumb.label}-${index}`} className="flex items-center gap-2">
             {index > 0 ? <span className="text-muted">/</span> : null}
@@ -21,6 +22,9 @@ export function AdminHeader({ breadcrumbs = [] }: AdminHeaderProps) {
           </span>
         ))}
       </nav>
+      <div className="shrink-0 md:hidden">
+        <AdminLogoutButton variant="header" />
+      </div>
     </header>
   );
 }
