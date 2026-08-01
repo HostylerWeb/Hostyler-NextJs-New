@@ -51,7 +51,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "What happens after launch?",
         answer:
-          "Every fixed-scope build includes 30 days of post-launch support. After that, most clients move to a retainer or embedded team.",
+          "Every project includes 12 months of free technical support. After that, most clients move to a retainer or call us back for the next phase.",
       },
       {
         question: "Can you work with our in-house team?",
