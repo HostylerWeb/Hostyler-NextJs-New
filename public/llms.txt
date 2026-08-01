@@ -1,0 +1,24 @@
+# Hostyler
+
+> Hostyler Group is a senior web, app, and AI development team for founders who need to ship real products — fixed timelines, full code ownership, and no junior handoffs.
+
+We build marketing sites, SaaS products, e-commerce platforms, and AI automations for startups and scale-ups. Public marketing content is listed below; client portal, admin, and payment flows are excluded.
+
+## Services
+
+- [Web development](https://hostyler.com/services/web-development): Next.js marketing sites, SaaS dashboards, e-commerce, and platform rebuilds.
+- [App development](https://hostyler.com/services/app-development): iOS, Android, and cross-platform mobile apps with production-ready backends.
+- [AI automation](https://hostyler.com/services/ai-automation): Custom AI workflows, agents, and integrations for business operations.
+
+## Company
+
+- [Homepage](https://hostyler.com/): Overview, services, selected work, process, and FAQs.
+- [Contact](https://hostyler.com/contact): Start a project or request a quote.
+- [Privacy policy](https://hostyler.com/privacy): How we handle personal data.
+- [Terms of service](https://hostyler.com/terms): Engagement terms and legal conditions.
+- [Cookie policy](https://hostyler.com/cookies): Cookie usage and preferences.
+
+## Optional
+
+- [Case studies](https://hostyler.com/work/competitiongo): Example shipped web and app projects (see homepage work section for the full list).
+- [Client login](https://hostyler.com/login): Existing client sign-in for invoices and support.

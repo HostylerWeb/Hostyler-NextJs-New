@@ -143,9 +143,9 @@ export const servicePages: ServicePage[] = [
         title: "Rebuilds & migrations",
         description:
           "Moving off WordPress, legacy PHP, or brittle stacks onto a modern Next.js foundation with cleaner SEO, speed, and maintainability.",
-        image: "/work/competitiongo/homepage.png",
-        imageAlt:
-          "CompetitionGo homepage — custom platform rebuilt from a legacy WordPress stack",
+        image:
+          "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&q=80",
+        imageAlt: "Legacy application source code reviewed during a platform migration",
       },
     ],
     principles: [
