@@ -81,7 +81,10 @@ export function Header() {
                   variant="ghost"
                   className="max-[940px]:w-full max-[940px]:justify-center"
                   size="sm"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    setOpen(false);
+                    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+                  }}
                 >
                   Client portal
                 </Button>
@@ -95,6 +98,7 @@ export function Header() {
               <Link
                 href="/login"
                 className="hidden text-sm font-semibold text-muted transition hover:text-ink min-[941px]:inline"
+                onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "auto" })}
               >
                 Client login
               </Link>
