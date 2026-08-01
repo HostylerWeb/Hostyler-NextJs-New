@@ -73,14 +73,17 @@ function ServiceFaqAccordion({ faqs }: { faqs: ServiceFaqProps["faqs"] }) {
 
 export function ServiceFaq({ faqs, serviceTitle }: ServiceFaqProps) {
   return (
-    <section className="service-page-section wrap">
+    <section className="service-page-section wrap" aria-labelledby="service-faq-heading">
+      <h2 id="service-faq-heading" className="sr-only">
+        Frequently asked questions about {serviceTitle}
+      </h2>
       <div className="service-faq-layout">
         <aside className="service-faq-side reveal">
           <span className="eyebrow-chip">
             <i />
             {serviceTitle}
           </span>
-          <h3>Didn&apos;t find your answer?</h3>
+          <p className="service-faq-side-title">Didn&apos;t find your answer?</p>
           <p>Send us a note and we&apos;ll reply within one business day.</p>
           <Link href="/contact" className="service-faq-side-link">
             Ask us anything

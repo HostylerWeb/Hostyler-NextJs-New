@@ -21,7 +21,7 @@ export function WhySection() {
         {whyUs.points.map((point) => (
           <div key={point.title} className="why-card reveal">
             <div className="why-badge">{point.title.charAt(0)}</div>
-            <h4>{point.title}</h4>
+            <h3>{point.title}</h3>
             <p>{point.description}</p>
           </div>
         ))}

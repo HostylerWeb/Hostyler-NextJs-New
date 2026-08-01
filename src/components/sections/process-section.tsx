@@ -14,7 +14,7 @@ export function ProcessSection() {
             {processSteps.map((step) => (
               <div key={step.number} className="process-card reveal">
                 <div className="process-num">{step.number}</div>
-                <h4>{step.title}</h4>
+                <h3>{step.title}</h3>
                 <p>{step.description}</p>
                 <span className="process-tag">{step.tag}</span>
               </div>

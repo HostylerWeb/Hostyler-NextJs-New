@@ -19,7 +19,7 @@ export function TeamSection() {
                 {member.initials}
               </span>
             </div>
-            <h5>{member.name}</h5>
+            <h3>{member.name}</h3>
             <span>{member.role}</span>
           </div>
         ))}

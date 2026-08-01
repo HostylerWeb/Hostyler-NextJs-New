@@ -32,7 +32,7 @@ export function PricingSection() {
             {"ribbon" in tier && tier.ribbon ? (
               <span className="price-ribbon">{tier.ribbon}</span>
             ) : null}
-            <h4>{tier.name}</h4>
+            <h3>{tier.name}</h3>
             <span className="price">{tier.price}</span>
             <span className="price-note">{tier.note}</span>
             <p>{tier.description}</p>

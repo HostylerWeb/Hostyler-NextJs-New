@@ -40,9 +40,9 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h5 className="mb-4 font-mono text-[11px] font-bold tracking-[0.08em] text-muted uppercase">
+      <p className="footer-col-title mb-4 font-mono text-[11px] font-bold tracking-[0.08em] text-muted uppercase">
         {title}
-      </h5>
+      </p>
       <ul className="flex flex-col gap-3">
         {links.map((link) => (
           <li key={link.label}>

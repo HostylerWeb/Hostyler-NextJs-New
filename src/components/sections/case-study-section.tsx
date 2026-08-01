@@ -116,7 +116,7 @@ export async function CaseStudySection() {
         <div className="case-detail-grid">
           {caseDetails.map((detail) => (
             <div key={detail.title}>
-              <h4>{detail.title}</h4>
+              <h3>{detail.title}</h3>
               <p>{detail.body}</p>
             </div>
           ))}
@@ -152,7 +152,7 @@ export async function CaseStudySection() {
                 unoptimized
               />
               <div className="mini-case-body">
-                <h4>{study.title}</h4>
+                <h3>{study.title}</h3>
                 <p>{study.excerpt}</p>
               </div>
             </Link>

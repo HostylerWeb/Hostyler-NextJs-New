@@ -38,7 +38,7 @@ export function FaqSection() {
             ownership, and how we work with existing teams.
           </p>
           <div className="faq-cta-card">
-            <h4>Didn&apos;t find your answer?</h4>
+            <h3>Didn&apos;t find your answer?</h3>
             <p>Send us a note and we&apos;ll reply within one business day.</p>
             <Button href="#contact" className="btn btn-primary">
               Ask us anything

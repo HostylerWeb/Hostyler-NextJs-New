@@ -432,7 +432,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
             <div className="service-fit-bento-panels">
               <article className="service-fit-panel service-fit-panel-great">
                 <div className="service-fit-panel-head">
-                  <h5>Great for</h5>
+                  <p className="service-panel-label">Great for</p>
                   <span>{page.greatFor.length} scenarios</span>
                 </div>
                 <ul className="service-fit-tags">
@@ -444,7 +444,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
 
               <article className="service-fit-panel service-fit-panel-included">
                 <div className="service-fit-panel-head">
-                  <h5>What&apos;s included</h5>
+                  <p className="service-panel-label">What&apos;s included</p>
                   <span>Every engagement</span>
                 </div>
                 <ul className="service-fit-checklist">
@@ -483,7 +483,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
               {page.principles.map((principle) => (
                 <article key={principle.title} className="why-card reveal">
                   <div className="why-badge">{principle.title.charAt(0)}</div>
-                  <h4>{principle.title}</h4>
+                  <h3>{principle.title}</h3>
                   <p>{principle.description}</p>
                 </article>
               ))}
@@ -508,7 +508,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
                 <span className="service-step-num">{step.step}</span>
                 <div className="service-step-body">
                   <div className="service-step-title-row">
-                    <h4>{step.title}</h4>
+                    <h3>{step.title}</h3>
                     {step.duration ? (
                       <span className="service-step-duration">{step.duration}</span>
                     ) : null}
@@ -535,7 +535,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
 
           <div className="service-td-grid">
             <article className="service-td-card reveal">
-              <h5>Technologies</h5>
+              <p className="service-td-label">Technologies</p>
               <h3>Chosen for your product</h3>
               <p>Battle-tested tools — not whatever is trending this week.</p>
               <div className="service-tech-chips">
@@ -545,7 +545,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
               </div>
             </article>
             <article className="service-td-card reveal">
-              <h5>Deliverables</h5>
+              <p className="service-td-label">Deliverables</p>
               <h3>What you walk away with</h3>
               <p>Everything needed to launch, maintain, and grow.</p>
               <ul className="service-deliver-list">
@@ -576,7 +576,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
               {page.businessValue.benefits.map((benefit) => (
                 <article key={benefit.title} className="why-card reveal">
                   <div className="why-badge">{benefit.title.charAt(0)}</div>
-                  <h4>{benefit.title}</h4>
+                  <h3>{benefit.title}</h3>
                   <p>{benefit.description}</p>
                 </article>
               ))}
