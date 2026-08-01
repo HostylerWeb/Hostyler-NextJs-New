@@ -180,7 +180,7 @@ export const servicePages: ServicePage[] = [
         "Written proposal with scope, stack, milestones, and fixed or phased pricing",
         "Kickoff with access, brand assets, and a shared project board",
         "Weekly demos — you see working product, not status slides",
-        "Launch checklist, handoff docs, and a post-launch support window",
+        "Launch checklist, handoff docs, and 12 months of free technical support",
       ],
     },
     relatedWorkTag: "Web",
@@ -331,7 +331,7 @@ export const servicePages: ServicePage[] = [
       {
         question: "What happens after launch?",
         answer:
-          "Every project includes a post-launch support window for bugs and questions. After that, most clients move to a light retainer for updates, A/B tests, and new pages — or call us back for the next phase.",
+          "Every project includes 12 months of free technical support for bugs and questions. After that, most clients move to a light retainer for updates, A/B tests, and new pages — or call us back for the next phase.",
       },
       {
         question: "Will we own the code and design?",
