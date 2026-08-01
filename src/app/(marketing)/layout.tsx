@@ -23,11 +23,20 @@ export const metadata: Metadata = {
     description: site.description,
     type: "website",
     url: clientEnv.NEXT_PUBLIC_SITE_URL,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — ${site.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
+    images: ["/opengraph-image"],
   },
 };
 
