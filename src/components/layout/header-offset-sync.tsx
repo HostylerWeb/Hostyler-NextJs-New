@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { MOBILE_HEADER_BREAKPOINT_PX } from "@/lib/site-header-offset";
+import {
+  invalidateSiteHeaderOffsetCache,
+  MOBILE_HEADER_BREAKPOINT_PX,
+} from "@/lib/site-header-offset";
 
 export function HeaderOffsetSync() {
   useEffect(() => {
@@ -11,6 +14,7 @@ export function HeaderOffsetSync() {
 
     const clearInlineOffset = () => {
       document.documentElement.style.removeProperty("--site-header-offset");
+      invalidateSiteHeaderOffsetCache();
     };
 
     const sync = () => {
@@ -27,6 +31,7 @@ export function HeaderOffsetSync() {
         "--site-header-offset",
         `${height}px`,
       );
+      invalidateSiteHeaderOffsetCache();
     };
 
     const header = document.querySelector("header");
@@ -47,10 +52,12 @@ export function HeaderOffsetSync() {
     const onBreakpointChange = () => {
       if (mobileQuery.matches) {
         stopDesktopObserver();
+        window.removeEventListener("resize", sync);
         clearInlineOffset();
       } else {
         sync();
         startDesktopObserver();
+        window.addEventListener("resize", sync);
       }
     };
 
@@ -59,9 +66,9 @@ export function HeaderOffsetSync() {
     } else {
       sync();
       startDesktopObserver();
+      window.addEventListener("resize", sync);
     }
 
-    window.addEventListener("resize", sync);
     mobileQuery.addEventListener("change", onBreakpointChange);
 
     return () => {

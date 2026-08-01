@@ -6,8 +6,8 @@ export function ContactSection() {
       <div className="cta-section reveal">
         <h2>Have a build in mind?</h2>
         <p>
-          Tell us what you&apos;re building — we&apos;ll reply within one business day with next
-          steps, not a sales pitch.
+          Tell us what you&apos;re building — we&apos;ll reply ASAP, usually within a few hours,
+          with next steps, not a sales pitch.
         </p>
         <ContactForm variant="cta" />
         <p className="cta-alt">

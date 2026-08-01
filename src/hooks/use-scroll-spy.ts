@@ -2,54 +2,20 @@
 
 import { useEffect, useState } from "react";
 
-import { getSiteHeaderOffset } from "@/lib/site-header-offset";
-import { subscribeScrollFrame } from "@/lib/raf-scroll";
+import { MOBILE_HEADER_BREAKPOINT_PX } from "@/lib/site-header-offset";
 
-type SectionMetric = {
-  id: string;
-  top: number;
-  bottom: number;
-};
+function pickActiveSection(ratios: Map<string, number>): string {
+  let bestId = "";
+  let bestRatio = 0;
 
-function measureSections(navSectionIds: string[]): SectionMetric[] {
-  const scrollY = window.scrollY;
-
-  return navSectionIds
-    .map((id) => document.getElementById(id))
-    .filter((el): el is HTMLElement => Boolean(el))
-    .map((section) => {
-      const rect = section.getBoundingClientRect();
-      const top = rect.top + scrollY;
-      return {
-        id: section.id,
-        top,
-        bottom: top + rect.height,
-      };
-    })
-    .sort((a, b) => a.top - b.top);
-}
-
-function resolveActiveSection(
-  sections: SectionMetric[],
-  scrollPos: number,
-): string {
-  if (!sections.length) return "";
-
-  let current = "";
-
-  for (const section of sections) {
-    if (scrollPos >= section.top && scrollPos < section.bottom) {
-      return section.id;
+  for (const [id, ratio] of ratios) {
+    if (ratio >= bestRatio) {
+      bestRatio = ratio;
+      bestId = id;
     }
   }
 
-  for (const section of sections) {
-    if (section.top <= scrollPos) {
-      current = section.id;
-    }
-  }
-
-  return current;
+  return bestId;
 }
 
 export function useScrollSpy(navSectionIds: string[]) {
@@ -58,38 +24,65 @@ export function useScrollSpy(navSectionIds: string[]) {
   useEffect(() => {
     if (!navSectionIds.length) return;
 
-    let sections: SectionMetric[] = [];
+    const mobileQuery = window.matchMedia(
+      `(max-width: ${MOBILE_HEADER_BREAKPOINT_PX}px)`,
+    );
 
-    const remeasure = () => {
-      sections = measureSections(navSectionIds);
-    };
+    const elements = navSectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
 
-    const updateActive = () => {
-      if (!sections.length) {
-        remeasure();
+    if (!elements.length) return;
+
+    const ratios = new Map<string, number>();
+    let observer: IntersectionObserver | null = null;
+
+    const createObserver = () => {
+      observer?.disconnect();
+
+      if (mobileQuery.matches) {
+        setActiveId("");
+        return;
       }
 
-      const scrollPos = window.scrollY + getSiteHeaderOffset();
-      const current = resolveActiveSection(sections, scrollPos);
-      setActiveId((previous) => (previous === current ? previous : current));
+      const headerInset = "7.75rem";
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              ratios.set(entry.target.id, entry.intersectionRatio);
+            } else {
+              ratios.delete(entry.target.id);
+            }
+          }
+
+          const next = pickActiveSection(ratios);
+          setActiveId((previous) => (previous === next ? previous : next));
+        },
+        {
+          rootMargin: `-${headerInset} 0px -50% 0px`,
+          threshold: [0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1],
+        },
+      );
+
+      for (const element of elements) {
+        observer.observe(element);
+      }
     };
 
-    remeasure();
-    updateActive();
+    createObserver();
 
-    const unsubscribeScroll = subscribeScrollFrame(updateActive);
-
-    const onResize = () => {
-      remeasure();
-      updateActive();
+    const onBreakpointChange = () => {
+      ratios.clear();
+      createObserver();
     };
 
-    window.addEventListener("resize", onResize);
-    window.addEventListener("load", remeasure, { once: true });
+    mobileQuery.addEventListener("change", onBreakpointChange);
 
     return () => {
-      unsubscribeScroll();
-      window.removeEventListener("resize", onResize);
+      observer?.disconnect();
+      mobileQuery.removeEventListener("change", onBreakpointChange);
     };
   }, [navSectionIds]);
 

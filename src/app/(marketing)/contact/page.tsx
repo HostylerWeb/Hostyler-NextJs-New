@@ -8,7 +8,7 @@ import { buildPageMetadata } from "@/lib/seo/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
-  description: "Tell us what you are building. We reply within one business day.",
+  description: "Tell us what you are building. We reply ASAP, usually within a few hours.",
   path: "/contact",
 });
 
@@ -19,9 +19,9 @@ export default function ContactPage() {
         <SectionHead
           eyebrow="Contact"
           title="Start a project"
-          description="Tell us what you are building — we will reply within one business day with next steps, not a sales pitch."
+          description="Tell us what you are building — we will reply ASAP, usually within a few hours, with next steps, not a sales pitch."
         />
-        <ContactForm variant="cta" />
+        <ContactForm />
       </Wrap>
     </Section>
   );

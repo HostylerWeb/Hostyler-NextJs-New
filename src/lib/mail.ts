@@ -251,7 +251,7 @@ export async function sendContactNotification(input: {
 export async function sendContactAutoReply(input: { name: string; email: string }) {
   const body = `
     ${paragraph(`Hi ${escapeHtml(input.name)},`)}
-    ${paragraph("Thanks for reaching out to Hostyler. We received your message and will reply within one business day.")}
+    ${paragraph("Thanks for reaching out to Hostyler. We received your message and will reply ASAP — usually within a few hours.")}
     ${paragraph("— The Hostyler team")}
   `;
 
@@ -260,7 +260,7 @@ export async function sendContactAutoReply(input: { name: string; email: string 
     subject: "We got your message — Hostyler",
     html: emailTemplate({
       title: "Thanks for getting in touch",
-      preheader: "We received your message and will reply soon",
+      preheader: "We received your message and will reply ASAP",
       body,
       accent: "violet",
     }),

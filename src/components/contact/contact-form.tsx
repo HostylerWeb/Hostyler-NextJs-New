@@ -4,6 +4,7 @@ import { type FormEvent, useState } from "react";
 import { site } from "@/content/site";
 import { contactBudgetOptions, contactProjectTypeOptions } from "@/content/contact-options";
 import { type ContactFormInput, contactFormSchema } from "@/lib/validators/contact";
+import { cn } from "@/lib/cn";
 
 type ContactFormProps = {
   variant?: "default" | "cta";
@@ -82,10 +83,26 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
 
   if (status === "success") {
     return (
-      <div className={formClassName} role="status">
-        <p className="form-full text-center font-semibold text-ink">
-          Thanks — we&apos;ll be in touch within one business day.
-        </p>
+      <div
+        className={cn(
+          formClassName,
+          "cta-form-success",
+          variant === "default" && "cta-form-success--light",
+        )}
+        role="status"
+        aria-live="polite"
+      >
+        <div className="cta-form-success__card form-full">
+          <div className="cta-form-success__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <p className="cta-form-success__title">Message received</p>
+          <p className="cta-form-success__body">
+            We&apos;ll get back to you <strong>ASAP</strong> — usually within a few hours.
+          </p>
+        </div>
       </div>
     );
   }
