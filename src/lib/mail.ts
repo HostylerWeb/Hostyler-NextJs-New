@@ -2,14 +2,11 @@ import nodemailer from "nodemailer";
 import { site } from "@/content/site";
 import { env } from "@/lib/env";
 import { escapeHtml, escapeHtmlMultiline } from "@/lib/html";
-
-function getSiteHostname() {
-  try {
-    return new URL(site.url).hostname;
-  } catch {
-    return "hostyler.com";
-  }
-}
+import {
+  getPublicSiteHostname,
+  getPublicSiteUrl,
+  publicAssetUrl,
+} from "@/lib/site-url";
 
 const brand = {
   paper: "#FBFAF5",
@@ -22,9 +19,6 @@ const brand = {
   coralTint: "#FFE4DB",
   lime: "#C6FF4D",
   limeTint: "#EEFCCB",
-  siteUrl: site.url,
-  siteHostname: getSiteHostname(),
-  logoUrl: `${site.url}/logo.png`,
 } as const;
 
 type EmailTemplateInput = {
@@ -47,6 +41,9 @@ function accentColor(accent: EmailTemplateInput["accent"]) {
 
 function emailTemplate({ title, preheader, body, accent = "violet" }: EmailTemplateInput) {
   const headerTint = accentColor(accent);
+  const siteUrl = getPublicSiteUrl();
+  const siteHostname = getPublicSiteHostname();
+  const logoUrl = publicAssetUrl("/logo.png");
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -71,7 +68,7 @@ function emailTemplate({ title, preheader, body, accent = "violet" }: EmailTempl
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td>
-                      <img src="${brand.logoUrl}" alt="Hostyler" width="148" height="49" style="display:block;width:148px;height:auto;border:0;" />
+                      <img src="${logoUrl}" alt="Hostyler" width="148" height="49" style="display:block;width:148px;height:auto;border:0;" />
                     </td>
                     <td align="right" valign="middle">
                       <span style="display:inline-block;padding:6px 12px;border:2px solid ${brand.ink};border-radius:999px;background:${brand.lime};font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:${brand.ink};">
@@ -98,7 +95,7 @@ function emailTemplate({ title, preheader, body, accent = "violet" }: EmailTempl
                   Hostyler Group · Web, App &amp; AI Development
                 </p>
                 <p style="margin:0;font-size:12px;line-height:1.5;color:${brand.muted};">
-                  <a href="${brand.siteUrl}" style="color:${brand.violet};font-weight:700;text-decoration:none;">${escapeHtml(brand.siteHostname)}</a>
+                  <a href="${siteUrl}" style="color:${brand.violet};font-weight:700;text-decoration:none;">${escapeHtml(siteHostname)}</a>
                   ·
                   <a href="mailto:${escapeHtml(site.email)}" style="color:${brand.violet};font-weight:700;text-decoration:none;">${escapeHtml(site.email)}</a>
                 </p>
@@ -268,7 +265,7 @@ export async function sendContactAutoReply(input: { name: string; email: string 
 }
 
 export async function sendEmailVerification(user: { name: string; email: string }, token: string) {
-  const url = `${env.NEXT_PUBLIC_SITE_URL}/verify-email?token=${encodeURIComponent(token)}`;
+  const url = `${getPublicSiteUrl()}/verify-email?token=${encodeURIComponent(token)}`;
   const body = `
     ${paragraph(`Hi ${escapeHtml(user.name)},`)}
     ${paragraph("Please verify your email to activate your Hostyler client account.")}
@@ -290,7 +287,7 @@ export async function sendEmailVerification(user: { name: string; email: string 
 }
 
 export async function sendPasswordResetOtp(user: { name: string; email: string }, code: string) {
-  const resetUrl = `${env.NEXT_PUBLIC_SITE_URL}/forgot-password`;
+  const resetUrl = `${getPublicSiteUrl()}/forgot-password`;
   const body = `
     ${paragraph(`Hi ${escapeHtml(user.name)},`)}
     ${paragraph("Use this code to reset your Hostyler password. It expires in 15 minutes.")}
@@ -313,7 +310,7 @@ export async function sendPasswordResetOtp(user: { name: string; email: string }
 }
 
 export async function sendWelcomeEmail(user: { name: string; email: string }) {
-  const loginUrl = `${env.NEXT_PUBLIC_SITE_URL}/login`;
+  const loginUrl = `${getPublicSiteUrl()}/login`;
   const body = `
     ${paragraph(`Hi ${escapeHtml(user.name)},`)}
     ${paragraph("Your email is verified. You can now log in to view invoices and open support tickets.")}
@@ -533,7 +530,7 @@ export async function sendClientWelcomeInvite(input: {
   subject?: string;
   intro?: string;
 }) {
-  const loginUrl = `${env.NEXT_PUBLIC_SITE_URL}/login`;
+  const loginUrl = `${getPublicSiteUrl()}/login`;
   const passwordLabel = input.isTemporary ? "Temporary password" : "Password";
   const intro =
     input.intro ?? "An account has been created for you on Hostyler.";
@@ -613,7 +610,7 @@ export async function sendSecurityIncidentAlert(input: {
       ${attemptsHtml}
     </table>
     <p style="margin:16px 0 0;font-size:13px;color:${brand.muted};">
-      Review the full incident log in the ${textLink(`${brand.siteUrl}/admin/security`, "admin security dashboard")}.
+      Review the full incident log in the ${textLink(`${getPublicSiteUrl()}/admin/security`, "admin security dashboard")}.
     </p>
   `;
 
