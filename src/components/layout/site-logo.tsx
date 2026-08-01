@@ -29,6 +29,7 @@ export function SiteLogoMark({
       width={width}
       height={height}
       priority={priority}
+      sizes={`(max-width: 940px) ${Math.round(height * 0.55 * aspect)}px, ${width}px`}
       className={cn("w-auto shrink-0", className)}
     />
   );

@@ -2,16 +2,18 @@ import { Inter, Space_Mono, Unbounded } from "next/font/google";
 
 export const fontDisplay = Unbounded({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["600", "700"],
   variable: "--font-display",
   display: "swap",
+  adjustFontFallback: true,
 });
 
 export const fontBody = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
   display: "swap",
+  adjustFontFallback: true,
 });
 
 export const fontMono = Space_Mono({
@@ -19,6 +21,7 @@ export const fontMono = Space_Mono({
   weight: ["400", "700"],
   variable: "--font-mono",
   display: "swap",
+  adjustFontFallback: true,
 });
 
 export const fontVariables = `${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`;
