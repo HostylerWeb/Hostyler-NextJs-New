@@ -135,17 +135,17 @@ export const servicePages: ServicePage[] = [
         title: "E-commerce & content platforms",
         description:
           "Storefronts, headless commerce, CMS-driven catalogs, and content systems built for editors — not just developers.",
-        image:
-          "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-        imageAlt: "E-commerce storefront on laptop",
+        image: "/work/hooked-online/product.png",
+        imageAlt:
+          "Hooked Online product page with pricing, add to cart, and payment options",
       },
       {
         title: "Rebuilds & migrations",
         description:
           "Moving off WordPress, legacy PHP, or brittle stacks onto a modern Next.js foundation with cleaner SEO, speed, and maintainability.",
-        image:
-          "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-        imageAlt: "Developer reviewing code for a site migration",
+        image: "/work/competitiongo/homepage.png",
+        imageAlt:
+          "CompetitionGo homepage — custom platform rebuilt from a legacy WordPress stack",
       },
     ],
     principles: [
