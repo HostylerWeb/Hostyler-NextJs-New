@@ -136,7 +136,7 @@ export const servicePages: ServicePage[] = [
         description:
           "Storefronts, headless commerce, CMS-driven catalogs, and content systems built for editors — not just developers.",
         image:
-          "https://images.unsplash.com/photo-1472851294608-932d43d4ae04?w=800&q=80",
+          "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
         imageAlt: "E-commerce storefront on laptop",
       },
       {
@@ -144,7 +144,7 @@ export const servicePages: ServicePage[] = [
         description:
           "Moving off WordPress, legacy PHP, or brittle stacks onto a modern Next.js foundation with cleaner SEO, speed, and maintainability.",
         image:
-          "https://images.unsplash.com/photo-1517694712202-29f4abac3a0e?w=800&q=80",
+          "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
         imageAlt: "Developer reviewing code for a site migration",
       },
     ],
