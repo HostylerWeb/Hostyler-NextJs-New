@@ -39,7 +39,7 @@ export const serviceNavigation = [
 ] as const;
 
 export const footerNavigation = {
-  studio: [
+  company: [
     { label: "Work", href: "/#work" },
     { label: "Process", href: "/#process" },
     { label: "Why us", href: "/#why" },
@@ -55,6 +55,7 @@ export const footerNavigation = {
     { label: "Client portal", href: "/login" },
     { label: "Privacy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
+    { label: "Cookies", href: "/cookies" },
   ],
 } as const;
 

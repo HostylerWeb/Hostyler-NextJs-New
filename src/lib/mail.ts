@@ -95,7 +95,7 @@ function emailTemplate({ title, preheader, body, accent = "violet" }: EmailTempl
             <tr>
               <td style="padding:18px 28px 24px;border-top:2px solid ${brand.paper2};background:${brand.paper};">
                 <p style="margin:0 0 6px;font-size:12px;line-height:1.5;color:${brand.muted};">
-                  Hostyler Studio · Web, App &amp; AI Development
+                  Hostyler Group · Web, App &amp; AI Development
                 </p>
                 <p style="margin:0;font-size:12px;line-height:1.5;color:${brand.muted};">
                   <a href="${brand.siteUrl}" style="color:${brand.violet};font-weight:700;text-decoration:none;">${escapeHtml(brand.siteHostname)}</a>

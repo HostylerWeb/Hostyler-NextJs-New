@@ -14,19 +14,19 @@ import { FaqJsonLd } from "@/components/seo/faq-json-ld";
 export const metadata: Metadata = {
   metadataBase: new URL(clientEnv.NEXT_PUBLIC_SITE_URL),
   title: {
-    default: `${site.name} — Web, App & AI Development Studio`,
+    default: `${site.name} — ${site.tagline}`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
   openGraph: {
-    title: `${site.name} — Web, App & AI Development Studio`,
+    title: `${site.name} — ${site.tagline}`,
     description: site.description,
     type: "website",
     url: clientEnv.NEXT_PUBLIC_SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Web, App & AI Development Studio`,
+    title: `${site.name} — ${site.tagline}`,
     description: site.description,
   },
 };

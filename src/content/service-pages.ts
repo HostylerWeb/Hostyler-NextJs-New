@@ -40,6 +40,12 @@ export type ServicePage = {
     points: string[];
   };
   relatedWorkTag?: string;
+  businessValue?: {
+    headline: string;
+    lead: string;
+    benefits: Array<{ title: string; description: string }>;
+    examples: Array<{ title: string; description: string }>;
+  };
   fitSection?: {
     image: string;
     imageAlt: string;
@@ -435,7 +441,65 @@ export const servicePages: ServicePage[] = [
         "Store submission support and post-launch release playbook",
       ],
     },
-    relatedWorkTag: "App",
+    businessValue: {
+      headline: "Why mobile apps grow your business",
+      lead:
+        "A dedicated app keeps your brand in your customer's pocket — driving repeat visits, faster actions, and loyalty that a mobile website alone cannot match.",
+      benefits: [
+        {
+          title: "Always within reach",
+          description:
+            "Home screen presence, push notifications, and faster repeat access mean customers come back without searching or re-entering payment details every time.",
+        },
+        {
+          title: "Higher engagement and retention",
+          description:
+            "Apps support personalised experiences, saved preferences, and in-app messaging — keeping users active longer than mobile web alone.",
+        },
+        {
+          title: "New revenue channels",
+          description:
+            "Subscriptions, in-app purchases, bookings, and loyalty programmes are easier to deliver natively with smoother checkout and fewer drop-offs.",
+        },
+        {
+          title: "Operational efficiency",
+          description:
+            "Field teams, drivers, and staff get offline-capable tools with camera, GPS, and real-time sync — replacing paper, WhatsApp, and manual updates.",
+        },
+      ],
+      examples: [
+        {
+          title: "Customer loyalty & reorder apps",
+          description:
+            "Let repeat buyers reorder in two taps, track deliveries, and receive offers through push — ideal for retail, food, and service businesses.",
+        },
+        {
+          title: "Booking & appointment apps",
+          description:
+            "Salons, clinics, and service providers reduce no-shows with reminders, calendar sync, and easy rescheduling from the phone.",
+        },
+        {
+          title: "Marketplace & on-demand apps",
+          description:
+            "Connect buyers and sellers or riders and customers with messaging, ratings, payments, and role-based experiences on both sides.",
+        },
+        {
+          title: "Internal staff & field apps",
+          description:
+            "Give teams checklists, photo capture, inventory updates, and job tracking that works offline and syncs when connectivity returns.",
+        },
+        {
+          title: "Companion apps for web products",
+          description:
+            "Extend your SaaS or e-commerce platform with mobile notifications, quick actions, and features that make sense on the go.",
+        },
+        {
+          title: "Store-ready MVPs",
+          description:
+            "Launch a focused v1 on the App Store and Play Store with analytics, crash reporting, and a release plan built in from day one.",
+        },
+      ],
+    },
     overviewSection: {
       headline: "In their pocket,",
       headlineLine2: "not in a browser tab.",
@@ -490,10 +554,6 @@ export const servicePages: ServicePage[] = [
       headlineLine2: "we ship often.",
       lead:
         "Most teams start with one core flow — then expand to new roles, platforms, or offline features.",
-    },
-    relatedWorkSection: {
-      headline: "App projects we have shipped.",
-      lead: "Real products in the store — not mockups or abandoned MVPs.",
     },
     greatFor: [
       "Startups launching their first mobile app",
@@ -694,7 +754,65 @@ export const servicePages: ServicePage[] = [
         "Monitoring dashboard and tuning window after launch",
       ],
     },
-    relatedWorkTag: "AI",
+    businessValue: {
+      headline: "Why AI and automation belong in your business",
+      lead:
+        "The right AI features save hours every week, speed up decisions, and improve customer experience — when they are grounded in your data and built for production, not demos.",
+      benefits: [
+        {
+          title: "Reduce repetitive work",
+          description:
+            "Automate ticket triage, data entry, report generation, and document review so your team focuses on work that needs human judgment.",
+        },
+        {
+          title: "Faster answers for customers",
+          description:
+            "Support copilots and knowledge search help agents and customers find accurate answers in seconds — with citations from your own content.",
+        },
+        {
+          title: "Smarter product experiences",
+          description:
+            "Add search, recommendations, summarisation, and generation inside your app — features users expect from modern software.",
+        },
+        {
+          title: "Measurable ROI",
+          description:
+            "We define success metrics upfront — time saved, deflection rate, accuracy, and cost per task — so you know whether the investment pays off.",
+        },
+      ],
+      examples: [
+        {
+          title: "Support copilots",
+          description:
+            "Draft replies from your help centre, suggest macros, and route complex cases — with human review for high-stakes answers.",
+        },
+        {
+          title: "Internal knowledge search",
+          description:
+            "Search across wikis, contracts, SOPs, and tickets so teams stop digging through Slack threads and shared drives.",
+        },
+        {
+          title: "Sales & proposal automation",
+          description:
+            "Generate first drafts of proposals, summarise CRM notes, and pull relevant case studies for outbound teams.",
+        },
+        {
+          title: "Ops & reporting pipelines",
+          description:
+            "Scheduled workflows that extract, summarise, classify, and route data — replacing manual exports and spreadsheet work.",
+        },
+        {
+          title: "Document processing",
+          description:
+            "Extract fields from invoices, contracts, and forms; flag anomalies; and push structured data into your systems.",
+        },
+        {
+          title: "Product-embedded AI",
+          description:
+            "Add AI search, assistants, and generation inside your SaaS — behind feature flags with evals and cost controls from day one.",
+        },
+      ],
+    },
     overviewSection: {
       headline: "Intelligence that survives",
       headlineLine2: "real users.",
@@ -749,10 +867,6 @@ export const servicePages: ServicePage[] = [
       headlineLine2: "we productionize.",
       lead:
         "We start with one high-ROI workflow — then expand once quality and cost are proven in production.",
-    },
-    relatedWorkSection: {
-      headline: "AI projects we have shipped.",
-      lead: "Production features with evals and monitoring — not proof-of-concept demos.",
     },
     greatFor: [
       "Support teams drowning in repetitive tickets",

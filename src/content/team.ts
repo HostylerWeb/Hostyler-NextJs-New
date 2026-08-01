@@ -1,32 +1,27 @@
 export const teamMembers = [
   {
-    name: "Jordan Reyes",
-    role: "Founder / Eng",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop",
+    name: "Alex",
+    role: "CEO & Full Stack Developer",
+    initials: "A",
   },
   {
-    name: "Mira Chen",
-    role: "Product Design",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop",
+    name: "Tamar",
+    role: "Digital Artist",
+    initials: "T",
   },
   {
-    name: "Aki Osei",
-    role: "Full-stack",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop",
+    name: "Anna",
+    role: "Social Media Manager",
+    initials: "A",
   },
   {
-    name: "Theo Lin",
-    role: "ML / AI",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop",
+    name: "Imad",
+    role: "SEO Expert",
+    initials: "I",
   },
   {
-    name: "Sana Bhatt",
-    role: "Mobile",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop",
+    name: "Mariam",
+    role: "Marketing Expert",
+    initials: "M",
   },
 ] as const;

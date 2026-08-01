@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import { Section } from "@/components/layout/section";
 import { Wrap } from "@/components/layout/wrap";
 import { LegalDocumentView } from "@/components/marketing/legal-document";
-import { termsOfService } from "@/content/legal/terms-of-service";
+import { cookiePolicy } from "@/content/legal/cookie-policy";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: `Terms governing use of ${site.legalName} services and client portal.`,
+  title: "Cookie Policy",
+  description: `How ${site.legalName} uses cookies and similar technologies.`,
 };
 
-export default function TermsPage() {
+export default function CookiesPage() {
   return (
     <Section pageTop>
       <Wrap className="max-w-3xl">
-        <LegalDocumentView document={termsOfService} />
+        <LegalDocumentView document={cookiePolicy} />
       </Wrap>
     </Section>
   );

@@ -560,6 +560,52 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
           </div>
         </section>
 
+        {/* Business value — app & AI pages */}
+        {page.businessValue ? (
+          <section className="service-page-section wrap" id="value">
+            <div className="head reveal">
+              <span className="eyebrow-chip">
+                <i />
+                Why it matters
+              </span>
+              <h2>{page.businessValue.headline}</h2>
+              <p>{page.businessValue.lead}</p>
+            </div>
+
+            <div className="why-grid">
+              {page.businessValue.benefits.map((benefit) => (
+                <article key={benefit.title} className="why-card reveal">
+                  <div className="why-badge">{benefit.title.charAt(0)}</div>
+                  <h4>{benefit.title}</h4>
+                  <p>{benefit.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="head reveal mt-16">
+              <span className="eyebrow-chip">
+                <i />
+                What we can build
+              </span>
+              <h2>Examples for your business.</h2>
+              <p>
+                Practical use cases we deliver — from customer-facing apps to internal automations.
+              </p>
+            </div>
+            <div className="service-build-grid">
+              {page.businessValue.examples.map((example, index) => (
+                <article key={example.title} className="service-build-card reveal">
+                  <span className="service-build-card-num standalone">0{index + 1}</span>
+                  <div className="service-build-card-body">
+                    <h3>{example.title}</h3>
+                    <p>{example.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {/* Related work */}
         {relatedWork.length > 0 ? (
           <section className="service-page-section wrap" id="work">

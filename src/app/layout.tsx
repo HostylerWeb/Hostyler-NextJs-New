@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { site } from "@/content/site";
 import { fontVariables } from "@/lib/fonts";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Hostyler",
-  description: "Web, App & AI Development Studio",
+  description: `${site.legalName} — ${site.tagline}`,
 };
 
 export default function RootLayout({

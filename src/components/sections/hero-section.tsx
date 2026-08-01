@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Highlight } from "@/components/ui/highlight";
+import { site } from "@/content/site";
 
 function ArrowIcon() {
   return (
@@ -17,13 +18,13 @@ export function HeroSection() {
         <div className="hero-copy">
           <span className="eyebrow-chip">
             <i />
-            Web · App · AI Studio
+            Web · App · AI · {site.legalName}
           </span>
           <h1>
             Big ideas, <Highlight>built</Highlight> and shipped fast.
           </h1>
           <p>
-            Hostyler is a small, senior team that designs and builds web platforms, mobile apps,
+            {site.legalName} is a senior team that designs and builds web platforms, mobile apps,
             and AI-powered products for founders who need to move without breaking what matters.
           </p>
           <div className="hero-actions">
@@ -37,16 +38,16 @@ export function HeroSection() {
           </div>
           <div className="stat-row">
             <div className="stat-chip reveal">
-              <b>120+</b>
+              <b>550+</b>
               <span>Products shipped</span>
             </div>
             <div className="stat-chip reveal">
-              <b>98%</b>
-              <span>Client retention</span>
+              <b>10+</b>
+              <span>Technologies used</span>
             </div>
             <div className="stat-chip reveal">
-              <b>9</b>
-              <span>Years building</span>
+              <b>8</b>
+              <span>Years since 2019</span>
             </div>
           </div>
         </div>

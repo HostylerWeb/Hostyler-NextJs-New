@@ -1,7 +1,7 @@
 export const trustStats = [
-  { value: "4.9", label: "Clutch rating" },
-  { value: "120+", label: "Projects shipped" },
-  { value: "98%", label: "Client retention" },
+  { value: "10+", label: "Technologies used" },
+  { value: "550+", label: "Products shipped" },
+  { value: "8 yrs", label: "Since 2019" },
   { value: "6 wks", label: "Avg. first launch" },
 ] as const;
 

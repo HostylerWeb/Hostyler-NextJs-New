@@ -97,7 +97,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
           id="contact-name"
           name="name"
           type="text"
-          placeholder="Jordan Reyes"
+          placeholder="Alex"
           autoComplete="name"
           required
           value={form.name}

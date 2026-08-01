@@ -4,91 +4,125 @@ export const termsOfService: LegalDocument = {
   title: "Terms and Conditions",
   lastUpdated: "August 1, 2026",
   intro: [
-    'Welcome to Hostyler Group. These Terms and Conditions form a legally binding agreement between you ("the Client") and Hostyler Group ("the Company"), governing your use of our web services and website.',
+    'Welcome to Hostyler Group. These Terms and Conditions ("Terms") form a legally binding agreement between you ("the Client") and Hostyler Group ("we", "us", "our"), governing your use of our website, client portal, and professional development services.',
   ],
   sections: [
     {
       title: "Acceptance of Terms",
       paragraphs: [
-        "By accessing and using the Hostyler Group website and services, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions. If you do not agree with any part of these terms, you must not use our website or services.",
+        "By accessing our website, creating a client account, submitting an enquiry, or engaging us for services, you confirm that you have read, understood, and agree to these Terms. If you do not agree, you must not use our website or services.",
       ],
     },
     {
-      title: "Terminology",
+      title: "About Hostyler Group",
+      paragraphs: [
+        "Hostyler Group provides web development, mobile app development, AI integration, and related digital services for businesses worldwide. Our website at hostyler.com and client portal are operated by Hostyler Group.",
+        "Contact: support@hostyler.com",
+      ],
+    },
+    {
+      title: "1. Services and Engagements",
+      paragraphs: [
+        "Specific deliverables, timelines, fees, and support terms are defined in a written proposal, statement of work, or invoice issued to you before work begins. Where there is a conflict between these Terms and a signed project agreement, the project agreement takes precedence for that engagement.",
+        "We may decline or discontinue work if requirements are unlawful, unsafe, technically infeasible without material scope change, or if fees remain unpaid beyond agreed terms.",
+      ],
+    },
+    {
+      title: "2. Client Responsibilities",
       list: [
-        '"Client", "You", and "Your" refer to you, the person or entity using our services.',
-        '"The Company", "Ourselves", "We", "Our", and "Us" refer to Hostyler Group.',
-        '"Party", "Parties", or "Us" includes both the Client and ourselves.',
+        "Provide accurate information, timely feedback, and access to systems, content, and stakeholders needed to deliver the project.",
+        "Ensure you have rights to any brand assets, copy, data, or third-party materials you supply to us.",
+        "Review deliverables within agreed review windows and communicate approval or change requests promptly.",
+        "Maintain confidentiality of portal credentials and notify us immediately of any unauthorised account access.",
       ],
     },
     {
-      title: "1. Cookies",
+      title: "3. Fees, Invoices, and Payments",
       paragraphs: [
-        "Our website uses essential cookies required for authentication, session management, and security when you use the client portal. By using our website, you consent to these necessary cookies. We do not use third-party advertising or analytics cookies.",
+        "Fees are quoted in the currency stated on your proposal or invoice. Unless otherwise agreed, invoices are due on the due date shown in the client portal or payment link.",
+        "Online invoice payments may be processed through third-party payment providers such as PayPal. By completing a payment, you also agree to the applicable provider's terms.",
+        "Late payments may pause work, withhold deliverables, or incur interest or recovery costs permitted by law. Deposits and milestone payments are non-refundable once work on that phase has commenced, unless otherwise stated in writing.",
       ],
     },
     {
-      title: "2. Intellectual Property Rights",
+      title: "4. Intellectual Property",
       paragraphs: [
-        "Hostyler Group and/or its licensors hold the intellectual property rights for all material on our website. Subject to the license below, all these intellectual property rights are reserved.",
-        "You are allowed to view, download for caching purposes only, and print pages or other content from the website for your own personal use, subject to the restrictions set out below and elsewhere in these terms and conditions.",
+        "Unless otherwise agreed in writing, upon full payment of all fees due for a project, you receive ownership or a perpetual licence to the custom deliverables created specifically for you, excluding our pre-existing tools, libraries, templates, and general know-how.",
+        "We retain ownership of our proprietary frameworks, reusable components, internal processes, and any materials not expressly assigned to you.",
+        "We may display non-confidential work in our portfolio, case studies, and marketing materials unless you request otherwise in writing before launch.",
         "You must not:",
       ],
       list: [
-        "Republish material from our website without prior consent.",
-        "Sell, rent, or sub-license material or services from the website.",
-        "Reproduce, duplicate, copy or otherwise exploit material on our website for a commercial purpose.",
-        "Edit or otherwise modify any material on the website.",
+        "Copy, resell, or sublicense our website content, portal software, or internal tools.",
+        "Reverse engineer or attempt to extract source code from systems we provide except as permitted by law.",
+        "Remove lawful attribution where agreed in your project documentation.",
       ],
     },
     {
-      title: "3. Reservation of Rights",
+      title: "5. Confidentiality",
       paragraphs: [
-        "We reserve the right to request that you remove all links or any specific link to our website at any time. Upon such request, you agree to immediately remove all links to our website.",
+        "Each party agrees to keep confidential any non-public business, technical, or financial information received from the other party, except where disclosure is required by law or already public through no fault of the receiving party.",
+        "Confidentiality obligations survive termination of an engagement for a reasonable period necessary to protect legitimate business interests.",
       ],
     },
     {
-      title: "4. Removal of Links from Our Website",
+      title: "6. Cookies and Website Use",
       paragraphs: [
-        "Should you find any link on our website or any linked website objectionable for any reason, you are free to contact and inform us at any moment. We will consider requests to remove links but are not obligated to or so or to respond directly to you.",
+        "Our website uses essential cookies and similar technologies required for authentication, session management, security, and core site functionality when you use the client portal.",
+        "We may use privacy-friendly, cookieless analytics on public pages to understand traffic patterns and improve the website. We do not use third-party advertising cookies on this site.",
+        "For more detail, see our Privacy Policy and Cookie Policy.",
       ],
     },
     {
-      title: "5. Content Liability",
-      paragraphs: [
-        "We shall not be held responsible for any content that appears on your website. You agree to protect and defend us against all claims that are rising on your website. No link(s) should appear on any website that may be interpreted as libelous, obscene, or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.",
-      ],
-    },
-    {
-      title: "6. Proprietary Rights and Obligations",
-      subsections: [
-        {
-          title: "Hostyler Group Plugins and Themes",
-          list: [
-            'Our raffle websites feature customised plugins and the "Hostyler Raffles Theme", exclusive to Hostyler Group. These are subject to intellectual property laws.',
-            "Without prior written consent from Hostyler Group, these plugins, themes, and any provided materials cannot be modified, resold, or used outside the scope of your website's functionality.",
-            'A custom "Powered by Hostyler" signature is included in the footer of each website. Removal of this signature will result in the termination of eligibility for free technical support and theme updates.',
-          ],
-        },
-      ],
-    },
-    {
-      title: "7. Unauthorised Theme And/Or Plugin Usage",
+      title: "7. Acceptable Use",
       list: [
-        "Each theme and/or plugin license is strictly limited to a single domain.",
-        "Unauthorised use of our themes and plugins, including but not limited to using a single license on multiple domains, is a breach of these terms.",
-        "If unauthorised usage is detected, the violating domain name and associated IP addresses will be blacklisted and permanently recorded in our database.",
-        "Our system tracks violations, and repeated offenses will result in legal consequences.",
+        "Do not attempt to gain unauthorised access to our systems, portal, or other users' accounts.",
+        "Do not upload malware, unlawful content, or material that infringes third-party rights.",
+        "Do not use our services to build or distribute products that are illegal, deceptive, or harmful.",
+        "Do not interfere with the security, availability, or integrity of our website or infrastructure.",
       ],
     },
     {
-      title: "8. Governing Law & Jurisdiction",
+      title: "8. Warranties and Disclaimers",
       paragraphs: [
-        "These Terms and Conditions will be governed by and interpreted in accordance with the laws of Georgia, and any disputes relating to these terms and conditions will be subject to the exclusive jurisdiction of the courts of Georgia.",
+        "We perform services with reasonable skill and care in line with industry standards and the agreed scope. Except as expressly stated in a project agreement, our website and services are provided on an \"as is\" and \"as available\" basis.",
+        "We do not guarantee uninterrupted availability of the website or portal, specific search rankings, revenue outcomes, or third-party platform approvals such as app store acceptance, which depend on factors outside our control.",
+      ],
+    },
+    {
+      title: "9. Limitation of Liability",
+      paragraphs: [
+        "To the fullest extent permitted by law, Hostyler Group is not liable for indirect, incidental, special, consequential, or punitive damages, including lost profits, lost data, or business interruption.",
+        "Our total aggregate liability arising from any engagement or use of the website is limited to the fees paid by you to Hostyler Group for the specific service giving rise to the claim during the twelve (12) months before the event, unless a higher limit is agreed in writing.",
+      ],
+    },
+    {
+      title: "10. Termination",
+      paragraphs: [
+        "Either party may terminate an engagement in accordance with the applicable project agreement. We may suspend portal access or website features if these Terms are breached or invoices remain unpaid.",
+        "Sections relating to fees, intellectual property, confidentiality, disclaimers, and limitation of liability survive termination where appropriate.",
+      ],
+    },
+    {
+      title: "11. Third-Party Services",
+      paragraphs: [
+        "Your project may rely on third-party hosting, payment, email, analytics, AI, or app store services. We are not responsible for outages, policy changes, or acts of third-party providers, though we will use reasonable efforts to select reliable vendors and document dependencies.",
+      ],
+    },
+    {
+      title: "12. Changes to These Terms",
+      paragraphs: [
+        "We may update these Terms from time to time. The latest version will be published on this page with an updated date. Continued use of the website or portal after changes become effective constitutes acceptance of the revised Terms.",
+      ],
+    },
+    {
+      title: "13. Governing Law and Jurisdiction",
+      paragraphs: [
+        "These Terms are governed by the laws of Georgia. Any dispute arising from or relating to these Terms or our services shall be subject to the exclusive jurisdiction of the courts of Georgia, unless mandatory local consumer protection laws require otherwise.",
       ],
     },
   ],
   closing: [
-    "For additional information, queries, or support, contact us at support@hostyler.com.",
+    "For questions about these Terms, contact us at support@hostyler.com.",
   ],
 };

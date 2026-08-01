@@ -13,3 +13,6 @@ coverage/
 .vercel/
 tsconfig.tsbuildinfo
 pnpm-debug.log*
+
+# Local VPS deploy notes (not for the repo)
+DEPLOY-VPS.local.md

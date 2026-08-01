@@ -12,12 +12,12 @@ export function Footer() {
           <div>
             <SiteLogo height={80} />
             <p className="mt-4 max-w-[280px] text-sm text-muted">
-              A web, app, and AI development studio for teams who need to ship real products, not
-              prototypes.
+              {site.legalName} builds web platforms, mobile apps, and AI-powered products for teams
+              who need to ship real products, not prototypes.
             </p>
           </div>
 
-          <FooterColumn title="Studio" links={footerNavigation.studio} />
+          <FooterColumn title="Company" links={footerNavigation.company} />
           <FooterColumn title="Services" links={footerNavigation.services} />
           <FooterColumn title="Connect" links={footerNavigation.connect} />
         </div>
