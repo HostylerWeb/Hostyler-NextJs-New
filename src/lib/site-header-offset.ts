@@ -1,4 +1,6 @@
 export const MOBILE_HEADER_BREAKPOINT_PX = 940;
+/** Desktop sticky header height in px (matches marketing.css --site-header-offset: 7.75rem). */
+export const DESKTOP_HEADER_OFFSET_PX = 124;
 
 let cachedHeaderOffsetPx: number | undefined;
 

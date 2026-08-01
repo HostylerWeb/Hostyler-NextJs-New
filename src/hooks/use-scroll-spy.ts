@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-import { MOBILE_HEADER_BREAKPOINT_PX } from "@/lib/site-header-offset";
+import {
+  DESKTOP_HEADER_OFFSET_PX,
+  getSiteHeaderOffset,
+  MOBILE_HEADER_BREAKPOINT_PX,
+} from "@/lib/site-header-offset";
 
 function pickActiveSection(ratios: Map<string, number>): string {
   let bestId = "";
@@ -45,7 +49,7 @@ export function useScrollSpy(navSectionIds: string[]) {
         return;
       }
 
-      const headerInset = "7.75rem";
+      const headerInsetPx = Math.max(getSiteHeaderOffset(), DESKTOP_HEADER_OFFSET_PX);
 
       observer = new IntersectionObserver(
         (entries) => {
@@ -61,7 +65,7 @@ export function useScrollSpy(navSectionIds: string[]) {
           setActiveId((previous) => (previous === next ? previous : next));
         },
         {
-          rootMargin: `-${headerInset} 0px -50% 0px`,
+          rootMargin: `-${headerInsetPx}px 0px -50% 0px`,
           threshold: [0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1],
         },
       );
