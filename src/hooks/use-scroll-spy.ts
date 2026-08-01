@@ -3,13 +3,53 @@
 import { useEffect, useState } from "react";
 
 import { getSiteHeaderOffset } from "@/lib/site-header-offset";
+import { subscribeScrollFrame } from "@/lib/raf-scroll";
 
-function getSectionTop(element: HTMLElement): number {
-  return element.getBoundingClientRect().top + window.scrollY;
+type SectionMetric = {
+  id: string;
+  top: number;
+  bottom: number;
+};
+
+function measureSections(navSectionIds: string[]): SectionMetric[] {
+  const scrollY = window.scrollY;
+
+  return navSectionIds
+    .map((id) => document.getElementById(id))
+    .filter((el): el is HTMLElement => Boolean(el))
+    .map((section) => {
+      const rect = section.getBoundingClientRect();
+      const top = rect.top + scrollY;
+      return {
+        id: section.id,
+        top,
+        bottom: top + rect.height,
+      };
+    })
+    .sort((a, b) => a.top - b.top);
 }
 
-function getHeaderOffset(): number {
-  return getSiteHeaderOffset();
+function resolveActiveSection(
+  sections: SectionMetric[],
+  scrollPos: number,
+): string {
+  if (!sections.length) return "";
+
+  let current = "";
+
+  for (const section of sections) {
+    if (scrollPos >= section.top && scrollPos < section.bottom) {
+      return section.id;
+    }
+  }
+
+  for (const section of sections) {
+    if (section.top <= scrollPos) {
+      current = section.id;
+    }
+  }
+
+  return current;
 }
 
 export function useScrollSpy(navSectionIds: string[]) {
@@ -18,48 +58,38 @@ export function useScrollSpy(navSectionIds: string[]) {
   useEffect(() => {
     if (!navSectionIds.length) return;
 
-    const getSections = () =>
-      navSectionIds
-        .map((id) => document.getElementById(id))
-        .filter((el): el is HTMLElement => Boolean(el))
-        .sort((a, b) => getSectionTop(a) - getSectionTop(b));
+    let sections: SectionMetric[] = [];
 
-    const onScroll = () => {
-      const sections = getSections();
-      if (!sections.length) return;
+    const remeasure = () => {
+      sections = measureSections(navSectionIds);
+    };
 
-      const scrollPos = window.scrollY + getHeaderOffset();
-      let current = "";
-
-      for (const section of sections) {
-        const top = getSectionTop(section);
-        const bottom = top + section.offsetHeight;
-
-        if (scrollPos >= top && scrollPos < bottom) {
-          current = section.id;
-          break;
-        }
+    const updateActive = () => {
+      if (!sections.length) {
+        remeasure();
       }
 
-      if (!current) {
-        for (const section of sections) {
-          const top = getSectionTop(section);
-          if (top <= scrollPos) {
-            current = section.id;
-          }
-        }
-      }
-
+      const scrollPos = window.scrollY + getSiteHeaderOffset();
+      const current = resolveActiveSection(sections, scrollPos);
       setActiveId((previous) => (previous === current ? previous : current));
     };
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    remeasure();
+    updateActive();
+
+    const unsubscribeScroll = subscribeScrollFrame(updateActive);
+
+    const onResize = () => {
+      remeasure();
+      updateActive();
+    };
+
+    window.addEventListener("resize", onResize);
+    window.addEventListener("load", remeasure, { once: true });
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      unsubscribeScroll();
+      window.removeEventListener("resize", onResize);
     };
   }, [navSectionIds]);
 
