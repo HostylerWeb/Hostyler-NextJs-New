@@ -56,7 +56,6 @@ const requiredFiles = [
   "src/content/site.ts",
   "src/app/layout.tsx",
   "src/app/(marketing)/layout.tsx",
-  "src/app/(marketing)/design-system/page.tsx",
 ];
 
 function check(name: string, ok: boolean) {

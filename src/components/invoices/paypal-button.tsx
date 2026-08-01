@@ -2,6 +2,10 @@
 
 import dynamic from "next/dynamic";
 import { Alert } from "@/components/ui/alert";
+import {
+  getPayPalClientEnvironment,
+  type PayPalClientEnvironment,
+} from "@/lib/paypal-client";
 
 const PayPalButtons = dynamic(
   () => import("./paypal-buttons-inner").then((mod) => mod.PayPalButtonsInner),
@@ -19,16 +23,22 @@ type PayPalCheckoutProps = {
   invoiceId: string;
   payToken?: string;
   clientId?: string;
-  currency?: string;
+  environment?: PayPalClientEnvironment;
 };
 
 export function PayPalCheckout({
   invoiceId,
   payToken,
   clientId,
-  currency = "USD",
+  environment,
 }: PayPalCheckoutProps) {
-  const paypalClientId = clientId ?? process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
+  const paypalClientId =
+    clientId ?? process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? "";
+  const paypalEnvironment =
+    environment ??
+    getPayPalClientEnvironment(
+      process.env.NEXT_PUBLIC_PAYPAL_MODE ?? "sandbox",
+    );
 
   if (!paypalClientId) {
     return (
@@ -43,7 +53,7 @@ export function PayPalCheckout({
       invoiceId={invoiceId}
       payToken={payToken}
       clientId={paypalClientId}
-      currency={currency}
+      environment={paypalEnvironment}
     />
   );
 }

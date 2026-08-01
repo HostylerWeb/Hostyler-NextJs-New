@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/marketing.css";
+import { CloudflareWebAnalyticsLoader } from "@/components/analytics/cloudflare-web-analytics-loader";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { SkipLink } from "@/components/ui/skip-link";
@@ -64,6 +65,7 @@ export default function MarketingLayout({
       <main id="main-content" className="site-main">{children}</main>
       <Footer />
       <BackToTop />
+      <CloudflareWebAnalyticsLoader />
     </>
   );
 }

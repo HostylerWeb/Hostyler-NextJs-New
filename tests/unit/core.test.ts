@@ -14,6 +14,12 @@ import {
   calculateTotals,
 } from "@/lib/repositories/invoices";
 import { createPayToken } from "@/lib/invoice-tokens";
+import {
+  amountsMatch,
+  currenciesMatch,
+  getAmountDue,
+  validateCaptureAmount,
+} from "@/lib/paypal-amounts";
 
 describe("contactFormSchema", () => {
   it("accepts valid contact data", () => {
@@ -113,5 +119,41 @@ describe("createPayToken", () => {
     const { token, expiresAt } = createPayToken();
     assert.match(token, /^[a-f0-9]{64}$/);
     assert.ok(expiresAt > new Date());
+  });
+});
+
+describe("paypal amounts", () => {
+  it("calculates amount due from invoice totals", () => {
+    assert.equal(getAmountDue(220, 50), 170);
+    assert.equal(getAmountDue(100, 100), 0);
+  });
+
+  it("matches amounts within tolerance", () => {
+    assert.equal(amountsMatch(99.99, 100, 0.01), true);
+    assert.equal(amountsMatch(99.97, 100, 0.01), false);
+  });
+
+  it("matches currencies case-insensitively", () => {
+    assert.equal(currenciesMatch("usd", "USD"), true);
+    assert.equal(currenciesMatch("USD", "EUR"), false);
+  });
+
+  it("validates capture amounts", () => {
+    const valid = validateCaptureAmount(
+      { value: "170.00", currency_code: "USD" },
+      170,
+      "USD",
+    );
+    assert.equal(valid.ok, true);
+
+    const mismatch = validateCaptureAmount(
+      { value: "50.00", currency_code: "USD" },
+      170,
+      "USD",
+    );
+    assert.equal(mismatch.ok, false);
+    if (!mismatch.ok) {
+      assert.equal(mismatch.reason, "Capture amount mismatch");
+    }
   });
 });

@@ -20,7 +20,7 @@ export function PortalShell({ children, userName = "Client" }: PortalShellProps)
     <div className="app-shell min-h-screen bg-paper">
       <div className="flex min-h-screen">
         <aside className="hidden w-60 shrink-0 border-r-2.5 border-ink bg-paper-2 p-5 md:block">
-          <SiteLogo linkClassName="mb-8" height={28} />
+          <SiteLogo linkClassName="mb-8" height={56} className="h-14 w-auto" />
           <nav className="flex flex-col gap-1" aria-label="Portal navigation">
             {portalNavigation.map((item) => (
               <Link

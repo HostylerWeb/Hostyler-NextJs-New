@@ -27,7 +27,7 @@ export function LoginForm({ callbackUrl, inactive = false }: LoginFormProps) {
     >
       {inactive ? (
         <Alert variant="error">
-          This account has been deactivated. Contact hello@hostyler.dev if you need access.
+          This account has been deactivated. Contact support@hostyler.com if you need access.
         </Alert>
       ) : null}
       {state.error ? <Alert variant="error">{state.error}</Alert> : null}

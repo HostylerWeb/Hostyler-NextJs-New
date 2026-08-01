@@ -85,6 +85,7 @@ export async function CaseStudySection() {
             width={1000}
             height={320}
             loading="lazy"
+            unoptimized
           />
         </div>
         <div className="case-body">
@@ -129,6 +130,7 @@ export async function CaseStudySection() {
           width={1400}
           height={280}
           loading="lazy"
+          unoptimized
         />
       </div>
 
@@ -147,6 +149,7 @@ export async function CaseStudySection() {
                 width={700}
                 height={140}
                 loading="lazy"
+                unoptimized
               />
               <div className="mini-case-body">
                 <h4>{study.title}</h4>

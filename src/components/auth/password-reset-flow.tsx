@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect, useMemo, useState } from "react";
 import {
   forgotPasswordAction,
   resetPasswordAction,
@@ -13,6 +13,7 @@ import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { collectClientSecurityContext } from "@/lib/client-security";
 
 const initialState: AuthFormState = {};
 
@@ -24,6 +25,7 @@ export function PasswordResetFlow() {
   const [resetToken, setResetToken] = useState("");
   const [emailRequestNonce, setEmailRequestNonce] = useState(0);
   const [fulfilledEmailNonce, setFulfilledEmailNonce] = useState(-1);
+  const securityContext = useMemo(() => collectClientSecurityContext(), []);
 
   const [emailState, emailAction, emailPending] = useActionState(
     forgotPasswordAction,
@@ -89,6 +91,12 @@ export function PasswordResetFlow() {
               setEmailRequestNonce((value) => value + 1);
             }}
           >
+            <input
+              type="hidden"
+              name="device_fingerprint"
+              value={securityContext.device_fingerprint}
+            />
+            <input type="hidden" name="browser_details" value={securityContext.browser_details} />
             <Field label="Email" htmlFor="email">
               <Input
                 id="email"
@@ -114,6 +122,12 @@ export function PasswordResetFlow() {
           ) : null}
           <form action={otpAction} className="space-y-4">
             <input type="hidden" name="email" value={email} />
+            <input
+              type="hidden"
+              name="device_fingerprint"
+              value={securityContext.device_fingerprint}
+            />
+            <input type="hidden" name="browser_details" value={securityContext.browser_details} />
             <Field label="6-digit code" htmlFor="otp">
               <Input
                 id="otp"
@@ -144,6 +158,12 @@ export function PasswordResetFlow() {
               onSubmit={() => setEmailRequestNonce((value) => value + 1)}
             >
               <input type="hidden" name="email" value={email} />
+              <input
+                type="hidden"
+                name="device_fingerprint"
+                value={securityContext.device_fingerprint}
+              />
+              <input type="hidden" name="browser_details" value={securityContext.browser_details} />
               <button
                 type="submit"
                 className="font-semibold text-muted hover:text-ink"
@@ -162,6 +182,12 @@ export function PasswordResetFlow() {
           {passwordState.success ? <Alert variant="success">{passwordState.success}</Alert> : null}
           <form action={passwordAction} className="space-y-4">
             <input type="hidden" name="resetToken" value={resetToken} />
+            <input
+              type="hidden"
+              name="device_fingerprint"
+              value={securityContext.device_fingerprint}
+            />
+            <input type="hidden" name="browser_details" value={securityContext.browser_details} />
             <Field label="New password" htmlFor="password">
               <Input
                 id="password"

@@ -1,6 +1,15 @@
 import nodemailer from "nodemailer";
+import { site } from "@/content/site";
 import { env } from "@/lib/env";
 import { escapeHtml, escapeHtmlMultiline } from "@/lib/html";
+
+function getSiteHostname() {
+  try {
+    return new URL(site.url).hostname;
+  } catch {
+    return "hostyler.com";
+  }
+}
 
 const brand = {
   paper: "#FBFAF5",
@@ -13,8 +22,9 @@ const brand = {
   coralTint: "#FFE4DB",
   lime: "#C6FF4D",
   limeTint: "#EEFCCB",
-  siteUrl: env.NEXT_PUBLIC_SITE_URL,
-  logoUrl: `${env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+  siteUrl: site.url,
+  siteHostname: getSiteHostname(),
+  logoUrl: `${site.url}/logo.png`,
 } as const;
 
 type EmailTemplateInput = {
@@ -88,9 +98,9 @@ function emailTemplate({ title, preheader, body, accent = "violet" }: EmailTempl
                   Hostyler Studio · Web, App &amp; AI Development
                 </p>
                 <p style="margin:0;font-size:12px;line-height:1.5;color:${brand.muted};">
-                  <a href="${brand.siteUrl}" style="color:${brand.violet};font-weight:700;text-decoration:none;">hostyler.dev</a>
+                  <a href="${brand.siteUrl}" style="color:${brand.violet};font-weight:700;text-decoration:none;">${escapeHtml(brand.siteHostname)}</a>
                   ·
-                  <a href="mailto:hello@hostyler.dev" style="color:${brand.violet};font-weight:700;text-decoration:none;">hello@hostyler.dev</a>
+                  <a href="mailto:${escapeHtml(site.email)}" style="color:${brand.violet};font-weight:700;text-decoration:none;">${escapeHtml(site.email)}</a>
                 </p>
               </td>
             </tr>
@@ -547,6 +557,74 @@ export async function sendClientWelcomeInvite(input: {
       preheader: "Your Hostyler client account is ready",
       body,
       accent: "violet",
+    }),
+  });
+}
+
+export async function sendSecurityIncidentAlert(input: {
+  ipAddress: string;
+  email?: string | null;
+  deviceFingerprint?: string | null;
+  browserDetails?: string | null;
+  userAgent?: string | null;
+  blockedUntil: Date;
+  attempts: Array<{
+    kind: string;
+    email?: string | null;
+    attemptedValue?: string | null;
+    deviceFingerprint?: string | null;
+    browserDetails?: string | null;
+    userAgent?: string | null;
+    createdAt: string;
+  }>;
+}) {
+  const attemptsHtml = input.attempts
+    .map(
+      (attempt) => `
+        <tr>
+          <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.createdAt)}</td>
+          <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.kind)}</td>
+          <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.email ?? "—")}</td>
+          <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.attemptedValue ?? "—")}</td>
+        </tr>
+      `,
+    )
+    .join("");
+
+  const body = `
+    ${paragraph("<strong>Security alert:</strong> Possible password reset brute-force activity was detected and the source IP has been blocked for 1 hour.")}
+    ${infoPanel(
+      `<strong>IP address:</strong> ${escapeHtml(input.ipAddress)}<br/>
+      <strong>Target email:</strong> ${escapeHtml(input.email ?? "Unknown")}<br/>
+      <strong>Device fingerprint:</strong> ${escapeHtml(input.deviceFingerprint ?? "Unknown")}<br/>
+      <strong>Browser details:</strong> ${escapeHtml(input.browserDetails ?? "Unknown")}<br/>
+      <strong>User agent:</strong> ${escapeHtml(input.userAgent ?? "Unknown")}<br/>
+      <strong>Blocked until:</strong> ${escapeHtml(input.blockedUntil.toISOString())}`,
+      "coral",
+    )}
+    <p style="margin:0 0 10px;font-weight:700;color:${brand.ink};">Recent attempts</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:2px solid ${brand.ink};border-radius:12px;overflow:hidden;">
+      <tr style="background:${brand.coralTint};">
+        <th align="left" style="padding:10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">Time</th>
+        <th align="left" style="padding:10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">Type</th>
+        <th align="left" style="padding:10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">Email</th>
+        <th align="left" style="padding:10px;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;">Attempted value</th>
+      </tr>
+      ${attemptsHtml}
+    </table>
+    <p style="margin:16px 0 0;font-size:13px;color:${brand.muted};">
+      Review the full incident log in the ${textLink(`${brand.siteUrl}/admin/security`, "admin security dashboard")}.
+    </p>
+  `;
+
+  await sendMail({
+    to: env.SMTP_TO,
+    subject: `Security alert: password reset abuse from ${input.ipAddress}`,
+    html: emailTemplate({
+      title: "Password reset abuse detected",
+      preheader: `IP ${input.ipAddress} blocked after repeated password reset attempts`,
+      body,
+      accent: "coral",
     }),
   });
 }

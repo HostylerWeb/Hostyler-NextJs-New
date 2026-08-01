@@ -50,7 +50,7 @@ export const footerNavigation = {
     { label: "AI & automation", href: "/services/ai-automation" },
   ],
   connect: [
-    { label: "hello@hostyler.dev", href: "mailto:hello@hostyler.dev" },
+    { label: "support@hostyler.com", href: "mailto:support@hostyler.com" },
     { label: "Start a project", href: "/contact" },
     { label: "Client portal", href: "/login" },
     { label: "Privacy", href: "/privacy" },
@@ -73,4 +73,5 @@ export const adminNavigation = [
   { label: "Case Studies", href: "/admin/case-studies" },
   { label: "Reviews", href: "/admin/testimonials" },
   { label: "Contacts", href: "/admin/contacts" },
+  { label: "Security", href: "/admin/security" },
 ] as const;

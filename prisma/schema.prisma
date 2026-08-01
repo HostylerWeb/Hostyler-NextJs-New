@@ -97,6 +97,7 @@ model users {
   role              user_role @default(client)
   is_active         Boolean   @default(true)
   last_login_at     DateTime? @db.Timestamptz(6)
+  registration_ip   String?   @unique @db.VarChar(45)
   created_at        DateTime  @default(now()) @db.Timestamptz(6)
   updated_at        DateTime  @updatedAt @db.Timestamptz(6)
 
@@ -178,6 +179,48 @@ model rate_limit_events {
 
   @@index([bucket_key, created_at])
   @@map("rate_limit_events")
+}
+
+enum security_event_kind {
+  password_reset_request
+  password_reset_blocked
+  password_reset_otp_failed
+  password_reset_otp_verified
+  password_reset_password_failed
+  password_reset_completed
+}
+
+// ─── Security ────────────────────────────────────────────────────────────────
+
+model security_ip_blocks {
+  ip_address    String   @id @db.VarChar(45)
+  reason        String   @db.VarChar(255)
+  blocked_until DateTime @db.Timestamptz(6)
+  created_at    DateTime @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime @updatedAt @db.Timestamptz(6)
+
+  @@index([blocked_until])
+  @@map("security_ip_blocks")
+}
+
+model security_events {
+  id                 String              @id @default(uuid()) @db.Uuid
+  kind               security_event_kind
+  ip_address         String              @db.VarChar(45)
+  email              String?             @db.VarChar(255)
+  attempted_value    String?             @db.VarChar(255)
+  device_fingerprint String?             @db.VarChar(255)
+  user_agent         String?             @db.Text
+  browser_details    String?             @db.Text
+  is_incident        Boolean             @default(false)
+  blocked_until      DateTime?           @db.Timestamptz(6)
+  metadata           Json                @default("{}")
+  created_at         DateTime            @default(now()) @db.Timestamptz(6)
+
+  @@index([kind, created_at])
+  @@index([ip_address, created_at])
+  @@index([is_incident, created_at])
+  @@map("security_events")
 }
 
 // ─── Marketing & contact ─────────────────────────────────────────────────────
@@ -334,6 +377,17 @@ model payments {
   @@index([invoice_id])
   @@index([status])
   @@map("payments")
+}
+
+model webhook_events {
+  id          String   @id @default(uuid()) @db.Uuid
+  provider    String   @db.VarChar(50)
+  event_id    String   @unique @db.VarChar(255)
+  event_type  String   @db.VarChar(100)
+  processed_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([provider])
+  @@map("webhook_events")
 }
 
 // ─── Support ─────────────────────────────────────────────────────────────────

@@ -12,7 +12,7 @@ export function ContactSection() {
         <ContactForm variant="cta" />
         <p className="cta-alt">
           Prefer email only?{" "}
-          <a href="mailto:hello@hostyler.dev">hello@hostyler.dev</a>
+          <a href="mailto:support@hostyler.com">support@hostyler.com</a>
         </p>
         <p className="cta-note">No spam. No auto-dialed sales calls.</p>
       </div>

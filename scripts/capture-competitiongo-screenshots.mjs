@@ -141,6 +141,13 @@ const name = "Hostyler Demo";
 await registerAndLogin(page, email, password, name);
 
 await page.goto(`${baseUrl}/`, { waitUntil: "networkidle", timeout: 90000 });
+await page
+  .getByRole("button", { name: /close|dismiss/i })
+  .or(page.getByText(/no thanks/i))
+  .first()
+  .click({ timeout: 5000 })
+  .catch(() => {});
+await page.waitForTimeout(1000);
 await snap(page, "homepage.png", 4000);
 
 await page.goto(`${baseUrl}/competition-detail?competition=${competitionSlug}`, {

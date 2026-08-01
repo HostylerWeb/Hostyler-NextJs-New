@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { env } from "@/lib/env";
 
 const paypalApiBase =
@@ -73,6 +72,12 @@ export async function createPayPalOrder(input: CreatePayPalOrderInput) {
     },
     body: JSON.stringify({
       intent: "CAPTURE",
+      application_context: {
+        brand_name: "Hostyler",
+        landing_page: "BILLING",
+        user_action: "PAY_NOW",
+        shipping_preference: "NO_SHIPPING",
+      },
       purchase_units: [
         {
           reference_id: input.invoiceId,
@@ -179,8 +184,4 @@ export async function verifyWebhookSignature(
 
   const result = (await response.json()) as { verification_status: string };
   return result.verification_status === "SUCCESS";
-}
-
-export function webhookEventId(body: string): string {
-  return createHash("sha256").update(body).digest("hex");
 }

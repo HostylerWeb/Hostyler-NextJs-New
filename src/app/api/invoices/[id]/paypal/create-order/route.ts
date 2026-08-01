@@ -1,12 +1,19 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
+import { getAmountDue } from "@/lib/paypal-amounts";
 import {
   createPayPalOrder,
   isPayPalConfigured,
 } from "@/lib/paypal";
 import { canPayInvoice } from "@/lib/permissions";
 import { getInvoiceById } from "@/lib/repositories/invoices";
-import { createPendingPayment } from "@/lib/repositories/payments";
+import {
+  createPendingPayment,
+  failPendingPaymentsWithMismatchedMode,
+  failSupersededPendingPayments,
+  findReusablePendingPayment,
+} from "@/lib/repositories/payments";
+import { env } from "@/lib/env";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -40,15 +47,28 @@ export async function POST(request: Request, context: RouteContext) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 
-  const amountDue =
-    Math.round((Number(invoice.total) - Number(invoice.amount_paid)) * 100) /
-    100;
+  const amountDue = getAmountDue(Number(invoice.total), Number(invoice.amount_paid));
 
   if (amountDue <= 0) {
     return NextResponse.json({ error: "Nothing to pay" }, { status: 400 });
   }
 
   try {
+    await failPendingPaymentsWithMismatchedMode(invoice.id, env.PAYPAL_MODE);
+
+    const reusablePayment = await findReusablePendingPayment(
+      invoice.id,
+      amountDue,
+      invoice.currency,
+      env.PAYPAL_MODE,
+    );
+
+    if (reusablePayment) {
+      return NextResponse.json({ orderId: reusablePayment.provider_order_id });
+    }
+
+    await failSupersededPendingPayments(invoice.id);
+
     const order = await createPayPalOrder({
       invoiceId: invoice.id,
       invoiceNumber: invoice.invoice_number,
@@ -62,6 +82,7 @@ export async function POST(request: Request, context: RouteContext) {
       provider_order_id: order.id,
       amount: amountDue,
       currency: invoice.currency,
+      paypal_mode: env.PAYPAL_MODE,
     });
 
     return NextResponse.json({ orderId: order.id });

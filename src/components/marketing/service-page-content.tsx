@@ -179,6 +179,12 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
         ? "var(--violet)"
         : page.tint === "coral"
           ? "var(--coral)"
+          : "var(--ink)",
+    "--sp-accent-fill":
+      page.tint === "violet"
+        ? "var(--violet)"
+        : page.tint === "coral"
+          ? "var(--coral)"
           : "var(--lime)",
     "--sp-tint":
       page.tint === "violet"
@@ -658,7 +664,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
               <Button href="/contact" variant="lime" className="btn btn-ghost">
                 {page.cta}
               </Button>
-              <Button href={`mailto:hello@hostyler.dev`} variant="ghost" className="btn btn-ghost">
+              <Button href={`mailto:support@hostyler.com`} variant="ghost" className="btn btn-ghost">
                 Or email us directly
               </Button>
             </div>

@@ -30,7 +30,7 @@ export default async function VerifyEmailPage({
       </Button>
       <p className="text-center text-sm text-muted">
         Need help?{" "}
-        <Link href="mailto:hello@hostyler.dev" className="font-semibold text-violet hover:underline">
+        <Link href="mailto:support@hostyler.com" className="font-semibold text-violet hover:underline">
           Contact us
         </Link>
       </p>

@@ -2,54 +2,54 @@ import type { LegalDocument } from "@/content/legal/types";
 
 export const privacyPolicy: LegalDocument = {
   title: "Privacy Policy",
-  lastUpdated: "March 24, 2024",
-  intro: ["This website collects certain personal data from its users."],
+  lastUpdated: "August 1, 2026",
+  intro: [
+    "This policy explains how Hostyler Group collects, uses, and protects personal data when you use our website and client services.",
+  ],
   sections: [
     {
       title: "Owner and Data Controller",
-      paragraphs: ["Hostyler Group", "Email: Support@Hostyler.com"],
+      paragraphs: ["Hostyler Group", "Email: support@hostyler.com"],
     },
     {
-      title: "Types of Data Collected",
+      title: "Types of Data We Collect",
       paragraphs: [
-        "Among the types of personal data that Hostyler Group collects, either directly or through third parties, are cookies, usage data, first name, last name, phone number, and email address.",
-        "For detailed information on each type of personal data collected, please refer to the dedicated sections of this privacy policy or specific explanation texts provided before data collection.",
-        "Personal data may be freely provided by the user, or, in the case of usage data, collected automatically while using the website. Unless specified otherwise, all data requested by Hostyler Group is mandatory, and failure to provide this data may make it impossible for the website to provide its services.",
-        "Any use of cookies or other tracking tools by Hostyler Group or third-party service providers used by the website is for the purpose of providing the required service to the user, as well as other purposes described in this document.",
-        "Users are responsible for any third-party personal data obtained, published, or shared through the Hostyler Group website.",
+        "We may collect your name, email address, phone number, company details, and any information you submit through contact forms, project enquiries, or client portal registration.",
+        "When you use the client portal, we also process account credentials (stored as hashed passwords), invoice and payment records, and support ticket messages.",
+        "We collect limited technical data such as IP address, browser type, and device information for security, rate limiting, and abuse prevention.",
       ],
     },
     {
-      title: "Methods and Place of Data Processing",
+      title: "How We Use Your Data",
       paragraphs: [
-        "Hostyler Group takes appropriate security measures to prevent unauthorized access, disclosure, alteration, or unauthorized destruction of data. Data processing is carried out using computers and/or IT-enabled tools, following organizational procedures and modes strictly related to the purposes indicated.",
-        "Data processing may occur at Hostyler Group's operating offices and other locations where parties involved in the processing are located. Data transfers may involve transferring the user's data to a country other than their own.",
+        "We use personal data to respond to enquiries, deliver contracted services, operate the client portal, process invoices, send transactional emails (such as password resets and payment confirmations), and maintain platform security.",
+        "We do not sell your personal data. We do not use third-party advertising or behavioural tracking on this website.",
       ],
     },
     {
-      title: "Retention Time",
+      title: "Cookies and Similar Technologies",
       paragraphs: [
-        "Personal data is processed and stored for as long as necessary for the purposes it was collected for, and may be retained longer due to legal obligations or user consent.",
+        "We use essential cookies and similar technologies required for authentication, session management, and security. These are necessary for the site and client portal to function.",
+        "We use Cloudflare Web Analytics on public pages to understand traffic and improve the website. This service is cookieless, does not track you across other sites, and is not used for advertising.",
+        "We do not use Google Analytics or third-party marketing cookies on this website.",
       ],
     },
     {
-      title: "Purposes of Processing",
+      title: "Data Retention and Security",
       paragraphs: [
-        "Hostyler Group collects user data to provide its services, comply with legal obligations, respond to enforcement requests, protect its rights and interests, detect malicious or fraudulent activity, and for purposes such as remarketing, behavioral targeting, contacting users, advertising, analytics, hosting, and backend infrastructure, among others.",
-        'For specific information about the personal data used for each purpose, users may refer to the "Detailed Information on the Processing of Personal Data" section.',
+        "We retain personal data only as long as needed for the purposes described above, or as required by law. We apply appropriate technical and organisational measures to protect data against unauthorised access, loss, or misuse.",
       ],
     },
     {
-      title: "Users' Rights",
+      title: "Your Rights",
       paragraphs: [
-        "Users have the right to withdraw consent, object to processing, access their data, verify and seek rectification, restrict processing, request erasure or removal of data, receive their data and have it transferred to another controller, and lodge complaints. Users may exercise these rights by contacting Hostyler Group.",
+        "Depending on your location, you may have the right to access, correct, delete, or restrict processing of your personal data, and to object to certain processing. To exercise these rights, contact us at support@hostyler.com.",
       ],
     },
     {
-      title: "Changes to This Privacy Policy",
+      title: "Changes to This Policy",
       paragraphs: [
-        "Hostyler Group reserves the right to make changes to this privacy policy at any time by notifying users on the website. It is recommended to check this page often for updates.",
-        "This privacy policy relates solely to Hostyler Group's website.",
+        "We may update this policy from time to time. The latest version will always be published on this page with an updated date.",
       ],
     },
   ],

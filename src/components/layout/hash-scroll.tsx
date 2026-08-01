@@ -13,11 +13,29 @@ export function HashScroll() {
     const id = window.location.hash.replace(/^#/, "");
     if (!id) return;
 
-    const frame = window.requestAnimationFrame(() => {
-      scrollToSection(id);
-    });
+    let attempts = 0;
+    let timeoutId: number | undefined;
 
-    return () => window.cancelAnimationFrame(frame);
+    const tryScroll = () => {
+      if (scrollToSection(id) || attempts >= 30) return;
+      attempts += 1;
+      timeoutId = window.setTimeout(tryScroll, 100);
+    };
+
+    const frame = window.requestAnimationFrame(tryScroll);
+
+    const onHashChange = () => {
+      const nextId = window.location.hash.replace(/^#/, "");
+      if (nextId) scrollToSection(nextId);
+    };
+
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      if (timeoutId) window.clearTimeout(timeoutId);
+      window.removeEventListener("hashchange", onHashChange);
+    };
   }, [pathname]);
 
   return null;

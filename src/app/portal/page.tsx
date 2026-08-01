@@ -38,15 +38,6 @@ export default async function PortalDashboardPage() {
   return (
     <PortalShell userName={session.user.name ?? "Client"}>
       <div className="space-y-8">
-        <div>
-          <h1 className="font-display text-3xl">
-            Welcome back, {session.user.name?.split(" ")[0] ?? "there"}
-          </h1>
-          <p className="mt-1 text-sm text-muted">
-            Here&apos;s what needs your attention.
-          </p>
-        </div>
-
         <div className="grid gap-4 sm:grid-cols-3">
           <Card tint="violet" className="p-5">
             <p className="font-mono text-[10px] font-bold uppercase text-muted">

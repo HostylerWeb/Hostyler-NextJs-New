@@ -7,6 +7,7 @@ import { isAdmin } from "@/lib/permissions";
 import { prisma } from "@/lib/db";
 import { countAllOpenTickets } from "@/lib/repositories/support";
 import { markInvoicesOverdue } from "@/lib/repositories/invoices";
+import { countActiveSecurityIncidents } from "@/lib/repositories/security";
 import { formatCurrency } from "@/lib/format";
 
 export default async function AdminDashboardPage() {
@@ -18,7 +19,7 @@ export default async function AdminDashboardPage() {
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-  const [unpaidAgg, overdueCount, openTickets, newContacts, recentPayments] =
+  const [unpaidAgg, overdueCount, openTickets, newContacts, recentPayments, activeSecurityIncidents] =
     await Promise.all([
       prisma.invoices.aggregate({
         where: { status: { notIn: ["paid", "cancelled", "draft"] } },
@@ -41,6 +42,7 @@ export default async function AdminDashboardPage() {
           invoice: { select: { invoice_number: true } },
         },
       }),
+      countActiveSecurityIncidents(),
     ]);
 
   const unpaidTotal =
@@ -56,7 +58,7 @@ export default async function AdminDashboardPage() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
           <Card tint="violet" className="p-5">
             <p className="font-mono text-[10px] font-bold uppercase text-muted">
               Unpaid total
@@ -84,6 +86,15 @@ export default async function AdminDashboardPage() {
             <p className="mt-2 font-display text-2xl">{newContacts}</p>
             <Link href="/admin/contacts" className="mt-3 inline-block text-sm font-bold text-violet">
               View submissions →
+            </Link>
+          </Card>
+          <Card tint={activeSecurityIncidents > 0 ? "coral" : "paper"} className="p-5">
+            <p className="font-mono text-[10px] font-bold uppercase text-muted">
+              Security alerts
+            </p>
+            <p className="mt-2 font-display text-2xl">{activeSecurityIncidents}</p>
+            <Link href="/admin/security" className="mt-3 inline-block text-sm font-bold text-violet">
+              {activeSecurityIncidents > 0 ? "Review incidents →" : "View security log →"}
             </Link>
           </Card>
         </div>

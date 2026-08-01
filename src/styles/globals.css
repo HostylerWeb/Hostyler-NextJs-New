@@ -53,12 +53,53 @@
   html {
     scroll-behavior: smooth;
     overflow-x: clip;
+    scrollbar-width: thin;
+    scrollbar-color: var(--coral) var(--paper-2);
   }
 
   body {
     @apply bg-paper text-ink font-body antialiased;
     line-height: 1.5;
     overflow-x: clip;
+  }
+
+  /* Branded scrollbar — mirrors the top scroll-progress gradient */
+  html::-webkit-scrollbar {
+    width: 13px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: var(--paper-2);
+    border-left: 2.5px solid var(--ink);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    border: 2.5px solid var(--ink);
+    border-radius: 100px;
+    min-height: 56px;
+    background: linear-gradient(
+      180deg,
+      var(--violet) 0%,
+      var(--coral) 52%,
+      var(--lime) 100%
+    );
+    background-clip: padding-box;
+    box-shadow: 2px 2px 0 var(--ink);
+    transition:
+      box-shadow 0.2s var(--ease),
+      transform 0.2s var(--ease);
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  html::-webkit-scrollbar-thumb:active {
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  html::-webkit-scrollbar-corner {
+    background: var(--paper);
   }
 
   h1,
@@ -168,6 +209,10 @@
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+    }
+
+    html::-webkit-scrollbar-thumb {
+      transition: none;
     }
 
     .reveal {

@@ -40,6 +40,23 @@ export type CaseStudyDetail = {
   };
   stats: CaseStudyStat[];
   screenshots?: CaseStudyScreenshot[];
+  featureBandMatch?: string;
+  sections?: {
+    showcaseEyebrow?: string;
+    showcaseTitle?: string;
+    showcaseIntro?: string;
+    featuresEyebrow?: string;
+    featuresTitle?: string;
+    featuresIntro?: string;
+    journeyEyebrow?: string;
+    journeyTitle?: string;
+    journeyIntro?: string;
+    operationsTitle?: string;
+    operationsIntro?: string;
+    techIntro?: string;
+    ctaTitle?: string;
+    ctaIntro?: string;
+  };
   features: CaseStudyFeature[];
   playerSteps: CaseStudyStep[];
   adminHighlights: string[];

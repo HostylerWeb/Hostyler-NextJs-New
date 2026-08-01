@@ -50,12 +50,15 @@ function parseTags(tags: unknown): string[] {
 export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContentProps) {
   const tags = parseTags(study.tags);
   const screenshots = detail.screenshots ?? [];
+  const sections = detail.sections ?? {};
   const heroShot = screenshots[0] ?? {
     src: study.cover_image_url,
     alt: `${study.title} homepage`,
     caption: "Homepage",
   };
-  const featureShot = screenshots.find((s) => s.src.includes("competition-detail")) ?? screenshots[1] ?? heroShot;
+  const featureBandKey = detail.featureBandMatch ?? "competition-detail";
+  const featureShot =
+    screenshots.find((s) => s.src.includes(featureBandKey)) ?? screenshots[1] ?? heroShot;
 
   return (
     <RevealInit>
@@ -107,6 +110,7 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
                     width={1200}
                     height={700}
                     priority
+                    unoptimized
                     className="img-contain"
                   />
                 </div>
@@ -154,6 +158,7 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
               alt={featureShot.alt}
               width={1920}
               height={720}
+              unoptimized
               className="img-contain"
             />
           </div>
@@ -166,10 +171,13 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
               <div className="head reveal">
                 <span className="eyebrow-chip">
                   <i />
-                  Platform screens
+                  {sections.showcaseEyebrow ?? "Platform screens"}
                 </span>
-                <h2>Inside the product.</h2>
-                <p>Real dark-mode screens from the live platform — entry, checkout, account, and responsible play.</p>
+                <h2>{sections.showcaseTitle ?? "Inside the product."}</h2>
+                <p>
+                  {sections.showcaseIntro ??
+                    "Screens captured from the live platform — browse, entry, instant wins, winners, and account flows."}
+                </p>
               </div>
 
               <div className="csd-showcase">
@@ -193,6 +201,7 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
                           width={1200}
                           height={700}
                           loading="lazy"
+                          unoptimized
                           className="img-contain"
                         />
                       </div>
@@ -208,15 +217,15 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
         <section className="csd-section" id="features">
           <Wrap>
             <div className="head reveal">
-              <span className="eyebrow-chip">
-                <i />
-                Platform features
-              </span>
-              <h2>Everything a competition operator needs.</h2>
-              <p>
-                Player-facing flows and back-office tooling built as one product — not bolted-on
-                plugins.
-              </p>
+                <span className="eyebrow-chip">
+                  <i />
+                  {sections.featuresEyebrow ?? "Platform features"}
+                </span>
+                <h2>{sections.featuresTitle ?? "Everything a competition operator needs."}</h2>
+                <p>
+                  {sections.featuresIntro ??
+                    "Player-facing flows and back-office tooling built as one product — not bolted-on plugins."}
+                </p>
             </div>
 
             <div className="csd-feature-grid">
@@ -236,12 +245,15 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
         <section className="csd-section csd-section-tint" id="journey">
           <Wrap>
             <div className="head reveal">
-              <span className="eyebrow-chip">
-                <i />
-                Player journey
-              </span>
-              <h2>From browse to live draw.</h2>
-              <p>Four steps, optimised for mobile traffic arriving during draw-night pushes.</p>
+                <span className="eyebrow-chip">
+                  <i />
+                  {sections.journeyEyebrow ?? "Player journey"}
+                </span>
+                <h2>{sections.journeyTitle ?? "From browse to live draw."}</h2>
+                <p>
+                  {sections.journeyIntro ??
+                    "Four steps, optimised for mobile traffic arriving during draw-night pushes."}
+                </p>
             </div>
 
             <div className="csd-steps">
@@ -261,10 +273,10 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
             <div className="csd-ops-grid">
               <div className="csd-ops-copy reveal">
                 <span className="csd-section-label">Operations</span>
-                <h2>Built for draw night, not just launch day.</h2>
+                <h2>{sections.operationsTitle ?? "Built for draw night, not just launch day."}</h2>
                 <p>
-                  The admin layer handles the messy reality of running competitions at scale —
-                  accounting splits, prize claims, withdrawals, and staff workflows included.
+                  {sections.operationsIntro ??
+                    "The admin layer handles the messy reality of running competitions at scale — accounting splits, prize claims, withdrawals, and staff workflows included."}
                 </p>
                 <ul className="csd-checklist">
                   {detail.adminHighlights.map((item) => (
@@ -301,8 +313,8 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
                 <span className="csd-section-label">Tech stack</span>
                 <h2>Custom build, production-ready.</h2>
                 <p>
-                  PHP and CodeIgniter 4 on the backend, with a REST API, Cashflows payments, and
-                  integrations for email, analytics, and marketing automation.
+                  {sections.techIntro ??
+                    "Custom PHP backend with a REST API, payment processing, and integrations for email, analytics, and social live-draw promotion."}
                 </p>
               </div>
               <div className="tag-row csd-tech-tags">
@@ -318,10 +330,10 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
           <Wrap>
             <div className="csd-cta-panel reveal">
               <div>
-                <h2>Need a competition platform like this?</h2>
+                <h2>{sections.ctaTitle ?? "Need a competition platform like this?"}</h2>
                 <p>
-                  We build custom raffle and competition sites with the checkout speed, compliance
-                  structure, and admin depth operators actually need.
+                  {sections.ctaIntro ??
+                    "We build custom raffle and competition sites with the checkout speed, compliance structure, and admin depth operators actually need."}
                 </p>
               </div>
               <div className="csd-cta-actions">

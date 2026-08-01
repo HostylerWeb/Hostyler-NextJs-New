@@ -21,7 +21,6 @@ export function SiteLogoMark({
   aspect = LOGO_ASPECT,
 }: SiteLogoMarkProps) {
   const width = Math.round(height * aspect);
-  const sizedWithCss = Boolean(className);
 
   return (
     <Image
@@ -31,10 +30,6 @@ export function SiteLogoMark({
       height={height}
       priority={priority}
       className={cn("w-auto shrink-0", className)}
-      style={{
-        width: "auto",
-        height: sizedWithCss ? "auto" : height,
-      }}
     />
   );
 }

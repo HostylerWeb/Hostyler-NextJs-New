@@ -20,8 +20,8 @@ const serverSchema = z.object({
     .transform((value) => value === "true"),
   SMTP_USER: z.string().optional(),
   SMTP_PASS: z.string().optional(),
-  SMTP_FROM: z.string().default("Hostyler <hello@hostyler.dev>"),
-  SMTP_TO: z.string().default("hello@hostyler.dev"),
+  SMTP_FROM: z.string().default("Hostyler <support@hostyler.com>"),
+  SMTP_TO: z.string().default("support@hostyler.com"),
   PAYPAL_MODE: paypalModeSchema.default("sandbox"),
   PAYPAL_CLIENT_ID: z.string().optional(),
   PAYPAL_CLIENT_SECRET: z.string().optional(),
@@ -40,6 +40,8 @@ const serverSchema = z.object({
 const clientSchema = z.object({
   NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
   NEXT_PUBLIC_PAYPAL_CLIENT_ID: z.string().optional(),
+  NEXT_PUBLIC_PAYPAL_MODE: z.enum(["sandbox", "live"]).default("sandbox"),
+  NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN: z.string().optional(),
 });
 
 const productionRequired = [
@@ -78,6 +80,9 @@ function parseClientEnv() {
   const parsed = clientSchema.safeParse({
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_PAYPAL_CLIENT_ID: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
+    NEXT_PUBLIC_PAYPAL_MODE: process.env.NEXT_PUBLIC_PAYPAL_MODE,
+    NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN:
+      process.env.NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN,
   });
 
   if (!parsed.success) {

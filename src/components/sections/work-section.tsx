@@ -46,9 +46,10 @@ export async function WorkSection() {
                   className="img-cover"
                   src={study.cover_image_url}
                   alt={study.title}
-                  width={900}
-                  height={220}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
+                  unoptimized
                 />
                 <span className="work-mark">{getShortMark(study.client_name)}</span>
               </div>

@@ -73,6 +73,13 @@ export async function POST(request: Request) {
         submission.id,
         error instanceof Error ? error.message : "Email failed",
       );
+      return NextResponse.json(
+        {
+          error:
+            "We saved your message but could not send email. Please contact us directly at support@hostyler.com.",
+        },
+        { status: 503 },
+      );
     }
 
     return NextResponse.json({ ok: true });

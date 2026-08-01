@@ -36,7 +36,7 @@
 
 @media (max-width: 940px) {
   :root {
-    --site-header-offset: 5.75rem;
+    --site-header-offset: 4.625rem;
   }
 }
 
@@ -725,15 +725,7 @@ section[id] {
    .faq-section{padding:64px 0;}
    .process-section{padding:56px 0;}
    .logos-section{padding:36px 0 12px;}
- 
-   header{padding:12px 0;}
-   .nav-inner{padding:8px 8px 8px 16px; border-radius:20px;}
-   .logo{font-size:16px;}
-   .logo-mark{width:22px; height:22px;}
-   .nav-toggle{width:44px; height:44px;}
-   .nav-links{top:68px; left:18px; right:18px; padding:12px;}
-   .nav-item{padding:13px 14px; font-size:14px;}
- 
+
    .hero{padding:128px 0 56px;}
    .hero h1{font-size:clamp(30px, 8.2vw, 40px); margin-top:16px;}
    .hero-copy p{font-size:16px; margin-top:16px;}
@@ -853,16 +845,20 @@ section[id] {
  /* ============ SERVICE DETAIL PAGES ============ */
  .service-detail {
    --sp-accent: var(--violet);
+   --sp-accent-fill: var(--violet);
    --sp-tint: var(--violet-tint);
  }
 
  .service-detail[data-tint="coral"] {
    --sp-accent: var(--coral);
+   --sp-accent-fill: var(--coral);
    --sp-tint: var(--coral-tint);
  }
 
  .service-detail[data-tint="lime"] {
-   --sp-accent: var(--lime);
+   /* Lime is too light for text on paper — use ink for labels, lime for fills */
+   --sp-accent: var(--ink);
+   --sp-accent-fill: var(--lime);
    --sp-tint: var(--lime-tint);
  }
 
@@ -1227,7 +1223,7 @@ section[id] {
    border-radius: 10px;
    overflow: hidden;
    background: var(--paper);
-   box-shadow: 4px 4px 0 var(--sp-accent);
+   box-shadow: 4px 4px 0 var(--sp-accent-fill);
  }
 
  .service-path-browser-bar {
@@ -1262,7 +1258,7 @@ section[id] {
  .service-path-browser-line.wide {
    height: 10px;
    width: 88%;
-   background: var(--sp-accent);
+   background: var(--sp-accent-fill);
    opacity: 0.85;
    margin-bottom: 10px;
  }
@@ -1366,7 +1362,7 @@ section[id] {
    border-radius: 22px;
    background: var(--paper);
    padding: 28px 14px 18px;
-   box-shadow: 4px 4px 0 var(--sp-accent);
+   box-shadow: 4px 4px 0 var(--sp-accent-fill);
    position: relative;
  }
 
@@ -1489,7 +1485,7 @@ section[id] {
    height: 40px;
    border-radius: 50%;
    border: 2.5px solid var(--ink);
-   background: var(--sp-accent);
+   background: var(--sp-accent-fill);
    color: #fff;
    font-family: var(--f-display);
    font-size: 14px;
@@ -1497,6 +1493,10 @@ section[id] {
    display: grid;
    place-items: center;
    box-shadow: 2px 2px 0 var(--ink);
+ }
+
+ .service-detail[data-tint="lime"] .service-build-card-num {
+   color: var(--ink);
  }
 
  .service-build-card-num.standalone {
@@ -1967,7 +1967,7 @@ section[id] {
    height: 64px;
    border-radius: 50%;
    border: 2.5px solid var(--ink);
-   background: var(--sp-accent);
+   background: var(--sp-accent-fill);
    color: #fff;
    display: grid;
    place-items: center;
@@ -2185,6 +2185,10 @@ section[id] {
    box-shadow: var(--shadow);
  }
 
+ .service-faq-item.open .service-faq-q {
+   background: var(--sp-tint);
+ }
+
  .service-faq-q {
    display: flex;
    align-items: center;
@@ -2228,8 +2232,17 @@ section[id] {
    transition: max-height 0.4s var(--ease);
  }
 
- .service-faq-a p {
+ .service-faq-a-inner {
    padding: 0 24px 20px;
+   border-top: 2px solid transparent;
+ }
+
+ .service-faq-item.open .service-faq-a-inner {
+   border-top-color: rgba(18, 18, 20, 0.08);
+   padding-top: 16px;
+ }
+
+ .service-faq-a p {
    color: var(--muted);
    font-size: 14.5px;
    max-width: 600px;
@@ -2461,6 +2474,41 @@ section[id] {
   --csd-tint: #fff1f1;
 }
 
+.case-study-detail[data-slug="max-giveaways"] {
+  --csd-accent: #ff7000;
+  --csd-tint: #fff4eb;
+}
+
+.case-study-detail[data-slug="sanjha-chulha"] {
+  --csd-accent: #8b1a1a;
+  --csd-tint: #fdf3f0;
+}
+
+.case-study-detail[data-slug="the-lash-house"] {
+  --csd-accent: #c26b8a;
+  --csd-tint: #fdf5f7;
+}
+
+.case-study-detail[data-slug="hooked-online"] {
+  --csd-accent: #1a5f8a;
+  --csd-tint: #eef6fb;
+}
+
+.case-study-detail[data-slug="socialite-life"] {
+  --csd-accent: #c2185b;
+  --csd-tint: #fdf0f5;
+}
+
+.case-study-detail[data-slug="bonnie-plants"] {
+  --csd-accent: #2e7d32;
+  --csd-tint: #f0f7f0;
+}
+
+.case-study-detail[data-slug="nadia-amokrane"] {
+  --csd-accent: #0b7176;
+  --csd-tint: #eaf3f1;
+}
+
 .case-study-detail .csd-hero {
   padding: 24px 0 72px;
 }
@@ -2615,7 +2663,14 @@ section[id] {
   background: var(--csd-tint);
 }
 
-.case-study-detail[data-slug="competitiongo"] .csd-shot-band {
+.case-study-detail[data-slug="competitiongo"] .csd-shot-band,
+.case-study-detail[data-slug="max-giveaways"] .csd-shot-band,
+.case-study-detail[data-slug="sanjha-chulha"] .csd-shot-band,
+.case-study-detail[data-slug="the-lash-house"] .csd-shot-band,
+.case-study-detail[data-slug="hooked-online"] .csd-shot-band,
+.case-study-detail[data-slug="socialite-life"] .csd-shot-band,
+.case-study-detail[data-slug="bonnie-plants"] .csd-shot-band,
+.case-study-detail[data-slug="nadia-amokrane"] .csd-shot-band {
   background: var(--csd-accent);
 }
 
@@ -2987,4 +3042,32 @@ section[id] {
   .case-study-detail .csd-cta-panel {
     padding: 28px 22px;
   }
+}
+
+/* PayPal checkout — stretch SDK web components to full container width */
+.paypal-checkout-slot {
+  width: 100%;
+}
+
+.paypal-checkout-slot > *,
+.paypal-checkout-slot paypal-basic-card-container,
+.paypal-checkout-slot paypal-basic-card-button,
+.paypal-checkout-slot paypal-guest-payments {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.paypal-checkout-slot--card {
+  min-height: 48px;
+}
+
+.paypal-checkout-slot--card iframe {
+  min-height: 420px;
+}
+
+.paypal-checkout-slot iframe {
+  width: 100% !important;
+  max-width: 100% !important;
 }

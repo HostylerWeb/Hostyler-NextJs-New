@@ -2,7 +2,7 @@ import type { LegalDocument } from "@/content/legal/types";
 
 export const termsOfService: LegalDocument = {
   title: "Terms and Conditions",
-  lastUpdated: "March 24, 2024",
+  lastUpdated: "August 1, 2026",
   intro: [
     'Welcome to Hostyler Group. These Terms and Conditions form a legally binding agreement between you ("the Client") and Hostyler Group ("the Company"), governing your use of our web services and website.',
   ],
@@ -24,7 +24,7 @@ export const termsOfService: LegalDocument = {
     {
       title: "1. Cookies",
       paragraphs: [
-        "Our website utilizes cookies to enhance user experience. By using our website, you consent to the use of cookies in line with our Privacy Policy. Cookies are used to retain user preferences, store information for things like shopping carts, and provide anonymized tracking data to third-party applications like Google Analytics.",
+        "Our website uses essential cookies required for authentication, session management, and security when you use the client portal. By using our website, you consent to these necessary cookies. We do not use third-party advertising or analytics cookies.",
       ],
     },
     {

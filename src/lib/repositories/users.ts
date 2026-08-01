@@ -9,6 +9,7 @@ export type CreateUserInput = {
   phone?: string | null;
   role?: user_role;
   email_verified_at?: Date | null;
+  registration_ip?: string | null;
 };
 
 export type UpdateUserProfileInput = {
@@ -28,6 +29,20 @@ export type UpdateClientByAdminInput = {
 export async function findUserByEmail(email: string): Promise<users | null> {
   return prisma.users.findUnique({
     where: { email: email.toLowerCase().trim() },
+  });
+}
+
+export async function findClientByRegistrationIp(ip: string): Promise<users | null> {
+  const normalized = ip.trim();
+  if (!normalized || normalized === "unknown") {
+    return null;
+  }
+
+  return prisma.users.findFirst({
+    where: {
+      role: "client",
+      registration_ip: normalized,
+    },
   });
 }
 

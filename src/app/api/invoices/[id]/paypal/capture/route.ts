@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { env } from "@/lib/env";
-import { formatCurrency } from "@/lib/format";
+import {
+  getAmountDue,
+  validateCaptureAmount,
+} from "@/lib/paypal-amounts";
+import { sendPaymentReceipt } from "@/lib/paypal-receipt";
 import { capturePayPalOrder, isPayPalConfigured } from "@/lib/paypal";
 import { canPayInvoice } from "@/lib/permissions";
 import { getInvoiceById } from "@/lib/repositories/invoices";
@@ -10,8 +14,6 @@ import {
   markPaymentCompleted,
   markPaymentFailed,
 } from "@/lib/repositories/payments";
-import { findUserById } from "@/lib/repositories/users";
-import { sendInvoicePaidReceipt } from "@/lib/mail";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -60,8 +62,7 @@ export async function POST(request: Request, context: RouteContext) {
     return NextResponse.json({ success: true, status: "completed" });
   }
 
-  const amountDue =
-    Math.round((Number(invoice.total) - Number(invoice.amount_paid)) * 100) / 100;
+  const amountDue = getAmountDue(Number(invoice.total), Number(invoice.amount_paid));
 
   if (amountDue <= 0) {
     return NextResponse.json({ error: "Nothing to pay" }, { status: 400 });
@@ -83,21 +84,30 @@ export async function POST(request: Request, context: RouteContext) {
       return NextResponse.json({ error: "Payment not completed" }, { status: 400 });
     }
 
-    const payment = await markPaymentCompleted(orderId, {
+    const amountCheck = validateCaptureAmount(
+      captureRecord.amount,
+      Number(existingPayment.amount),
+      existingPayment.currency,
+    );
+
+    if (!amountCheck.ok) {
+      await markPaymentFailed(orderId, {
+        reason: amountCheck.reason,
+        capture: captureRecord,
+      });
+      return NextResponse.json({ error: amountCheck.reason }, { status: 400 });
+    }
+
+    const { payment, newlyCompleted } = await markPaymentCompleted(orderId, {
       provider_capture_id: captureRecord.id,
       payer_email: capture.payer?.email_address ?? null,
       raw_response: capture as unknown as object,
       changed_by_id: session?.user?.id ?? null,
     });
 
-    const client = await findUserById(invoice.user_id);
-    if (client) {
-      await sendInvoicePaidReceipt({
-        invoiceNumber: invoice.invoice_number,
-        total: formatCurrency(Number(payment.amount), payment.currency),
-        clientName: client.name,
-        clientEmail: client.email,
-        paymentId: captureRecord.id,
+    if (newlyCompleted) {
+      await sendPaymentReceipt(payment).catch((error) => {
+        console.error("[paypal:capture] receipt email failed", error);
       });
     }
 
@@ -112,6 +122,11 @@ export async function POST(request: Request, context: RouteContext) {
   } catch (error) {
     console.error("[paypal:capture]", error);
     await markPaymentFailed(orderId).catch(() => undefined);
+
+    if (error instanceof Error && error.message === "Invoice already fully paid") {
+      return NextResponse.json({ error: error.message }, { status: 409 });
+    }
+
     return NextResponse.json({ error: "Capture failed" }, { status: 500 });
   }
 }

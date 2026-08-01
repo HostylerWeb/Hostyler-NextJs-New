@@ -211,7 +211,12 @@ export function ServicesNavDropdown({ activeId, navIndex, onNavigate }: Services
         </div>
       </div>
 
-      <div className="hidden max-[940px]:flex max-[940px]:flex-col max-[940px]:gap-1.5 max-[940px]:pl-2">
+      <div
+        className={cn(
+          "hidden max-[940px]:flex-col max-[940px]:gap-1.5 max-[940px]:pl-2",
+          open ? "max-[940px]:flex" : "max-[940px]:hidden",
+        )}
+      >
         {serviceNavigation.map((service) => {
           const isCurrent = pathname === service.href;
 
@@ -237,6 +242,20 @@ export function ServicesNavDropdown({ activeId, navIndex, onNavigate }: Services
             </Link>
           );
         })}
+        <Link
+          href="/#services"
+          onClick={(event) => {
+            onNavigate?.();
+            if (pathname === "/") {
+              event.preventDefault();
+              scrollToSection("services");
+            }
+          }}
+          className="flex items-center justify-between rounded-[var(--radius-md)] border-2 border-dashed border-ink/30 bg-paper px-3 py-2.5 text-sm font-bold text-muted transition hover:border-ink hover:text-ink"
+        >
+          All services overview
+          <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </div>
   );

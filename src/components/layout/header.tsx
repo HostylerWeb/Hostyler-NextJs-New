@@ -45,12 +45,12 @@ export function Header() {
       />
       <header
         className={cn(
-          "fixed top-0 right-0 left-0 z-[100] py-3 max-[940px]:py-2",
+          "fixed top-0 right-0 left-0 z-[100] py-3 max-[940px]:py-1.5",
           open && "max-[940px]:z-[150]",
         )}
       >
         <div className="mx-auto max-w-[1200px] px-[clamp(18px,4.5vw,32px)]">
-          <div className="flex items-center justify-between gap-5 rounded-full border-2.5 border-ink bg-paper/88 px-3 py-2.5 pl-6 shadow-brutal-sm backdrop-blur-md max-[940px]:gap-3 max-[940px]:py-1.5 max-[940px]:pr-2.5 max-[940px]:pl-3.5">
+          <div className="flex items-center justify-between gap-5 rounded-full border-2.5 border-ink bg-paper/88 px-3 py-2.5 pl-6 shadow-brutal-sm backdrop-blur-md max-[940px]:gap-2.5 max-[940px]:border-2 max-[940px]:py-1 max-[940px]:pr-2 max-[940px]:pl-3">
             <SiteLogo
               height={80}
               className="h-20 w-auto max-[940px]:h-11"
@@ -59,7 +59,7 @@ export function Header() {
 
             <nav
               className={cn(
-                "flex min-w-0 flex-1 items-center justify-center gap-4 max-[940px]:fixed max-[940px]:top-[88px] max-[940px]:right-5 max-[940px]:left-5 max-[940px]:z-[150] max-[940px]:flex-col max-[940px]:items-stretch max-[940px]:rounded-[var(--radius-lg)] max-[940px]:border-2.5 max-[940px]:border-ink max-[940px]:bg-paper max-[940px]:p-3.5 max-[940px]:shadow-brutal max-[940px]:transition max-[940px]:duration-300",
+                "flex min-w-0 flex-1 items-center justify-center gap-4 max-[940px]:fixed max-[940px]:top-[calc(var(--site-header-offset)+0.35rem)] max-[940px]:right-4 max-[940px]:left-4 max-[940px]:z-[150] max-[940px]:flex-col max-[940px]:items-stretch max-[940px]:rounded-[var(--radius-lg)] max-[940px]:border-2.5 max-[940px]:border-ink max-[940px]:bg-paper max-[940px]:p-3.5 max-[940px]:shadow-brutal max-[940px]:transition max-[940px]:duration-300",
                 open
                   ? "max-[940px]:pointer-events-auto max-[940px]:translate-y-0 max-[940px]:scale-100 max-[940px]:opacity-100"
                   : "max-[940px]:pointer-events-none max-[940px]:translate-y-[-10px] max-[940px]:scale-[0.98] max-[940px]:opacity-0",
@@ -89,8 +89,8 @@ export function Header() {
               <button
                 type="button"
                 className={cn(
-                  "hidden size-9 flex-col items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-paper shadow-brutal-sm max-[940px]:flex",
-                  open && "[&>span:nth-child(1)]:translate-y-[7px] [&>span:nth-child(1)]:rotate-45 [&>span:nth-child(2)]:opacity-0 [&>span:nth-child(3)]:translate-y-[-7px] [&>span:nth-child(3)]:-rotate-45",
+                  "hidden size-8 flex-col items-center justify-center gap-1 rounded-full border-2 border-ink bg-paper shadow-brutal-sm max-[940px]:flex",
+                  open && "[&>span:nth-child(1)]:translate-y-[5px] [&>span:nth-child(1)]:rotate-45 [&>span:nth-child(2)]:opacity-0 [&>span:nth-child(3)]:translate-y-[-5px] [&>span:nth-child(3)]:-rotate-45",
                 )}
                 aria-label={open ? "Close menu" : "Open menu"}
                 aria-expanded={open}

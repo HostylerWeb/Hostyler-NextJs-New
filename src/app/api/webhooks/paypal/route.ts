@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendPaymentReceipt } from "@/lib/paypal-receipt";
 import { verifyWebhookSignature } from "@/lib/paypal";
 import {
   getPaymentByProviderOrderId,
@@ -6,9 +7,11 @@ import {
   markPaymentFailed,
   updatePaymentStatus,
 } from "@/lib/repositories/payments";
+import { tryRecordWebhookEvent } from "@/lib/repositories/webhook-events";
 
 export async function POST(request: Request) {
   const body = await request.text();
+  const transmissionId = request.headers.get("paypal-transmission-id");
 
   const verified = await verifyWebhookSignature(request.headers, body);
   if (!verified) {
@@ -26,6 +29,17 @@ export async function POST(request: Request) {
     };
   };
 
+  if (transmissionId) {
+    const isNew = await tryRecordWebhookEvent(
+      "paypal",
+      transmissionId,
+      event.event_type,
+    );
+    if (!isNew) {
+      return NextResponse.json({ received: true, duplicate: true });
+    }
+  }
+
   try {
     if (event.event_type === "PAYMENT.CAPTURE.COMPLETED") {
       const orderId =
@@ -35,10 +49,17 @@ export async function POST(request: Request) {
       if (orderId && captureId) {
         const payment = await getPaymentByProviderOrderId(orderId);
         if (payment && payment.status !== "completed") {
-          await markPaymentCompleted(orderId, {
-            provider_capture_id: captureId,
-            raw_response: event as unknown as object,
-          });
+          const { payment: completedPayment, newlyCompleted } =
+            await markPaymentCompleted(orderId, {
+              provider_capture_id: captureId,
+              raw_response: event as unknown as object,
+            });
+
+          if (newlyCompleted) {
+            await sendPaymentReceipt(completedPayment).catch((error) => {
+              console.error("[paypal:webhook] receipt email failed", error);
+            });
+          }
         }
       }
     }
