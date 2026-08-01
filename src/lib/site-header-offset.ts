@@ -14,7 +14,7 @@ export function invalidateSiteHeaderOffsetCache() {
 }
 
 export function getSiteHeaderOffset(): number {
-  if (typeof window === "undefined") return 0;
+  if (typeof window === "undefined") return DESKTOP_HEADER_OFFSET_PX;
 
   const inline = document.documentElement.style
     .getPropertyValue("--site-header-offset")
@@ -22,8 +22,8 @@ export function getSiteHeaderOffset(): number {
 
   if (inline.endsWith("px")) {
     const parsed = Number.parseFloat(inline);
-    if (!Number.isNaN(parsed) && parsed > 0) {
-      return parsed;
+    if (Number.isFinite(parsed) && parsed > 0) {
+      return Math.ceil(parsed);
     }
   }
 
@@ -32,6 +32,8 @@ export function getSiteHeaderOffset(): number {
   }
 
   const header = document.querySelector("header");
-  cachedHeaderOffsetPx = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+  cachedHeaderOffsetPx = header
+    ? Math.ceil(header.getBoundingClientRect().height)
+    : DESKTOP_HEADER_OFFSET_PX;
   return cachedHeaderOffsetPx;
 }

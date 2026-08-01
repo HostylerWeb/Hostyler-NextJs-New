@@ -2,11 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import {
-  DESKTOP_HEADER_OFFSET_PX,
-  getSiteHeaderOffset,
-  MOBILE_HEADER_BREAKPOINT_PX,
-} from "@/lib/site-header-offset";
+import { DESKTOP_HEADER_OFFSET_PX, MOBILE_HEADER_BREAKPOINT_PX } from "@/lib/site-header-offset";
 
 function pickActiveSection(ratios: Map<string, number>): string {
   let bestId = "";
@@ -49,7 +45,8 @@ export function useScrollSpy(navSectionIds: string[]) {
         return;
       }
 
-      const headerInsetPx = Math.max(getSiteHeaderOffset(), DESKTOP_HEADER_OFFSET_PX);
+      // IntersectionObserver rootMargin only accepts px or % (never rem).
+      const headerInsetPx = DESKTOP_HEADER_OFFSET_PX;
 
       observer = new IntersectionObserver(
         (entries) => {
