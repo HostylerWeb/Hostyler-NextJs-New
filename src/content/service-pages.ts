@@ -54,6 +54,7 @@ export type ServicePage = {
     badgeValue?: string;
   };
   projectTypesSection?: {
+    eyebrow?: string;
     headline: string;
     headlineLine2?: string;
     lead: string;
@@ -99,7 +100,7 @@ export const servicePages: ServicePage[] = [
     ],
     toc: [
       { id: "overview", label: "Overview" },
-      { id: "what-we-build", label: "What we build" },
+      { id: "what-we-build", label: "Capabilities" },
       { id: "fit", label: "Fit & scope" },
       { id: "principles", label: "How we think" },
       { id: "process", label: "Process" },
@@ -116,36 +117,36 @@ export const servicePages: ServicePage[] = [
     ],
     projectTypes: [
       {
-        title: "Marketing sites & brand platforms",
+        title: "Backend & API endpoints",
         description:
-          "High-conversion landing pages, multi-page marketing sites, and design systems that marketing can update without waiting on engineering.",
+          "Custom server logic, REST and GraphQL APIs, authentication, webhooks, and third-party integrations — the engine behind your product, not just a static front end.",
+        image:
+          "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+        imageAlt: "Developer writing backend code and API logic",
+      },
+      {
+        title: "Frontend & responsive design",
+        description:
+          "UI implementation, mobile-first layouts, accessible components, and interfaces that look and work correctly across phones, tablets, and desktops.",
         image:
           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-        imageAlt: "Marketing website performance dashboard",
+        imageAlt: "Responsive web interface and layout design",
       },
       {
-        title: "SaaS dashboards & portals",
+        title: "Database management",
         description:
-          "Customer-facing apps, admin tools, billing views, and multi-tenant dashboards with auth, roles, and real product workflows.",
+          "Schema design, PostgreSQL setup, migrations, indexing, and data layers built for performance, integrity, and maintainability as your product grows.",
         image:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-        imageAlt: "SaaS analytics dashboard interface",
+          "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+        imageAlt: "Server and database infrastructure",
       },
       {
-        title: "E-commerce & content platforms",
+        title: "Cyber security",
         description:
-          "Storefronts, headless commerce, CMS-driven catalogs, and content systems built for editors — not just developers.",
-        image: "/work/hooked-online/product.png",
-        imageAlt:
-          "Hooked Online product page with pricing, add to cart, and payment options",
-      },
-      {
-        title: "Rebuilds & migrations",
-        description:
-          "Moving off WordPress, legacy PHP, or brittle stacks onto a modern Next.js foundation with cleaner SEO, speed, and maintainability.",
+          "Secure auth flows, input validation, HTTPS, secrets management, and production hardening — so your app is safe to run on the public internet.",
         image:
-          "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&q=80",
-        imageAlt: "Legacy application source code reviewed during a platform migration",
+          "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
+        imageAlt: "Cyber security and application protection",
       },
     ],
     principles: [
@@ -233,10 +234,11 @@ export const servicePages: ServicePage[] = [
       badgeValue: "Startups → Scale-ups",
     },
     projectTypesSection: {
-      headline: "Four kinds of web work",
-      headlineLine2: "we do often.",
+      eyebrow: "Capabilities",
+      headline: "Full-stack capabilities",
+      headlineLine2: "we deliver on web projects.",
       lead:
-        "Not every project needs everything below — most start with one clear product surface and grow from there.",
+        "These are the engineering layers behind the work — backend, frontend, data, and security — not just example site types.",
     },
     relatedWorkSection: {
       headline: "Web projects we have shipped.",
@@ -343,9 +345,9 @@ export const servicePages: ServicePage[] = [
       },
     ],
     outcomes: [
-      { value: "< 2s", label: "Target LCP on key pages" },
-      { value: "90+", label: "Lighthouse performance goal" },
-      { value: "1 team", label: "Design through deployment" },
+      { value: "Next.js", label: "Marketing sites to SaaS dashboards" },
+      { value: "From $3.5k", label: "Starting project price" },
+      { value: "12 mo", label: "Free technical support" },
     ],
     cta: "Start a web project",
   },
@@ -368,10 +370,10 @@ export const servicePages: ServicePage[] = [
       "We handle the unglamorous work that kills app projects: App Store review guidelines, crash reporting, analytics, release trains, and post-launch update cycles. You focus on product; we get you through submission and into users' hands.",
     ],
     snapshotStrip: [
-      { value: "2 stores", label: "iOS + Android from one build" },
+      { value: "iOS + Android", label: "Both platforms in one project" },
       { value: "4–12 wks", label: "Typical MVP timeline" },
-      { value: "99.5%", label: "Crash-free session target" },
-      { value: "1 team", label: "Design through App Store" },
+      { value: "React Native", label: "Cross-platform by default" },
+      { value: "12 mo", label: "Free technical support" },
     ],
     projectTypes: [
       {
@@ -656,9 +658,9 @@ export const servicePages: ServicePage[] = [
       },
     ],
     outcomes: [
-      { value: "2 stores", label: "One codebase, iOS + Android" },
-      { value: "4–12 wk", label: "Typical MVP timeline" },
-      { value: "99.5%", label: "Crash-free session target" },
+      { value: "iOS + Android", label: "Native-feeling apps on both platforms" },
+      { value: "From $6k", label: "Starting price for both apps" },
+      { value: "12 mo", label: "Free technical support" },
     ],
     cta: "Start an app project",
   },
@@ -666,75 +668,75 @@ export const servicePages: ServicePage[] = [
     slug: "ai-automation",
     serviceId: "ai",
     tag: "03 · AI",
-    title: "AI & Automation",
+    title: "AI Development",
     tint: "lime",
     visual: "ai",
     metaDescription:
-      "Production AI features and workflow automation — RAG, agents, evals, and cost monitoring built on your data, not generic demos.",
-    lead: "Custom AI features and internal automations that save your team real hours every week — grounded in your own data, and evaluated before they ever ship.",
+      "Custom AI development — model training, chatbots, advisors, vision tools, and AI features embedded in websites and apps, built for production.",
+    lead: "Custom AI for real products — chatbots, advisors, scanners, trained models, and intelligent features inside your website or app — scoped, evaluated, and wired into production infrastructure.",
     homepageDescription:
-      "Custom AI features and internal automations that save your team real hours every week — grounded in your own data, and evaluated before they ever ship.",
+      "Custom AI for real products — chatbots, advisors, scanners, trained models, and intelligent features inside your website or app — scoped, evaluated, and wired into production infrastructure.",
     noBorderOnHomepage: true,
     overview: [
-      "Most AI projects fail because they stop at the demo. We build features that survive production: grounded on your documents and data, guarded against hallucinations, measured with evals, and monitored for cost and quality as usage grows.",
-      "That might mean a support copilot that drafts replies from your help center, an internal search tool across contracts and wikis, automated reporting pipelines, or AI-powered workflows that replace hours of manual ops work each week.",
-      "We scope AI work like any other engineering project — clear inputs, outputs, success metrics, and rollback plans. You get working software with observability, not a slide deck about what GPT could do someday.",
+      "AI work is not one thing — it can mean a customer chatbot, a document scanner, a product advisor, a trained model on your data, or an intelligent layer inside a website or mobile app. We build all of it as software engineering: clear inputs, outputs, infrastructure, and quality checks before anything reaches users.",
+      "That might mean fine-tuning or training on proprietary data, wiring RAG over your documents, building a vision pipeline for images and PDFs, or embedding generation and search inside an existing product. We handle the logic, APIs, hosting, monitoring, and handoff — not just a prompt in a demo.",
+      "We scope AI projects like any other build — success metrics, evals, guardrails, rollback plans, and cost controls from the first prototype. You get production-ready AI your team can run and extend, not a slide deck about what models could do someday.",
     ],
     snapshotStrip: [
-      { value: "40%+", label: "Typical ticket deflection" },
-      { value: "Evals", label: "Before every ship" },
-      { value: "Your data", label: "Never trains public models" },
-      { value: "24/7", label: "Automated workflows" },
+      { value: "Custom builds", label: "Chatbots, apps, sites & models" },
+      { value: "From $7.5k", label: "Starting price for AI work" },
+      { value: "Evals", label: "Tested before production launch" },
+      { value: "12 mo", label: "Free technical support" },
     ],
     projectTypes: [
       {
-        title: "Support & customer copilots",
+        title: "Chatbots & AI advisors",
         description:
-          "Draft replies from your help center, suggest macros, and route edge cases — with citations and human review for high-stakes answers.",
+          "Customer support bots, internal copilots, sales advisors, and domain-specific assistants — grounded on your content with citations and human review where it matters.",
         image:
           "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
-        imageAlt: "AI-assisted customer support workflow",
+        imageAlt: "AI chatbot and advisor interface",
       },
       {
-        title: "Internal search & knowledge bases",
+        title: "AI in websites & mobile apps",
         description:
-          "RAG over wikis, contracts, and tickets so teams find answers in seconds — not by paging through Slack or SharePoint.",
-        image:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-        imageAlt: "Internal knowledge search dashboard",
-      },
-      {
-        title: "Ops & reporting automation",
-        description:
-          "Scheduled pipelines that extract, summarize, and route data — replacing manual exports and spreadsheet gymnastics.",
-        image:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-        imageAlt: "Automated business reporting dashboard",
-      },
-      {
-        title: "Product-embedded AI features",
-        description:
-          "Search, recommendations, and generation inside your app — behind feature flags, with evals and cost controls from day one.",
+          "Search, recommendations, generation, and assistants embedded in your product — behind auth, feature flags, and the same release process as the rest of your app.",
         image:
           "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
         imageAlt: "AI feature embedded in a software product",
       },
+      {
+        title: "Custom training & model work",
+        description:
+          "Fine-tuning, private datasets, retrieval pipelines, and model selection tuned to your domain — with infrastructure, versioning, and deployment included.",
+        image:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+        imageAlt: "Custom AI model training and monitoring dashboard",
+      },
+      {
+        title: "Vision, scanners & document AI",
+        description:
+          "Image classification, OCR, invoice and form extraction, quality checks, and document routing — turning unstructured files into structured data your systems can use.",
+        image:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+        imageAlt: "Document scanning and AI data extraction workflow",
+      },
     ],
     principles: [
       {
-        title: "Grounded, not generic",
+        title: "Built for your product",
         description:
-          "Every answer cites your data. Generic chatbot wrappers are demos — we build retrieval and guardrails around your content.",
+          "We design around your users, data, and workflows — whether that is a public chatbot, an in-app advisor, or a private model trained on proprietary content.",
       },
       {
         title: "Evaluated before launch",
         description:
-          "Test suites built from your real tickets, docs, and edge cases. We catch regressions before users do.",
+          "Test suites built from your real documents, tickets, images, and edge cases. We catch regressions before users do.",
       },
       {
-        title: "Cost-aware by design",
+        title: "Infrastructure included",
         description:
-          "Caching, routing, and budgets are planned during prototyping — not discovered when the invoice arrives.",
+          "APIs, hosting, vector stores, queues, auth, and monitoring are part of the build — not an afterthought once the demo works.",
       },
       {
         title: "Observable in production",
@@ -745,111 +747,111 @@ export const servicePages: ServicePage[] = [
     engagement: {
       title: "How AI engagements usually start",
       description:
-        "We begin with a use-case and data audit — then a prototype with evals before anything touches production traffic.",
+        "We begin with the use case, your data, and success metrics — then a prototype with evals before anything touches production traffic.",
       points: [
-        "Discovery call to map workflows, data sources, and success metrics",
-        "Data access review and ROI estimate (time saved, deflection, accuracy)",
+        "Discovery call to map the product surface, data sources, and success metrics",
+        "Data access review and architecture recommendation (RAG, fine-tune, vision, agents)",
         "Prototype on a representative dataset with eval suite",
         "Production integration behind feature flags with rollback plan",
-        "Monitoring dashboard and tuning window after launch",
+        "Monitoring dashboard, handoff docs, and tuning window after launch",
       ],
     },
     businessValue: {
-      headline: "Why AI and automation belong in your business",
+      headline: "Why custom AI belongs in your product",
       lead:
-        "The right AI features save hours every week, speed up decisions, and improve customer experience — when they are grounded in your data and built for production, not demos.",
+        "The right AI feature can improve customer experience, speed up internal work, and unlock new product capabilities — when it is trained, integrated, and monitored like any other part of your stack.",
       benefits: [
         {
-          title: "Reduce repetitive work",
+          title: "Smarter customer experiences",
           description:
-            "Automate ticket triage, data entry, report generation, and document review so your team focuses on work that needs human judgment.",
+            "Chatbots, advisors, and in-product assistants that answer from your content — on your website, in your app, or across support channels.",
         },
         {
-          title: "Faster answers for customers",
+          title: "Faster internal work",
           description:
-            "Support copilots and knowledge search help agents and customers find accurate answers in seconds — with citations from your own content.",
+            "Search across documents, summarise reports, classify inputs, and route work automatically so teams spend less time on repetitive tasks.",
         },
         {
-          title: "Smarter product experiences",
+          title: "New product capabilities",
           description:
-            "Add search, recommendations, summarisation, and generation inside your app — features users expect from modern software.",
+            "Add recommendations, generation, vision, and document understanding to products that did not have those features before.",
         },
         {
-          title: "Measurable ROI",
+          title: "Measurable delivery",
           description:
-            "We define success metrics upfront — time saved, deflection rate, accuracy, and cost per task — so you know whether the investment pays off.",
+            "We define success metrics upfront — accuracy, latency, cost per task, and user adoption — so you know whether the build is working.",
         },
       ],
       examples: [
         {
-          title: "Support copilots",
+          title: "Customer & support chatbots",
           description:
-            "Draft replies from your help centre, suggest macros, and route complex cases — with human review for high-stakes answers.",
+            "Public-facing bots and internal copilots grounded on help centres, SOPs, and product docs — with citations and escalation paths.",
         },
         {
-          title: "Internal knowledge search",
+          title: "AI inside web & mobile apps",
           description:
-            "Search across wikis, contracts, SOPs, and tickets so teams stop digging through Slack threads and shared drives.",
+            "Embedded search, assistants, recommendations, and generation inside existing products — behind auth and feature flags.",
         },
         {
-          title: "Sales & proposal automation",
+          title: "Custom model training",
           description:
-            "Generate first drafts of proposals, summarise CRM notes, and pull relevant case studies for outbound teams.",
+            "Fine-tuning, retrieval pipelines, and domain-specific model selection on your proprietary data and workflows.",
         },
         {
-          title: "Ops & reporting pipelines",
+          title: "Vision & document scanners",
           description:
-            "Scheduled workflows that extract, summarise, classify, and route data — replacing manual exports and spreadsheet work.",
+            "OCR, invoice extraction, image classification, and quality checks that turn files and photos into structured data.",
         },
         {
-          title: "Document processing",
+          title: "Workflow automation",
           description:
-            "Extract fields from invoices, contracts, and forms; flag anomalies; and push structured data into your systems.",
+            "AI steps inside reporting, routing, enrichment, and approval flows — replacing manual exports and spreadsheet work.",
         },
         {
-          title: "Product-embedded AI",
+          title: "Advisors & decision tools",
           description:
-            "Add AI search, assistants, and generation inside your SaaS — behind feature flags with evals and cost controls from day one.",
+            "Domain-specific assistants for sales, compliance, onboarding, or operations that guide users through complex choices.",
         },
       ],
     },
     overviewSection: {
-      headline: "Intelligence that survives",
-      headlineLine2: "real users.",
+      headline: "AI that ships as",
+      headlineLine2: "real product engineering.",
       lead:
-        "Demos are easy. We scope, evaluate, and monitor every AI feature like any other part of your stack — so it still works when traffic spikes.",
+        "Whether you need a chatbot, a trained model, a scanner, or AI inside an existing website or app — we scope, build, evaluate, and deploy it like any other production feature.",
       spotlight: {
         image:
           "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1000&q=80",
-        imageAlt: "AI workflow integrated into a business tool",
+        imageAlt: "Custom AI feature integrated into a software product",
         audiences: [
           {
             tag: "For users",
-            title: "Answers they can trust",
+            title: "Useful intelligence in the product",
             description:
-              "Grounded responses with citations — not confident hallucinations. High-stakes outputs go through human review.",
+              "Advisors, search, generation, and automation that feel native to your app — not a bolted-on chat widget.",
           },
           {
             tag: "For your team",
-            title: "Hours back every week",
+            title: "Infrastructure you can run",
             description:
-              "Automations that replace repetitive ops work — with clear metrics on time saved, accuracy, and cost per task.",
+              "Training pipelines, APIs, monitoring, and handoff docs — so AI stays maintainable after launch.",
           },
         ],
       },
       paths: [
         {
-          title: "New AI features",
+          title: "New AI products",
           description:
-            "Copilots, search, and generation built on your data — with RAG pipelines, evals, and guardrails before launch.",
-          chips: ["RAG", "Eval suites", "Guardrails", "Cost controls"],
+            "Chatbots, advisors, scanners, and custom models built from scratch — with data pipelines, evals, and deployment included.",
+          chips: ["RAG", "Fine-tuning", "Vision", "Agents"],
           variant: "build",
         },
         {
-          title: "Integrate into your product",
+          title: "AI inside what you already have",
           description:
-            "Add AI to an existing app via your APIs and auth — feature-flagged rollout with monitoring from the first user.",
-          chips: ["Feature flags", "Your VPC", "Slack / Zendesk", "Dashboards"],
+            "Add intelligent features to an existing website or app via your APIs and auth — feature-flagged rollout with monitoring from day one.",
+          chips: ["Web & mobile", "Feature flags", "Your VPC", "Dashboards"],
           variant: "modernize",
         },
       ],
@@ -857,35 +859,35 @@ export const servicePages: ServicePage[] = [
     fitSection: {
       image:
         "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=80",
-      imageAlt: "Team reviewing AI automation workflow",
-      callout: "If manual work is eating your team's week, there's probably an automation here.",
-      badgeLabel: "ROI focus",
-      badgeValue: "Ops + Support",
+      imageAlt: "Development team planning a custom AI implementation",
+      callout: "If you can describe the workflow or user experience, we can usually scope the AI build around it.",
+      badgeLabel: "Typical fit",
+      badgeValue: "Products & teams",
     },
     projectTypesSection: {
       headline: "Four kinds of AI work",
-      headlineLine2: "we productionize.",
+      headlineLine2: "we build and ship.",
       lead:
-        "We start with one high-ROI workflow — then expand once quality and cost are proven in production.",
+        "From customer-facing chatbots to trained models and vision tools — we start with one clear use case, then expand once quality is proven.",
     },
     greatFor: [
-      "Support teams drowning in repetitive tickets",
-      "Ops teams doing manual data entry or reporting",
-      "Products that want AI search or recommendations",
-      "Internal tools needing document or voice processing",
-      "Sales teams needing proposal and CRM automation",
-      "Companies with proprietary data that generic chatbots cannot use",
+      "Founders adding AI to a website or mobile app",
+      "Teams that need a custom chatbot or product advisor",
+      "Businesses with proprietary data that needs training or retrieval",
+      "Products needing document scanning, OCR, or image classification",
+      "Companies replacing manual review with intelligent automation",
+      "Teams that tried a demo and need production infrastructure",
     ],
     included: [
-      "LLM-powered chat, search & generation",
-      "Retrieval-augmented generation (RAG)",
-      "Internal workflow automation",
-      "Model evaluation & guardrails before launch",
+      "Custom chatbots, advisors & copilots",
+      "AI features in websites & mobile apps",
+      "Model training, fine-tuning & RAG pipelines",
+      "Vision, OCR & document processing",
+      "Evaluation suites & guardrails before launch",
+      "APIs, infrastructure & deployment setup",
       "Usage monitoring & cost tracking",
-      "Ongoing tuning as usage grows",
-      "Prompt versioning & A/B testing",
-      "Human-in-the-loop review flows",
-      "Data pipeline & embedding infrastructure",
+      "Prompt versioning & human review flows",
+      "Data pipelines & embedding infrastructure",
     ],
     process: [
       {
@@ -928,12 +930,12 @@ export const servicePages: ServicePage[] = [
       "Temporal",
     ],
     deliverables: [
-      "Production AI feature or automation",
+      "Production AI feature, bot, or model integration",
       "Eval suite & quality benchmarks",
-      "RAG pipeline & vector index",
-      "Admin tools for prompt & content management",
+      "Data, retrieval, or training pipeline",
+      "Admin tools for prompts, content & monitoring",
       "Cost & usage monitoring dashboard",
-      "Runbook for model updates",
+      "Runbook for updates and model changes",
       "Security review for data handling",
     ],
     faqs: [
@@ -965,13 +967,13 @@ export const servicePages: ServicePage[] = [
       {
         question: "What do you need from us to start?",
         answer:
-          "Sample data (tickets, docs, or reports), access to relevant systems, a product owner for feedback, and clarity on what success looks like — time saved, deflection rate, or accuracy.",
+          "Sample data (documents, images, tickets, or product content), access to relevant systems, a product owner for feedback, and clarity on what success looks like — accuracy, speed, adoption, or cost per task.",
       },
     ],
     outcomes: [
-      { value: "40%+", label: "Typical ticket deflection" },
-      { value: "Evals", label: "Before every production ship" },
-      { value: "24/7", label: "Automated workflows" },
+      { value: "Custom AI", label: "Chatbots, apps, sites & models" },
+      { value: "From $7.5k", label: "Training & implementation" },
+      { value: "12 mo", label: "Free technical support" },
     ],
     cta: "Start an AI project",
   },

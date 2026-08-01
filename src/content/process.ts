@@ -20,7 +20,7 @@ export const processSteps = [
   {
     number: "04",
     title: "Launch & handoff",
-    description: "Deploy, docs, and 30-day post-launch support included.",
+    description: "Deploy, docs, and 12 months of free technical support included.",
     tag: "Ongoing",
   },
 ] as const;

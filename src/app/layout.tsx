@@ -14,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={fontVariables}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={fontVariables} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

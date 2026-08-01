@@ -6,9 +6,9 @@ We build marketing sites, SaaS products, e-commerce platforms, and AI automation
 
 ## Services
 
-- [Web development](https://hostyler.com/services/web-development): Next.js marketing sites, SaaS dashboards, e-commerce, and platform rebuilds.
+- [Web development](https://hostyler.com/services/web-development): Full-stack web work — backend, APIs, frontend, databases, and security.
 - [App development](https://hostyler.com/services/app-development): iOS, Android, and cross-platform mobile apps with production-ready backends.
-- [AI automation](https://hostyler.com/services/ai-automation): Custom AI workflows, agents, and integrations for business operations.
+- [AI development](https://hostyler.com/services/ai-automation): Custom chatbots, advisors, scanners, trained models, and AI inside websites and apps.
 
 ## Company
 

@@ -345,7 +345,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
             <div className="why-head reveal">
               <span className="eyebrow-chip">
                 <i />
-                What we build
+                {page.projectTypesSection?.eyebrow ?? "What we build"}
               </span>
               <div className="why-head-row">
                 <h2>

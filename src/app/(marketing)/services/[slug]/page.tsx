@@ -4,6 +4,7 @@ import { ServicePageContent } from "@/components/marketing/service-page-content"
 import { getAllServiceSlugs, getServicePage } from "@/content/service-pages";
 import { listPublishedCaseStudies } from "@/lib/repositories/case-studies";
 import { site } from "@/content/site";
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -23,10 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = getServicePage(slug);
   if (!page) return { title: "Services" };
 
-  return {
+  return buildPageMetadata({
     title: page.title,
     description: page.metaDescription,
-  };
+    path: `/services/${slug}`,
+  });
 }
 
 export default async function ServicePageRoute({ params }: Props) {

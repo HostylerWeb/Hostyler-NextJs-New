@@ -30,11 +30,11 @@ export const serviceNavigation = [
     description: "iOS, Android & cross-platform",
   },
   {
-    label: "AI & Automation",
+    label: "AI Development",
     href: "/services/ai-automation",
     index: "03",
     tint: "lime" as const,
-    description: "Copilots, RAG & workflows",
+    description: "Chatbots, models & app AI",
   },
 ] as const;
 
@@ -47,7 +47,7 @@ export const footerNavigation = {
   services: [
     { label: "Web development", href: "/services/web-development" },
     { label: "App development", href: "/services/app-development" },
-    { label: "AI & automation", href: "/services/ai-automation" },
+    { label: "AI development", href: "/services/ai-automation" },
   ],
   connect: [
     { label: "support@hostyler.com", href: "mailto:support@hostyler.com" },

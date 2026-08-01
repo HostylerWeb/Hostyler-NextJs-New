@@ -17,9 +17,10 @@ export function PricingSection() {
           <i />
           Ways to work with us
         </span>
-        <h2>Pick the shape that fits.</h2>
+        <h2>Starting points for common builds.</h2>
         <p>
-          Every engagement is scoped to your stage — from a single fixed build to an embedded team.
+          Clear entry pricing by project type — final scope and quote come after discovery, not
+          mid-project surprises.
         </p>
       </div>
       <div className="pricing-grid">
@@ -53,6 +54,10 @@ export function PricingSection() {
           </div>
         ))}
       </div>
+      <p className="pricing-support-note reveal">
+        <strong>12 months of free technical support</strong> on every project — bug fixes, stability,
+        and post-launch help without a retainer.
+      </p>
     </section>
   );
 }

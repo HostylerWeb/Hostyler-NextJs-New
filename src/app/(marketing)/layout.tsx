@@ -12,6 +12,7 @@ import { ScrollToTopOnNavigate } from "@/components/layout/scroll-to-top-on-navi
 import { site } from "@/content/site";
 import { clientEnv } from "@/lib/env";
 import { FaqJsonLd } from "@/components/seo/faq-json-ld";
+import { WebsiteJsonLd } from "@/components/seo/website-json-ld";
 
 export const metadata: Metadata = {
   metadataBase: new URL(clientEnv.NEXT_PUBLIC_SITE_URL),
@@ -20,6 +21,13 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.description,
+  alternates: {
+    canonical: clientEnv.NEXT_PUBLIC_SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
@@ -68,6 +76,7 @@ export default function MarketingLayout({
   return (
     <>
       <OrganizationJsonLd />
+      <WebsiteJsonLd />
       <FaqJsonLd />
       <SkipLink />
       <HeaderOffsetSync />

@@ -638,6 +638,11 @@ html {
  .price-features li{display:flex; gap:9px; align-items:flex-start; font-size:13.5px; font-weight:500;}
  .price-features svg{width:16px; height:16px; flex:none; margin-top:2px;}
  .price-card .btn{width:100%; justify-content:center;}
+ .pricing-support-note{
+   margin-top:28px; padding:18px 22px; border:2.5px solid var(--ink); border-radius:var(--radius-md);
+   background:var(--lime); font-size:14px; font-weight:500; line-height:1.55; text-align:center;
+   box-shadow:var(--shadow-sm);
+ }
  @media(max-width:900px){.pricing-grid{grid-template-columns:1fr;} .price-card.featured{transform:none;} .price-card.featured:hover{transform:translate(-4px,-4px);}}
  
  /* ============ TEAM ============ */

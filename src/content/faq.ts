@@ -66,7 +66,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "How much does a typical project cost?",
         answer:
-          "Fixed-scope builds typically start around $18k. Embedded teams run from $12k/month. We'll give you a clear number after discovery — not a range that doubles mid-project.",
+          "Web development starts from $3,500 USD. Mobile apps for both iOS and Android start from $6,000 USD. Advanced AI work — training, custom implementation, infrastructure, and production wiring — starts from $7,500 USD. Every project includes 12 months of free technical support. We'll give you a clear number after discovery — not a range that doubles mid-project.",
       },
       {
         question: "Do you work on hourly or fixed price?",

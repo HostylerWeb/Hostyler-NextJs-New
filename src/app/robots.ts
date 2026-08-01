@@ -6,8 +6,19 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/portal", "/admin", "/api", "/pay"],
+      disallow: [
+        "/portal",
+        "/admin",
+        "/api",
+        "/pay",
+        "/login",
+        "/register",
+        "/forgot-password",
+        "/reset-password",
+        "/verify-email",
+      ],
     },
     sitemap: `${clientEnv.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
+    host: clientEnv.NEXT_PUBLIC_SITE_URL.replace(/^https?:\/\//, ""),
   };
 }

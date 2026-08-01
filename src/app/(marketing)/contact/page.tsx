@@ -4,10 +4,13 @@ import { SectionHead } from "@/components/layout/section-head";
 import { Section } from "@/components/layout/section";
 import { Wrap } from "@/components/layout/wrap";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
+
+export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
   description: "Tell us what you are building. We reply within one business day.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
 import { Wrap } from "@/components/layout/wrap";
 import { site } from "@/content/site";
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -15,10 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const study = await getCaseStudyBySlug(slug);
   if (!study) return { title: "Work" };
-  return {
+  return buildPageMetadata({
     title: study.title,
-    description: study.excerpt ?? undefined,
-  };
+    description: study.excerpt ?? `${study.title} — ${study.client_name}`,
+    path: `/work/${slug}`,
+  });
 }
 
 function parseTags(tags: unknown): string[] {

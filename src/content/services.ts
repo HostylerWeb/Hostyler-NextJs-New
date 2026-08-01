@@ -18,9 +18,9 @@ export const services = [
   {
     id: "ai",
     tag: "03 · AI",
-    title: "AI & Automation",
+    title: "AI Development",
     description:
-      "Production AI features grounded on your data — not demos. We scope, evaluate, and monitor every model like any other part of your stack.",
+      "Custom AI for websites, apps, chatbots, advisors, scanners, and trained models — scoped, evaluated, and built for production.",
     tint: "lime" as const,
   },
 ] as const;
@@ -42,9 +42,9 @@ export const serviceCards = [
   },
   {
     title: "AI",
-    packageTag: "Intelligent products",
-    description: "LLM features, agents, and automation that survive production.",
-    features: ["RAG & agents", "Evals before ship", "Cost monitoring"],
+    packageTag: "Custom AI builds",
+    description: "Chatbots, advisors, scanners, trained models, and AI inside web and mobile apps.",
+    features: ["Chatbots & advisors", "Web & app AI", "Training & RAG"],
     tint: "lime" as const,
   },
 ] as const;
