@@ -1,9 +1,25 @@
 import type { NextConfig } from "next";
 
+const modernPolyfill = "./src/lib/modern-polyfill.ts";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     inlineCss: true,
+  },
+  turbopack: {
+    resolveAlias: {
+      "../build/polyfills/polyfill-module": modernPolyfill,
+      "next/dist/build/polyfills/polyfill-module": modernPolyfill,
+    },
+  },
+  webpack(config) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "../build/polyfills/polyfill-module": modernPolyfill,
+      "next/dist/build/polyfills/polyfill-module": modernPolyfill,
+    };
+    return config;
   },
   images: {
     remotePatterns: [
