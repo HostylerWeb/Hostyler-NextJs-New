@@ -67,13 +67,25 @@ export function Header() {
               aria-label="Main navigation"
             >
               <NavMenu activeId={activeId} onNavigate={() => setOpen(false)} />
-              <Button
-                href="/contact"
-                className="hidden max-[940px]:flex max-[940px]:w-full max-[940px]:justify-center"
-                size="sm"
-              >
-                Start a project
-              </Button>
+              <div className="hidden max-[940px]:flex max-[940px]:w-full max-[940px]:flex-col max-[940px]:gap-2">
+                <Button
+                  href="/contact"
+                  className="max-[940px]:w-full max-[940px]:justify-center"
+                  size="sm"
+                  onClick={() => setOpen(false)}
+                >
+                  Start a project
+                </Button>
+                <Button
+                  href="/login"
+                  variant="ghost"
+                  className="max-[940px]:w-full max-[940px]:justify-center"
+                  size="sm"
+                  onClick={() => setOpen(false)}
+                >
+                  Client portal
+                </Button>
+              </div>
             </nav>
 
             <div className="flex shrink-0 items-center gap-3">
