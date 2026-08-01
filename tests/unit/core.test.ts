@@ -27,7 +27,7 @@ describe("contactFormSchema", () => {
       name: "Jane Doe",
       email: "jane@example.com",
       project_type: "web",
-      budget: "under_25k",
+      budget: "web_from_3500",
       message: "Hello",
       website: "",
     });
@@ -39,7 +39,7 @@ describe("contactFormSchema", () => {
       name: "Jane Doe",
       email: "jane@example.com",
       project_type: "web",
-      budget: "under_25k",
+      budget: "web_from_3500",
       website: "spam",
     });
     assert.equal(result.success, false);

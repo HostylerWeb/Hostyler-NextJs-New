@@ -1,4 +1,5 @@
 import { AdminShell } from "@/components/admin/admin-shell";
+import { formatContactBudget, formatContactProjectType } from "@/content/contact-options";
 import { StatusBadge } from "@/components/ui/status-badge";
 import {
   Table,
@@ -60,8 +61,8 @@ export default async function AdminContactsPage() {
                       {submission.email}
                     </a>
                   </TableCell>
-                  <TableCell>{submission.project_type}</TableCell>
-                  <TableCell>{submission.budget}</TableCell>
+                  <TableCell>{formatContactProjectType(submission.project_type)}</TableCell>
+                  <TableCell>{formatContactBudget(submission.budget)}</TableCell>
                   <TableCell>
                     {submission.email_sent_at ? (
                       <StatusBadge status="sent" kind="invoice" />

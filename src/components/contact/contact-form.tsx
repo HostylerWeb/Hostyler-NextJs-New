@@ -2,6 +2,7 @@
 
 import { type FormEvent, useState } from "react";
 import { site } from "@/content/site";
+import { contactBudgetOptions, contactProjectTypeOptions } from "@/content/contact-options";
 import { type ContactFormInput, contactFormSchema } from "@/lib/validators/contact";
 
 type ContactFormProps = {
@@ -131,15 +132,15 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
           <option value="" disabled>
             What are you building?
           </option>
-          <option value="web">Web platform or site</option>
-          <option value="app">Mobile or cross-platform app</option>
-          <option value="ai">AI feature or automation</option>
-          <option value="multiple">A few of the above</option>
-          <option value="unsure">Not sure yet</option>
+          {contactProjectTypeOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
         </select>
       </div>
       <div className="field">
-        <label htmlFor="contact-budget">Budget / timeline</label>
+        <label htmlFor="contact-budget">Estimated budget</label>
         <select
           id="contact-budget"
           name="budget"
@@ -150,11 +151,11 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
           <option value="" disabled>
             Select a range
           </option>
-          <option value="under_25k">Under $25k · ASAP</option>
-          <option value="range_25_50k">$25k–$50k · 1–2 months</option>
-          <option value="range_50_100k">$50k–$100k · 2–4 months</option>
-          <option value="range_100k_plus">$100k+ · Ongoing team</option>
-          <option value="exploring">Just exploring</option>
+          {contactBudgetOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
         </select>
       </div>
       <div className="field form-full">

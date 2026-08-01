@@ -27,6 +27,11 @@ enum budget_range {
   range_25_50k @map("25_50k")
   range_50_100k @map("50_100k")
   range_100k_plus @map("100k_plus")
+  web_from_3500
+  app_from_6000
+  ai_from_7500
+  range_10_25k @map("10_25k")
+  range_25k_plus @map("25k_plus")
   exploring
 }
 

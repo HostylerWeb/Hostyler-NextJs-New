@@ -1,12 +1,16 @@
-import nodemailer from "nodemailer";
+import {
+  formatContactBudget,
+  formatContactProjectType,
+} from "@/content/contact-options";
 import { site } from "@/content/site";
 import { env } from "@/lib/env";
 import { escapeHtml, escapeHtmlMultiline } from "@/lib/html";
 import {
-  getPublicSiteHostname,
   getPublicSiteUrl,
+  getPublicSiteHostname,
   publicAssetUrl,
 } from "@/lib/site-url";
+import nodemailer from "nodemailer";
 
 const brand = {
   paper: "#FBFAF5",
@@ -221,8 +225,8 @@ export async function sendContactNotification(input: {
   const body = `
     ${paragraph(`<strong>${escapeHtml(input.name)}</strong> (${escapeHtml(input.email)}) submitted the contact form.`)}
     ${infoPanel(
-      `<strong>Project:</strong> ${escapeHtml(input.project_type)}<br/>
-      <strong>Budget:</strong> ${escapeHtml(input.budget)}${
+      `<strong>Project:</strong> ${escapeHtml(formatContactProjectType(input.project_type))}<br/>
+      <strong>Budget:</strong> ${escapeHtml(formatContactBudget(input.budget))}${
         input.message
           ? `<br/><br/>${escapeHtmlMultiline(input.message)}`
           : ""
