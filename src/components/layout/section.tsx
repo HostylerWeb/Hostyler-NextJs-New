@@ -20,8 +20,8 @@ export function Section({
       className={cn(
         pageTop
           ? tight
-            ? "pt-6 pb-16 md:pt-8 md:pb-20"
-            : "pt-6 pb-[76px] md:pt-8 md:pb-[110px]"
+            ? "pt-0 pb-16 md:pb-20"
+            : "pt-0 pb-[76px] md:pb-[110px]"
           : tight
             ? "py-16 md:py-20"
             : "py-[76px] md:py-[110px]",

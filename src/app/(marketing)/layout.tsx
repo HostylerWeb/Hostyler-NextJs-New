@@ -7,6 +7,8 @@ import { SkipLink } from "@/components/ui/skip-link";
 import { Footer } from "@/components/layout/footer";
 import { HashScroll } from "@/components/layout/hash-scroll";
 import { Header } from "@/components/layout/header";
+import { HeaderOffsetSync } from "@/components/layout/header-offset-sync";
+import { ScrollToTopOnNavigate } from "@/components/layout/scroll-to-top-on-navigate";
 import { site } from "@/content/site";
 import { clientEnv } from "@/lib/env";
 import { FaqJsonLd } from "@/components/seo/faq-json-ld";
@@ -68,6 +70,8 @@ export default function MarketingLayout({
       <OrganizationJsonLd />
       <FaqJsonLd />
       <SkipLink />
+      <HeaderOffsetSync />
+      <ScrollToTopOnNavigate />
       <HashScroll />
       <ScrollProgress />
       <Header />

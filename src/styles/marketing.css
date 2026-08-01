@@ -36,6 +36,10 @@
   --site-header-offset: 7.75rem;
 }
 
+html {
+  scroll-padding-top: var(--site-header-offset);
+}
+
 @media (max-width: 940px) {
   :root {
     --site-header-offset: 4.625rem;
@@ -44,10 +48,6 @@
 
 .site-main:not(:has(.hero)) {
   padding-top: var(--site-header-offset);
-}
-
-section[id] {
-  scroll-margin-top: var(--site-header-offset);
 }
 
 .section {
@@ -609,7 +609,6 @@ section[id] {
  .mini-cases{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px;}
  .mini-case{
    border:2.5px solid var(--ink); border-radius:var(--r-md); overflow:hidden; background:var(--paper); box-shadow:var(--shadow-sm);
-   scroll-margin-top:100px;
  }
  .mini-case img{width:100%; height:140px; object-fit:cover; display:block;}
  .mini-case-body{padding:18px;}
@@ -835,7 +834,6 @@ section[id] {
    .reveal{transform:translateY(18px);}
    .reveal.in{transform:translateY(0);}
  
-   section[id]{scroll-margin-top:var(--site-header-offset);}
    body.nav-open .back-top{opacity:0; pointer-events:none;}
  }
  
@@ -994,7 +992,6 @@ section[id] {
  .service-page-section {
    padding-block: 100px;
    border-top: 2.5px solid var(--ink);
-   scroll-margin-top: 100px;
  }
 
  .service-detail .marquee-section {

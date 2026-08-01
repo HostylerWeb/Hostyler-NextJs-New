@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 
+import { getSiteHeaderOffset } from "@/lib/site-header-offset";
+
 function getSectionTop(element: HTMLElement): number {
   return element.getBoundingClientRect().top + window.scrollY;
 }
 
 function getHeaderOffset(): number {
-  const header = document.querySelector("header");
-  return (header?.getBoundingClientRect().height ?? 100) + 16;
+  return getSiteHeaderOffset();
 }
 
 export function useScrollSpy(navSectionIds: string[]) {
