@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { teamMembers } from "@/content/team";
 
 export function TeamSection() {
@@ -15,9 +17,12 @@ export function TeamSection() {
         {teamMembers.map((member) => (
           <div key={member.name} className="team-card reveal">
             <div className="team-avatar">
-              <span className="team-initials" aria-hidden="true">
-                {member.initials}
-              </span>
+              <Image
+                src={member.image}
+                alt={`${member.name}, ${member.role}`}
+                width={72}
+                height={72}
+              />
             </div>
             <h3>{member.name}</h3>
             <span>{member.role}</span>

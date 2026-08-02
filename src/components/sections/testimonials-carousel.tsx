@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 
 export type TestimonialCard = {
   id: string;
@@ -34,12 +34,50 @@ type TestimonialsCarouselProps = {
 export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: "prev" | "next") => {
+  const getCardOffsets = useCallback(() => {
     const track = trackRef.current;
-    if (!track) return;
+    if (!track) return [];
 
-    const amount = direction === "next" ? 420 : -420;
-    track.scrollBy({ left: amount, behavior: "smooth" });
+    return Array.from(track.querySelectorAll<HTMLElement>(".testi-card")).map(
+      (card) => card.offsetLeft,
+    );
+  }, []);
+
+  const getActiveIndex = useCallback(() => {
+    const track = trackRef.current;
+    const offsets = getCardOffsets();
+    if (!track || offsets.length === 0) return 0;
+
+    const position = track.scrollLeft;
+    let activeIndex = 0;
+    let smallestDistance = Number.POSITIVE_INFINITY;
+
+    offsets.forEach((offset, index) => {
+      const distance = Math.abs(offset - position);
+      if (distance < smallestDistance) {
+        smallestDistance = distance;
+        activeIndex = index;
+      }
+    });
+
+    return activeIndex;
+  }, [getCardOffsets]);
+
+  const scrollToIndex = useCallback(
+    (index: number) => {
+      const track = trackRef.current;
+      const offsets = getCardOffsets();
+      if (!track || offsets.length === 0) return;
+
+      const nextIndex = Math.max(0, Math.min(index, offsets.length - 1));
+      track.scrollTo({ left: offsets[nextIndex], behavior: "smooth" });
+    },
+    [getCardOffsets],
+  );
+
+  const scroll = (direction: "prev" | "next") => {
+    const delta = direction === "next" ? 1 : -1;
+    scrollToIndex(getActiveIndex() + delta);
   };
 
   if (testimonials.length === 0) {
@@ -62,34 +100,38 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
         </p>
       </div>
 
-      <div
-        ref={trackRef}
-        className="testi-track"
-        tabIndex={0}
-        role="region"
-        aria-label="Client testimonials"
-      >
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="testi-card reveal">
-            <div className="testi-stars">★★★★★</div>
-            <p>&quot;{testimonial.quote}&quot;</p>
-            <div className="testi-person">
-              <div className="testi-avatar">
-                <Image
-                  src={testimonial.avatar_url}
-                  alt={testimonial.name}
-                  width={44}
-                  height={44}
-                  loading="lazy"
-                />
+      <div className="testi-carousel">
+        <div
+          ref={trackRef}
+          className="testi-track"
+          tabIndex={0}
+          role="region"
+          aria-label="Client testimonials"
+        >
+          {testimonials.map((testimonial) => (
+            <article key={testimonial.id} className="testi-card">
+              <div className="testi-stars" aria-hidden>
+                ★★★★★
               </div>
-              <div>
-                <b>{testimonial.name}</b>
-                <span>{testimonial.role}</span>
+              <p>&quot;{testimonial.quote}&quot;</p>
+              <div className="testi-person">
+                <div className="testi-avatar">
+                  <Image
+                    src={testimonial.avatar_url}
+                    alt={testimonial.name}
+                    width={44}
+                    height={44}
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <b>{testimonial.name}</b>
+                  <span>{testimonial.role}</span>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
 
       <div className="testi-nav">

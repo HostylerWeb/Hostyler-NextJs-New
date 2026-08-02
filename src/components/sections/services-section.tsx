@@ -50,7 +50,7 @@ export function ServicesSection() {
               <h3>{service.title}</h3>
               <p>{block.description}</p>
               <div className="svc-cols">
-                <div>
+                <div className="svc-col-panel">
                   <p className="svc-col-label">Great for</p>
                   <ul className="svc-list">
                     {block.greatFor.map((item) => (
@@ -58,7 +58,7 @@ export function ServicesSection() {
                     ))}
                   </ul>
                 </div>
-                <div>
+                <div className="svc-col-panel">
                   <p className="svc-col-label">What&apos;s included</p>
                   <ul className="svc-list">
                     {block.included.map((item) => (
