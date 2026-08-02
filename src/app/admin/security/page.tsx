@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { AdminShell } from "@/components/admin/admin-shell";
+import { ClearSecurityLogsButton } from "@/components/admin/clear-security-logs-button";
 import { Card } from "@/components/ui/card";
 import { StatusBadge } from "@/components/ui/status-badge";
 import {
@@ -93,11 +94,14 @@ export default async function AdminSecurityPage() {
         ) : null}
 
         <Card className="space-y-4 p-6">
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="font-display text-xl">Security event log</h2>
-            <Link href="/admin" className="text-sm font-bold text-violet">
-              Back to dashboard
-            </Link>
+            <div className="flex flex-wrap items-center gap-3">
+              <ClearSecurityLogsButton />
+              <Link href="/admin" className="text-sm font-bold text-violet">
+                Back to dashboard
+              </Link>
+            </div>
           </div>
           <Table>
             <TableHead>

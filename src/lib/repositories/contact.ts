@@ -63,3 +63,7 @@ export async function listContactSubmissions(
     ...args,
   });
 }
+
+export async function deleteContactSubmission(id: string) {
+  return prisma.contact_submissions.delete({ where: { id } });
+}

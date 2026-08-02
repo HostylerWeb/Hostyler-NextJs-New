@@ -91,7 +91,7 @@ export function EditClientForm({ client }: EditClientFormProps) {
   }
 
   return (
-    <form action={formAction} className="space-y-5">
+    <form action={formAction} className="min-w-0 max-w-full space-y-5">
       {state.error ? <Alert variant="error">{state.error}</Alert> : null}
       {state.success ? (
         <Alert variant="success">
@@ -111,30 +111,33 @@ export function EditClientForm({ client }: EditClientFormProps) {
         title="Profile"
         description="Basic contact information for this client account."
       >
-        <div className="grid gap-4 md:grid-cols-2">
-          <Field label="Name" htmlFor="name">
-            <Input id="name" name="name" defaultValue={client.name} required />
+        <div className="grid min-w-0 gap-4 md:grid-cols-2">
+          <Field label="Name" htmlFor="name" className="min-w-0">
+            <Input id="name" name="name" defaultValue={client.name} rounded="md" required />
           </Field>
-          <Field label="Email" htmlFor="email">
+          <Field label="Email" htmlFor="email" className="min-w-0">
             <Input
               id="email"
               name="email"
               type="email"
               defaultValue={client.email}
+              rounded="md"
               required
             />
           </Field>
-          <Field label="Company" htmlFor="company">
-            <Input id="company" name="company" defaultValue={client.company ?? ""} />
+          <Field label="Company" htmlFor="company" className="min-w-0">
+            <Input id="company" name="company" defaultValue={client.company ?? ""} rounded="md" />
           </Field>
-          <Field label="Phone" htmlFor="phone">
-            <Input id="phone" name="phone" defaultValue={client.phone ?? ""} />
+          <Field label="Phone" htmlFor="phone" className="min-w-0">
+            <Input id="phone" name="phone" defaultValue={client.phone ?? ""} rounded="md" />
           </Field>
         </div>
 
-        <label className="flex cursor-pointer items-center gap-2 rounded-[var(--radius-md)] border-2 border-ink/10 bg-paper px-4 py-3 text-sm font-semibold">
-          <Checkbox name="is_active" defaultChecked={client.is_active} />
-          Account is active — client can log in and access the portal
+        <label className="flex min-w-0 cursor-pointer items-start gap-2 rounded-[var(--radius-md)] border-2 border-ink/10 bg-paper px-4 py-3 text-sm font-semibold">
+          <Checkbox name="is_active" defaultChecked={client.is_active} className="mt-0.5 shrink-0" />
+          <span className="min-w-0 break-words">
+            Account is active — client can log in and access the portal
+          </span>
         </label>
       </FormSection>
 
@@ -160,22 +163,24 @@ export function EditClientForm({ client }: EditClientFormProps) {
         </Field>
 
         {passwordMode === "custom" ? (
-          <div className="grid gap-4 md:grid-cols-2">
-            <Field label="New password" htmlFor="password">
+          <div className="grid min-w-0 gap-4 md:grid-cols-2">
+            <Field label="New password" htmlFor="password" className="min-w-0">
               <Input
                 id="password"
                 name="password"
                 type="password"
+                rounded="md"
                 minLength={8}
                 autoComplete="new-password"
                 required
               />
             </Field>
-            <Field label="Confirm new password" htmlFor="confirm_password">
+            <Field label="Confirm new password" htmlFor="confirm_password" className="min-w-0">
               <Input
                 id="confirm_password"
                 name="confirm_password"
                 type="password"
+                rounded="md"
                 minLength={8}
                 autoComplete="new-password"
                 required
@@ -185,9 +190,9 @@ export function EditClientForm({ client }: EditClientFormProps) {
         ) : null}
 
         {passwordMode !== "unchanged" ? (
-          <label className="flex cursor-pointer items-start gap-2 rounded-[var(--radius-md)] border-2 border-ink/10 bg-paper px-4 py-3 text-sm font-semibold">
-            <Checkbox name="send_credentials_email" className="mt-0.5" />
-            <span>
+          <label className="flex min-w-0 cursor-pointer items-start gap-2 rounded-[var(--radius-md)] border-2 border-ink/10 bg-paper px-4 py-3 text-sm font-semibold">
+            <Checkbox name="send_credentials_email" className="mt-0.5 shrink-0" />
+            <span className="min-w-0 break-words">
               Email updated login credentials to the client
               <span className="mt-1 block text-xs font-medium text-muted">
                 Sends their email and the new password after you save.

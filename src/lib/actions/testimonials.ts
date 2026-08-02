@@ -118,5 +118,5 @@ export async function deleteTestimonialAction(
 
   await deleteTestimonial(id);
   revalidateTestimonialPaths(existing.id);
-  redirect("/admin/testimonials");
+  return { success: "Review deleted." };
 }

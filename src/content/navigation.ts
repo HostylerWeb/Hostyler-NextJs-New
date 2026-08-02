@@ -66,13 +66,23 @@ export const portalNavigation = [
   { label: "Settings", href: "/portal/settings" },
 ] as const;
 
-export const adminNavigation = [
+export type AdminNavItem = {
+  label: string;
+  href: string;
+  mobileLabel?: string;
+};
+
+export const adminNavigation: AdminNavItem[] = [
   { label: "Dashboard", href: "/admin" },
   { label: "Invoices", href: "/admin/invoices" },
   { label: "Clients", href: "/admin/clients" },
   { label: "Support", href: "/admin/support" },
-  { label: "Case Studies", href: "/admin/case-studies" },
+  {
+    label: "Case Studies",
+    mobileLabel: "Case",
+    href: "/admin/case-studies",
+  },
   { label: "Reviews", href: "/admin/testimonials" },
   { label: "Contacts", href: "/admin/contacts" },
   { label: "Security", href: "/admin/security" },
-] as const;
+];

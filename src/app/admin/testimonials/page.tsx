@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { AdminShell } from "@/components/admin/admin-shell";
+import { TestimonialRowActions } from "@/components/admin/testimonial-row-actions";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -48,6 +49,7 @@ export default async function AdminTestimonialsPage() {
               <TableHeader scope="col">Published</TableHeader>
               <TableHeader scope="col">Order</TableHeader>
               <TableHeader scope="col">Updated</TableHeader>
+              <TableHeader scope="col">Actions</TableHeader>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -68,6 +70,12 @@ export default async function AdminTestimonialsPage() {
                 <TableCell>{testimonial.published ? "Yes" : "No"}</TableCell>
                 <TableCell>{testimonial.sort_order}</TableCell>
                 <TableCell>{formatDate(testimonial.updated_at)}</TableCell>
+                <TableCell>
+                  <TestimonialRowActions
+                    id={testimonial.id}
+                    name={testimonial.name}
+                  />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

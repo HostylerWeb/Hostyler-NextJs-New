@@ -30,8 +30,13 @@ export default async function AdminClientsPage() {
         { label: "Clients" },
       ]}
     >
-      <div className="grid gap-6 xl:grid-cols-[1.2fr_1fr]">
-        <div className="space-y-6">
+      <div className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[1.2fr_1fr]">
+        <Card className="order-first h-fit min-w-0 max-w-full space-y-4 overflow-hidden p-4 sm:p-6 xl:order-2">
+          <h2 className="font-display text-xl">Create client</h2>
+          <CreateClientForm />
+        </Card>
+
+        <div className="order-2 min-w-0 space-y-6 xl:order-1">
           <div>
             <h1 className="font-display text-3xl">Clients</h1>
             <p className="mt-1 text-sm text-muted">
@@ -83,11 +88,6 @@ export default async function AdminClientsPage() {
             </TableBody>
           </Table>
         </div>
-
-        <Card className="h-fit space-y-4 p-6">
-          <h2 className="font-display text-xl">Create client</h2>
-          <CreateClientForm />
-        </Card>
       </div>
     </AdminShell>
   );

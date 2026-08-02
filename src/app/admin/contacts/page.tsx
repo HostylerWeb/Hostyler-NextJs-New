@@ -1,4 +1,5 @@
 import { AdminShell } from "@/components/admin/admin-shell";
+import { ContactDeleteButton } from "@/components/admin/contact-delete-button";
 import { formatContactBudget, formatContactProjectType } from "@/content/contact-options";
 import { StatusBadge } from "@/components/ui/status-badge";
 import {
@@ -39,12 +40,13 @@ export default async function AdminContactsPage() {
               <TableHeader scope="col">Project</TableHeader>
               <TableHeader scope="col">Budget</TableHeader>
               <TableHeader scope="col">Email status</TableHeader>
+              <TableHeader scope="col">Actions</TableHeader>
             </TableRow>
           </TableHead>
           <TableBody>
             {submissions.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={6} className="text-muted">
+                <TableCell colSpan={7} className="text-muted">
                   No submissions yet.
                 </TableCell>
               </TableRow>
@@ -77,6 +79,12 @@ export default async function AdminContactsPage() {
                       <span className="text-xs text-muted">Pending</span>
                     )}
                   </TableCell>
+                  <TableCell>
+                    <ContactDeleteButton
+                      id={submission.id}
+                      name={submission.name}
+                    />
+                  </TableCell>
                 </TableRow>
               ))
             )}
@@ -104,6 +112,10 @@ export default async function AdminContactsPage() {
                     <span className="font-mono text-xs text-muted">
                       {formatDateTime(submission.created_at)}
                     </span>
+                    <ContactDeleteButton
+                      id={submission.id}
+                      name={submission.name}
+                    />
                   </div>
                   <p className="text-sm leading-relaxed text-muted whitespace-pre-wrap">
                     {submission.message}

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 import { adminNavigation } from "@/content/navigation";
 import { cn } from "@/lib/cn";
+import { AdminFrontendLink } from "@/components/admin/admin-frontend-link";
 import { AdminHeader } from "@/components/admin/admin-header";
 import { AdminLogoutButton } from "@/components/admin/admin-logout-button";
 import { SiteLogo } from "@/components/layout/site-logo";
@@ -41,19 +42,20 @@ export function AdminShell({ children, breadcrumbs }: AdminShellProps) {
           </nav>
           <div className="mt-auto border-t border-paper/15 pt-4">
             <AdminLogoutButton variant="sidebar" />
+            <AdminFrontendLink variant="sidebar" />
           </div>
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col">
           <AdminHeader breadcrumbs={breadcrumbs} />
-          <main className="flex-1 p-[var(--shell-padding)] pb-24 md:pb-[var(--shell-padding)]">
+          <main className="min-w-0 flex-1 overflow-x-hidden p-[var(--shell-padding)] pb-24 md:pb-[var(--shell-padding)]">
             {children}
           </main>
         </div>
       </div>
 
       <nav
-        className="fixed right-0 bottom-0 left-0 z-50 flex border-t-2.5 border-ink bg-ink p-2 text-paper md:hidden"
+        className="fixed right-0 bottom-0 left-0 z-50 flex gap-0.5 border-t-2.5 border-ink bg-ink px-1 py-1.5 text-paper md:hidden"
         aria-label="Mobile admin navigation"
       >
         {adminNavigation.map((item) => (
@@ -61,11 +63,11 @@ export function AdminShell({ children, breadcrumbs }: AdminShellProps) {
             key={item.href}
             href={item.href}
             className={cn(
-              "flex-1 rounded-full px-1 py-2 text-center text-[10px] font-bold leading-tight",
+              "min-w-0 flex-1 rounded-full px-0.5 py-1.5 text-center text-[8px] font-bold leading-tight tracking-tight sm:text-[9px]",
               pathname === item.href && "bg-lime text-ink",
             )}
           >
-            {item.label}
+            {item.mobileLabel ?? item.label}
           </Link>
         ))}
       </nav>

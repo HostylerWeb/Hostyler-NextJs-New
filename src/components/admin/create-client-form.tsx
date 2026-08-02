@@ -27,7 +27,7 @@ export function CreateClientForm() {
   const [passwordMode, setPasswordMode] = useState<"generate" | "custom">("generate");
 
   return (
-    <form action={formAction} className="space-y-4">
+    <form action={formAction} className="min-w-0 max-w-full space-y-4">
       {state.error ? <Alert variant="error">{state.error}</Alert> : null}
       {state.success ? (
         <Alert variant="success">
@@ -43,18 +43,18 @@ export function CreateClientForm() {
         </Alert>
       ) : null}
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <Field label="Name" htmlFor="name">
-          <Input id="name" name="name" required />
+      <div className="grid min-w-0 gap-4 md:grid-cols-2">
+        <Field label="Name" htmlFor="name" className="min-w-0">
+          <Input id="name" name="name" rounded="md" required />
         </Field>
-        <Field label="Email" htmlFor="email">
-          <Input id="email" name="email" type="email" required />
+        <Field label="Email" htmlFor="email" className="min-w-0">
+          <Input id="email" name="email" type="email" rounded="md" required />
         </Field>
-        <Field label="Company" htmlFor="company">
-          <Input id="company" name="company" />
+        <Field label="Company" htmlFor="company" className="min-w-0">
+          <Input id="company" name="company" rounded="md" />
         </Field>
-        <Field label="Phone" htmlFor="phone">
-          <Input id="phone" name="phone" />
+        <Field label="Phone" htmlFor="phone" className="min-w-0">
+          <Input id="phone" name="phone" rounded="md" />
         </Field>
       </div>
 
@@ -74,22 +74,24 @@ export function CreateClientForm() {
       </Field>
 
       {passwordMode === "custom" ? (
-        <div className="grid gap-4 md:grid-cols-2">
-          <Field label="Password" htmlFor="password">
+        <div className="grid min-w-0 gap-4 md:grid-cols-2">
+          <Field label="Password" htmlFor="password" className="min-w-0">
             <Input
               id="password"
               name="password"
               type="password"
+              rounded="md"
               minLength={8}
               autoComplete="new-password"
               required
             />
           </Field>
-          <Field label="Confirm password" htmlFor="confirm_password">
+          <Field label="Confirm password" htmlFor="confirm_password" className="min-w-0">
             <Input
               id="confirm_password"
               name="confirm_password"
               type="password"
+              rounded="md"
               minLength={8}
               autoComplete="new-password"
               required
@@ -98,10 +100,10 @@ export function CreateClientForm() {
         </div>
       ) : null}
 
-      <div className="space-y-2 rounded-[var(--radius-md)] border-2 border-ink/10 bg-paper-2 p-4">
-        <label className="flex cursor-pointer items-start gap-2 text-sm font-semibold">
-          <Checkbox name="send_welcome_email" defaultChecked className="mt-0.5" />
-          <span>
+      <div className="min-w-0 space-y-2 rounded-[var(--radius-md)] border-2 border-ink/10 bg-paper-2 p-4">
+        <label className="flex min-w-0 cursor-pointer items-start gap-2 text-sm font-semibold">
+          <Checkbox name="send_welcome_email" defaultChecked className="mt-0.5 shrink-0" />
+          <span className="min-w-0 break-words">
             Send welcome email with login credentials
             <span className="mt-1 block text-xs font-medium text-muted">
               Includes their email and password so they can sign in right away.

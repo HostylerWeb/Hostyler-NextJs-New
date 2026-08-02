@@ -111,6 +111,10 @@ export async function listActiveIpBlocks() {
   });
 }
 
+export async function clearSecurityEvents() {
+  return prisma.security_events.deleteMany();
+}
+
 export type PasswordResetGuardResult =
   | { allowed: true; isNewIncident?: boolean; blockedUntil?: Date; attempts?: security_events[] }
   | {
