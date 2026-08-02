@@ -22,13 +22,13 @@ export function HomeSections() {
       <LogosSection />
       <ServicesSection />
       <ProcessSection />
-      <WhySection />
       <WorkSection />
       <CaseStudySection />
       <AiSection />
       <TestimonialsSection />
       <PricingSection />
       <TeamSection />
+      <WhySection />
       <FaqSection />
       <ContactSection />
     </RevealInit>
