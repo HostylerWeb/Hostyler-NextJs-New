@@ -136,7 +136,7 @@ export function EditClientForm({ client }: EditClientFormProps) {
         <label className="flex min-w-0 cursor-pointer items-start gap-2 rounded-[var(--radius-md)] border-2 border-ink/10 bg-paper px-4 py-3 text-sm font-semibold">
           <Checkbox name="is_active" defaultChecked={client.is_active} className="mt-0.5 shrink-0" />
           <span className="min-w-0 break-words">
-            Account is active — client can log in and access the portal
+            Account is active: client can log in and access the portal
           </span>
         </label>
       </FormSection>

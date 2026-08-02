@@ -6,22 +6,22 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
   liveUrlLabel: "Visit Bonnie Plants",
   heroAccent: "Garden e-commerce · USA",
   overviewLead:
-    "Bonnie Plants is America's trusted source for live vegetable and herb plants — a Shopify storefront built for hobbyist gardeners who want healthy seedlings shipped to their door, with care guidance, seasonal merchandising, and a shopping flow tuned for growing seasons.",
+    "Bonnie Plants is America's trusted source for live vegetable and herb plants, a Shopify storefront built for hobbyist gardeners who want healthy seedlings shipped to their door, with care guidance, seasonal merchandising, and a shopping flow tuned for growing seasons.",
   overviewBody: [
-    "From heirloom tomatoes and hot peppers to basil, oregano, and chamomile, the site gives gardeners everything they need to start a productive plot — with collection navigation by plant type, ready-to-ship inventory, and educational content for first-time growers.",
+    "From heirloom tomatoes and hot peppers to basil, oregano, and chamomile, the site gives gardeners everything they need to start a productive plot, with collection navigation by plant type, ready-to-ship inventory, and educational content for first-time growers.",
     "We designed and developed the experience end to end: a fresh green brand identity, deep product taxonomy across herbs and vegetables, plus garden resources, DIY project guides, rewards, and retailer finder flows that support both online orders and in-store discovery.",
   ],
   challenge: {
     title: "The brief",
     paragraphs: [
-      "Bonnie Plants needed more than a generic plant catalogue. Gardeners shop by crop, growing zone, and season — and buying live plants online requires confidence in plant health, shipping timing, and care instructions before they add to cart.",
+      "Bonnie Plants needed more than a generic plant catalogue. Gardeners shop by crop, growing zone, and season, and buying live plants online requires confidence in plant health, shipping timing, and care instructions before they add to cart.",
       "The catalogue spans hundreds of varieties across herbs, vegetables, and specialty collections, with content hubs for new gardeners, container gardening, and edible landscaping. The site had to inspire first-time growers while still serving experienced gardeners restocking every spring.",
     ],
   },
   solution: {
     title: "What we delivered",
     paragraphs: [
-      "A custom Shopify storefront with a garden-fresh palette, photography-led product cards, and collection architecture that mirrors how gardeners actually shop — herbs and vegetables first, then ready-to-ship picks and seasonal highlights.",
+      "A custom Shopify storefront with a garden-fresh palette, photography-led product cards, and collection architecture that mirrors how gardeners actually shop, herbs and vegetables first, then ready-to-ship picks and seasonal highlights.",
       "The result is a credible direct-to-consumer channel: searchable catalogue, filterable collection pages, detailed product pages with growing guidance, educational blog content, and a rewards programme that turns one-time buyers into repeat seasonal customers.",
     ],
   },
@@ -36,7 +36,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
     showcaseEyebrow: "Store screens",
     showcaseTitle: "Inside the garden shop.",
     showcaseIntro:
-      "Screens captured from the live site — homepage, vegetable collections, product detail, DIY blog, garden articles, and brand story pages.",
+      "Screens captured from the live site, homepage, vegetable collections, product detail, DIY blog, garden articles, and brand story pages.",
     featuresEyebrow: "Store features",
     featuresTitle: "Everything a garden retailer needs online.",
     featuresIntro:
@@ -47,7 +47,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       "Four steps, optimised for gardeners planning their season on mobile and desktop alike.",
     operationsTitle: "Built for growing seasons, not just launch day.",
     operationsIntro:
-      "The catalogue supports seasonal launches, collection updates, and content publishing — without a developer for every new variety.",
+      "The catalogue supports seasonal launches, collection updates, and content publishing, without a developer for every new variety.",
     techIntro:
       "Shopify with a custom theme, collection filters, blog and resource hubs, Bonnie Rewards integration, and retailer finder tooling.",
     ctaTitle: "Need a garden e-commerce site like this?",
@@ -61,7 +61,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       caption: "Homepage",
       title: "Homepage & seasonal highlights",
       description:
-        "A welcoming homepage with Shop Now, Get Inspired, and Garden Resources navigation — surfacing new arrivals, trending categories, and featured herbs and vegetables for the current growing season.",
+        "A welcoming homepage with Shop Now, Get Inspired, and Garden Resources navigation, surfacing new arrivals, trending categories, and featured herbs and vegetables for the current growing season.",
     },
     {
       src: "/work/bonnie-plants/category.png",
@@ -69,7 +69,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       caption: "Vegetables",
       title: "Collection browsing",
       description:
-        "Dedicated vegetable collection pages with a dense product grid spanning tomatoes, peppers, squash, and more — organised for gardeners building their spring and summer plot.",
+        "Dedicated vegetable collection pages with a dense product grid spanning tomatoes, peppers, squash, and more, organised for gardeners building their spring and summer plot.",
     },
     {
       src: "/work/bonnie-plants/product.png",
@@ -77,7 +77,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       caption: "Product detail",
       title: "Live plant product pages",
       description:
-        "Individual product pages with plant photography, pack sizing, pricing, quantity controls, and add-to-cart — giving gardeners the detail they need before ordering live seedlings.",
+        "Individual product pages with plant photography, pack sizing, pricing, quantity controls, and add-to-cart, giving gardeners the detail they need before ordering live seedlings.",
     },
     {
       src: "/work/bonnie-plants/blog.png",
@@ -85,7 +85,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       caption: "Get inspired",
       title: "DIY garden projects",
       description:
-        "The Get Inspired blog hub with DIY garden project articles — vertical gardening, strawberry basket trees, and seasonal project ideas that keep gardeners engaged beyond checkout.",
+        "The Get Inspired blog hub with DIY garden project articles, vertical gardening, strawberry basket trees, and seasonal project ideas that keep gardeners engaged beyond checkout.",
     },
     {
       src: "/work/bonnie-plants/article.png",
@@ -93,7 +93,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       caption: "Garden article",
       title: "Educational content",
       description:
-        "Long-form garden articles with photography, step-by-step guidance, and related resources — building trust with new gardeners and supporting SEO for organic discovery.",
+        "Long-form garden articles with photography, step-by-step guidance, and related resources, building trust with new gardeners and supporting SEO for organic discovery.",
     },
     {
       src: "/work/bonnie-plants/about.png",
@@ -101,7 +101,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       caption: "Our story",
       title: "Brand heritage & trust",
       description:
-        "The Our Story page traces Bonnie Plants' century of gardening heritage — establishing the credibility customers expect when ordering live plants online.",
+        "The Our Story page traces Bonnie Plants' century of gardening heritage, establishing the credibility customers expect when ordering live plants online.",
     },
   ],
   features: [
@@ -109,7 +109,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       icon: "ticket",
       title: "Deep collection taxonomy",
       description:
-        "Collections across herbs, vegetables, ready-to-ship inventory, and individual crop types — from aloe and arugula to heirloom tomatoes and hot peppers.",
+        "Collections across herbs, vegetables, ready-to-ship inventory, and individual crop types. From aloe and arugula to heirloom tomatoes and hot peppers.",
     },
     {
       icon: "wallet",
@@ -121,31 +121,31 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       icon: "instant",
       title: "Ready-to-ship collections",
       description:
-        "A dedicated ready-to-ship aisle for plants available for immediate doorstep delivery — reducing uncertainty around seasonal availability.",
+        "A dedicated ready-to-ship aisle for plants available for immediate doorstep delivery, reducing uncertainty around seasonal availability.",
     },
     {
       icon: "account",
       title: "Bonnie Rewards",
       description:
-        "A loyalty programme with signup incentives and repeat-purchase rewards — turning spring shoppers into year-over-year customers.",
+        "A loyalty programme with signup incentives and repeat-purchase rewards, turning spring shoppers into year-over-year customers.",
     },
     {
       icon: "referral",
       title: "Garden resource hubs",
       description:
-        "Garden Fundamentals, How to Grow, and DIY Garden Projects blogs — educational content that supports purchase decisions and organic search.",
+        "Garden Fundamentals, How to Grow, and DIY Garden Projects blogs, educational content that supports purchase decisions and organic search.",
     },
     {
       icon: "loyalty",
       title: "New gardener guides",
       description:
-        "Dedicated landing pages for new gardeners, container gardening, and edible landscaping — onboarding first-time growers with confidence.",
+        "Dedicated landing pages for new gardeners, container gardening, and edible landscaping, onboarding first-time growers with confidence.",
     },
     {
       icon: "draw",
       title: "Retailer finder",
       description:
-        "Find a Retailer tooling that connects online discovery with in-store availability — bridging DTC and retail garden centre channels.",
+        "Find a Retailer tooling that connects online discovery with in-store availability, bridging DTC and retail garden centre channels.",
     },
     {
       icon: "compliance",
@@ -157,7 +157,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       icon: "admin",
       title: "Seasonal merchandising",
       description:
-        "Homepage modules and collection highlights managed through Shopify — keeping the storefront aligned with planting seasons.",
+        "Homepage modules and collection highlights managed through Shopify, keeping the storefront aligned with planting seasons.",
     },
   ],
   playerSteps: [
@@ -177,7 +177,7 @@ export const bonniePlantsCaseStudy: CaseStudyDetail = {
       step: "03",
       title: "Build your cart",
       description:
-        "Add live plant packs to cart, review quantities, and check out — with Bonnie Rewards signup for returning-season savings.",
+        "Add live plant packs to cart, review quantities, and check out, with Bonnie Rewards signup for returning-season savings.",
     },
     {
       step: "04",

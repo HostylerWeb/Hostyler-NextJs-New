@@ -1,8 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useActionState, useTransition, useState } from "react";
 import {
   cancelInvoiceAction,
+  deleteInvoiceAction,
   markInvoicePaidAction,
   resendInvoiceAction,
   sendInvoiceAction,
@@ -16,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 type InvoiceAdminActionsProps = {
   invoiceId: string;
+  invoiceNumber: string;
   status: string;
 };
 
@@ -23,9 +26,12 @@ const initialState: InvoiceActionState = {};
 
 export function InvoiceAdminActions({
   invoiceId,
+  invoiceNumber,
   status,
 }: InvoiceAdminActionsProps) {
+  const router = useRouter();
   const [pending, startTransition] = useTransition();
+  const [deletePending, startDelete] = useTransition();
   const [message, setMessage] = useState<InvoiceActionState>({});
   const [showPaidForm, setShowPaidForm] = useState(false);
   const paidAction = markInvoicePaidAction.bind(null, invoiceId);
@@ -38,6 +44,31 @@ export function InvoiceAdminActions({
     startTransition(async () => {
       const result = await action();
       setMessage(result);
+    });
+  }
+
+  function handleDelete() {
+    const paymentWarning =
+      status === "paid" || status === "partially_paid"
+        ? " Payment records for this invoice will also be removed."
+        : "";
+
+    if (
+      !window.confirm(
+        `Permanently delete ${invoiceNumber}? This cannot be undone.${paymentWarning}`,
+      )
+    ) {
+      return;
+    }
+
+    startDelete(async () => {
+      const result = await deleteInvoiceAction(invoiceId);
+      if (result.error) {
+        window.alert(result.error);
+        return;
+      }
+      router.push("/admin/invoices");
+      router.refresh();
     });
   }
 
@@ -110,6 +141,26 @@ export function InvoiceAdminActions({
             Cancel invoice
           </Button>
         ) : null}
+      </div>
+
+      <div className="rounded-[var(--radius-md)] border-2 border-coral/30 bg-coral-tint/20 p-4">
+        <p className="font-mono text-[10px] font-bold tracking-wide text-coral uppercase">
+          Danger zone
+        </p>
+        <p className="mt-1 text-sm text-muted">
+          Permanently remove this invoice and all related line items, status history,
+          and payment records.
+        </p>
+        <Button
+          type="button"
+          variant="coral"
+          size="sm"
+          className="mt-3"
+          disabled={deletePending || pending}
+          onClick={handleDelete}
+        >
+          {deletePending ? "Deleting…" : "Delete invoice"}
+        </Button>
       </div>
 
       {showPaidForm ? (

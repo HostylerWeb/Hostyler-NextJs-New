@@ -6,22 +6,22 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
   liveUrlLabel: "Visit The Lash House",
   heroAccent: "Beauty e-commerce · Lebanon",
   overviewLead:
-    "The Lash House is a premium Lebanese beauty supply store — a full WooCommerce storefront built for professional lash artists, with lash trays in every curl and length, adhesives, tools, accessories, and salon essentials in one curated shop.",
+    "The Lash House is a premium Lebanese beauty supply store, a full WooCommerce storefront built for professional lash artists, with lash trays in every curl and length, adhesives, tools, accessories, and salon essentials in one curated shop.",
   overviewBody: [
-    "From Cashmere Silk trays and Easy Fan promade fans to glue storage tanks, tweezer holders, and training faces, the site gives artists everything they need to stock a lash room — with category navigation, variable product options, and fast reordering on mobile.",
+    "From Cashmere Silk trays and Easy Fan promade fans to glue storage tanks, tweezer holders, and training faces, the site gives artists everything they need to stock a lash room, with category navigation, variable product options, and fast reordering on mobile.",
     "We designed and developed the experience end to end: a clean pink-and-white brand aesthetic, deep product taxonomy across lashes, adhesives, tools, accessories, and salon setup, plus account, wishlist, order tracking, and WhatsApp-ready contact flows.",
   ],
   challenge: {
     title: "The brief",
     paragraphs: [
-      "The Lash House needed more than a generic WooCommerce skin. Lash artists shop by very specific attributes — curl, length, thickness, tray type — and expect to find trays, glue, tweezers, and disposables without clicking through confusing menus.",
+      "The Lash House needed more than a generic WooCommerce skin. Lash artists shop by very specific attributes, curl, length, thickness, tray type, and expect to find trays, glue, tweezers, and disposables without clicking through confusing menus.",
       "The catalogue spans hundreds of SKUs across five top-level departments, with many variable products requiring curl/length selectors on the product page. The site had to feel premium and trustworthy for professionals restocking weekly, while still welcoming beauty enthusiasts building their first kit.",
     ],
   },
   solution: {
     title: "What we delivered",
     paragraphs: [
-      "A custom WooCommerce storefront with a soft beauty-brand palette, product photography-led cards, and category architecture that mirrors how lash artists actually shop — lashes first, then adhesives, tools, accessories, and salon setup.",
+      "A custom WooCommerce storefront with a soft beauty-brand palette, product photography-led cards, and category architecture that mirrors how lash artists actually shop, lashes first, then adhesives, tools, accessories, and salon setup.",
       "The result is a credible e-commerce channel for Lebanon and beyond: searchable catalogue, filterable shop pages, variable lash tray configuration, new-arrival carousels, and support pages that keep artists confident before and after they buy.",
     ],
   },
@@ -36,7 +36,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
     showcaseEyebrow: "Store screens",
     showcaseTitle: "Inside the storefront.",
     showcaseIntro:
-      "Screens captured from the live site — homepage, shop catalogue, product detail, category browsing, and brand pages.",
+      "Screens captured from the live site, homepage, shop catalogue, product detail, category browsing, and brand pages.",
     featuresEyebrow: "Store features",
     featuresTitle: "Everything a lash supply shop needs online.",
     featuresIntro:
@@ -47,7 +47,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       "Four steps, optimised for lash artists reordering supplies on mobile between appointments.",
     operationsTitle: "Built for restocking, not just launch day.",
     operationsIntro:
-      "The catalogue supports new product launches, category expansion, and seasonal promotions — without a developer for every SKU.",
+      "The catalogue supports new product launches, category expansion, and seasonal promotions, without a developer for every SKU.",
     techIntro:
       "WooCommerce on WordPress with a custom theme, variable product attributes, category filters, wishlist, and order-tracking integrations.",
     ctaTitle: "Need a beauty e-commerce site like this?",
@@ -61,7 +61,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       caption: "Homepage",
       title: "Homepage & new arrivals",
       description:
-        "A welcoming hero — \"Everything you need to create flawless lashes\" — with Shop Lashes and Browse Supplies calls to action, new-arrival product carousel, and category tiles for lash trays, magnetic lashes, glue, and lamination kits.",
+        'A welcoming hero, "Everything you need to create flawless lashes", with Shop Lashes and Browse Supplies calls to action, new-arrival product carousel, and category tiles for lash trays, magnetic lashes, glue, and lamination kits.',
     },
     {
       src: "/work/the-lash-house/shop.png",
@@ -77,7 +77,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       caption: "Product detail",
       title: "Variable lash tray pages",
       description:
-        "Individual product pages with gallery imagery, curl and length selectors, add-to-cart for variable lash trays, and related product recommendations — structured for artists who know exactly what they need.",
+        "Individual product pages with gallery imagery, curl and length selectors, add-to-cart for variable lash trays, and related product recommendations, structured for artists who know exactly what they need.",
     },
     {
       src: "/work/the-lash-house/category.png",
@@ -85,7 +85,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       caption: "Lashes",
       title: "Category browsing",
       description:
-        "Dedicated lash category pages — Classic, Volume, Easy Fan, Cashmere Silk, Magnetic, and more — with the same filter and sort tooling as the main shop so artists can narrow down tray type quickly.",
+        "Dedicated lash category pages, Classic, Volume, Easy Fan, Cashmere Silk, Magnetic, and more, with the same filter and sort tooling as the main shop so artists can narrow down tray type quickly.",
     },
     {
       src: "/work/the-lash-house/about.png",
@@ -93,7 +93,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       caption: "About",
       title: "Brand story & trust",
       description:
-        "The About page explains The Lash House mission — professional-grade trays, adhesives, and tools without guesswork — with quality, delivery, and support pillars that speak directly to working lash artists.",
+        "The About page explains The Lash House mission, professional-grade trays, adhesives, and tools without guesswork, with quality, delivery, and support pillars that speak directly to working lash artists.",
     },
     {
       src: "/work/the-lash-house/contact.png",
@@ -101,7 +101,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       caption: "Contact",
       title: "Contact & support",
       description:
-        "A contact page with business details, WhatsApp and social links, and a message form — giving artists a direct line for product questions, bulk orders, and order support.",
+        "A contact page with business details, WhatsApp and social links, and a message form, giving artists a direct line for product questions, bulk orders, and order support.",
     },
   ],
   features: [
@@ -109,7 +109,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       icon: "ticket",
       title: "Deep category taxonomy",
       description:
-        "Five top-level departments — Lashes, Adhesives & Liquids, Tools, Accessories, Salon Setup — with dozens of subcategories from Cashmere Silk trays to training faces.",
+        "Five top-level departments, Lashes, Adhesives & Liquids, Tools, Accessories, Salon Setup, with dozens of subcategories from Cashmere Silk trays to training faces.",
     },
     {
       icon: "wallet",
@@ -121,7 +121,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       icon: "instant",
       title: "Filterable shop pages",
       description:
-        "Price range sliders, in-stock and on-sale filters, grid density toggles, and sort by popularity, rating, or price — on every catalogue page.",
+        "Price range sliders, in-stock and on-sale filters, grid density toggles, and sort by popularity, rating, or price, on every catalogue page.",
     },
     {
       icon: "account",
@@ -133,13 +133,13 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       icon: "referral",
       title: "New arrivals carousel",
       description:
-        "Homepage product carousel surfacing latest lash trays and accessories — keeping the storefront fresh for returning artists.",
+        "Homepage product carousel surfacing latest lash trays and accessories, keeping the storefront fresh for returning artists.",
     },
     {
       icon: "loyalty",
       title: "Category discovery tiles",
       description:
-        "Visual category blocks on the homepage for Lash Trays, Magnetic Lashes, Glue, and Lamination & Care — guiding new visitors to the right aisle fast.",
+        "Visual category blocks on the homepage for Lash Trays, Magnetic Lashes, Glue, and Lamination & Care, guiding new visitors to the right aisle fast.",
     },
     {
       icon: "draw",
@@ -151,13 +151,13 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       icon: "compliance",
       title: "Shipping & returns",
       description:
-        "Clear shipping, delivery, returns, and FAQ pages that set expectations before checkout — reducing post-purchase friction.",
+        "Clear shipping, delivery, returns, and FAQ pages that set expectations before checkout, reducing post-purchase friction.",
     },
     {
       icon: "admin",
       title: "Newsletter signup",
       description:
-        "Email capture with a first-order discount offer — turning one-time buyers into repeat restock customers.",
+        "Email capture with a first-order discount offer, turning one-time buyers into repeat restock customers.",
     },
   ],
   playerSteps: [
@@ -177,7 +177,7 @@ export const theLashHouseCaseStudy: CaseStudyDetail = {
       step: "03",
       title: "Build your cart",
       description:
-        "Add lash trays, glue, tweezers, and disposables — variable options configured on each product — then check out with account or guest flow.",
+        "Add lash trays, glue, tweezers, and disposables, variable options configured on each product. Then check out with account or guest flow.",
     },
     {
       step: "04",

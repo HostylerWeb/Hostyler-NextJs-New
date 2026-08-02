@@ -122,7 +122,7 @@ function InvoicePayPalButtons({ invoiceId, payToken }: InvoicePayPalButtonProps)
         <div>
           <p className="text-sm font-bold">Pay with debit or credit card</p>
           <p className="mt-1 text-xs text-muted">
-            No PayPal account needed — checkout as a guest.
+ No PayPal account needed, checkout as a guest.
           </p>
         </div>
         <PayPalCheckoutSlot

@@ -8,7 +8,7 @@ export function ProcessSection() {
           <div className="process-intro">
             <span className="process-label">How we work</span>
             <h2>From first call to production traffic.</h2>
-            <p>A clear, repeatable process — so you always know what&apos;s next.</p>
+            <p>A clear, repeatable process, so you always know what&apos;s next.</p>
           </div>
           <div className="process-strip">
             {processSteps.map((step) => (

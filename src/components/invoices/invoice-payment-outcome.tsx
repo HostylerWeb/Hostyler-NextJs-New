@@ -17,7 +17,7 @@ export function InvoicePaymentOutcome({
     return (
       <div className="rounded-[var(--radius-md)] border-2 border-ink bg-lime-tint px-5 py-4">
         <p className="text-sm font-semibold">
-          Payment complete — no further action is required.
+ Payment complete. No further action is required.
         </p>
         <p className="mt-1 text-sm text-muted">
           {paidAt

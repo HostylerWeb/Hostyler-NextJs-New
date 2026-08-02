@@ -85,7 +85,7 @@ export const termsOfService: LegalDocument = {
     {
       title: "8. Warranties and Disclaimers",
       paragraphs: [
-        "We perform services with reasonable skill and care in line with industry standards and the agreed scope. Except as expressly stated in a project agreement, our website and services are provided on an \"as is\" and \"as available\" basis.",
+        'We perform services with reasonable skill and care in line with industry standards and the agreed scope. Except as expressly stated in a project agreement, our website and services are provided on an "as is" and "as available" basis.',
         "We do not guarantee uninterrupted availability of the website or portal, specific search rankings, revenue outcomes, or third-party platform approvals such as app store acceptance, which depend on factors outside our control.",
       ],
     },
@@ -122,7 +122,5 @@ export const termsOfService: LegalDocument = {
       ],
     },
   ],
-  closing: [
-    "For questions about these Terms, contact us at support@hostyler.com.",
-  ],
+  closing: ["For questions about these Terms, contact us at support@hostyler.com."],
 };

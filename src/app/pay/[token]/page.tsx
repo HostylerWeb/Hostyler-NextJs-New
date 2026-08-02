@@ -67,7 +67,7 @@ export default async function PayPage({ params }: Props) {
             <div>
               <h1 className="font-display text-3xl sm:text-4xl">
                 {isPaid
-                  ? "Thank you — this invoice is paid"
+ ? "Thank you, this invoice is paid"
                   : isCancelled
                     ? "This invoice is no longer payable"
                     : "Complete your payment"}
@@ -115,7 +115,7 @@ export default async function PayPage({ params }: Props) {
             <div>
               <h2 className="font-display text-xl">Payment method</h2>
               <p className="mt-1 text-sm text-muted">
-                Pay with card or PayPal — you&apos;ll complete checkout securely with PayPal.
+ Pay with card or PayPal, you&apos;ll complete checkout securely with PayPal.
               </p>
             </div>
             <PayPalCheckout

@@ -78,7 +78,7 @@ export default async function AdminCaseStudiesPage() {
                       Public page
                     </Link>
                   ) : (
-                    "—"
+                    "-"
                   )}
                 </TableCell>
               </TableRow>

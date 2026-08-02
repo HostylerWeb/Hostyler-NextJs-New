@@ -19,16 +19,13 @@ export function PricingSection() {
         </span>
         <h2>Starting points for common builds.</h2>
         <p>
-          Clear entry pricing by project type — final scope and quote come after discovery, not
+          Clear entry pricing by project type. Final scope and quote come after discovery, not
           mid-project surprises.
         </p>
       </div>
       <div className="pricing-grid">
         {pricingTiers.map((tier) => (
-          <div
-            key={tier.name}
-            className={`price-card reveal${tier.featured ? " featured" : ""}`}
-          >
+          <div key={tier.name} className={`price-card reveal${tier.featured ? " featured" : ""}`}>
             {"ribbon" in tier && tier.ribbon ? (
               <span className="price-ribbon">{tier.ribbon}</span>
             ) : null}
@@ -55,7 +52,7 @@ export function PricingSection() {
         ))}
       </div>
       <p className="pricing-support-note reveal">
-        <strong>12 months of free technical support</strong> on every project — bug fixes, stability,
+        <strong>12 months of free technical support</strong> on every project: bug fixes, stability,
         and post-launch help without a retainer.
       </p>
     </section>

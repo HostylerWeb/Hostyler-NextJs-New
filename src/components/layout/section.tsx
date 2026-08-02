@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 type SectionProps = HTMLAttributes<HTMLElement> & {
   as?: "section" | "div";
   tight?: boolean;
-  /** Use on standalone pages — main already clears the fixed header */
+ /** Use on standalone pages (main already clears the fixed header */
   pageTop?: boolean;
 };
 

@@ -337,4 +337,8 @@ export async function markInvoiceViewed(id: string): Promise<void> {
   });
 }
 
+export async function deleteInvoice(id: string): Promise<void> {
+  await prisma.invoices.delete({ where: { id } });
+}
+
 export { calculateTotals, calculateLineAmount };

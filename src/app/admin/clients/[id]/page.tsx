@@ -100,7 +100,7 @@ export default async function AdminClientDetailPage({ params }: Props) {
               },
               {
                 label: "Lifetime value",
-                value: invoices.length > 0 ? formatCurrency(invoiceTotal, primaryCurrency) : "—",
+                value: invoices.length > 0 ? formatCurrency(invoiceTotal, primaryCurrency) : "-",
                 hint: invoices.length > 0 ? `Across ${invoices.length} invoice(s)` : "No billing yet",
               },
               {

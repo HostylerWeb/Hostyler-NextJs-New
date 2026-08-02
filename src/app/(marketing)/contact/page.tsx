@@ -19,7 +19,7 @@ export default function ContactPage() {
         <SectionHead
           eyebrow="Contact"
           title="Start a project"
-          description="Tell us what you are building — we will reply ASAP, usually within a few hours, with next steps, not a sales pitch."
+ description="Tell us what you are building. We will reply ASAP, usually within a few hours, with next steps, not a sales pitch."
         />
         <ContactForm />
       </Wrap>

@@ -25,10 +25,13 @@ function FeatureIcon({ type }: { type: CaseStudyDetail["features"][number]["icon
     wallet: "M3 7h18v10H3zM16 11h3",
     draw: "M12 3v4M12 17v4M5 12H3M21 12h-2M7 7l-1.5-1.5M18.5 18.5L17 17M7 17l-1.5 1.5M18.5 5.5L17 7",
     instant: "M13 2L4 14h7l-1 8 9-12h-7l1-8z",
-    referral: "M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75",
-    loyalty: "M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z",
+    referral:
+      "M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75",
+    loyalty:
+      "M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z",
     account: "M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z",
-    admin: "M12 15a3 3 0 100-6 3 3 0 000 6zM19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z",
+    admin:
+      "M12 15a3 3 0 100-6 3 3 0 000 6zM19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z",
     compliance: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
     spin: "M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2",
   };
@@ -134,14 +137,14 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
           <Wrap>
             <div className="csd-split-grid">
               <div className="csd-split-card reveal">
-                <span className="csd-section-label">01 — Challenge</span>
+                <span className="csd-section-label">01: Challenge</span>
                 <h2>{detail.challenge.title}</h2>
                 {detail.challenge.paragraphs.map((paragraph) => (
                   <p key={paragraph.slice(0, 40)}>{paragraph}</p>
                 ))}
               </div>
               <div className="csd-split-card csd-split-card-accent reveal">
-                <span className="csd-section-label">02 — Solution</span>
+                <span className="csd-section-label">02: Solution</span>
                 <h2>{detail.solution.title}</h2>
                 {detail.solution.paragraphs.map((paragraph) => (
                   <p key={paragraph.slice(0, 40)}>{paragraph}</p>
@@ -176,7 +179,7 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
                 <h2>{sections.showcaseTitle ?? "Inside the product."}</h2>
                 <p>
                   {sections.showcaseIntro ??
-                    "Screens captured from the live platform — browse, entry, instant wins, winners, and account flows."}
+                    "Screens captured from the live platform: browse, entry, instant wins, winners, and account flows."}
                 </p>
               </div>
 
@@ -217,15 +220,15 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
         <section className="csd-section" id="features">
           <Wrap>
             <div className="head reveal">
-                <span className="eyebrow-chip">
-                  <i />
-                  {sections.featuresEyebrow ?? "Platform features"}
-                </span>
-                <h2>{sections.featuresTitle ?? "Everything a competition operator needs."}</h2>
-                <p>
-                  {sections.featuresIntro ??
-                    "Player-facing flows and back-office tooling built as one product — not bolted-on plugins."}
-                </p>
+              <span className="eyebrow-chip">
+                <i />
+                {sections.featuresEyebrow ?? "Platform features"}
+              </span>
+              <h2>{sections.featuresTitle ?? "Everything a competition operator needs."}</h2>
+              <p>
+                {sections.featuresIntro ??
+                  "Player-facing flows and back-office tooling built as one product. Not bolted-on plugins."}
+              </p>
             </div>
 
             <div className="csd-feature-grid">
@@ -245,15 +248,15 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
         <section className="csd-section csd-section-tint" id="journey">
           <Wrap>
             <div className="head reveal">
-                <span className="eyebrow-chip">
-                  <i />
-                  {sections.journeyEyebrow ?? "Player journey"}
-                </span>
-                <h2>{sections.journeyTitle ?? "From browse to live draw."}</h2>
-                <p>
-                  {sections.journeyIntro ??
-                    "Four steps, optimised for mobile traffic arriving during draw-night pushes."}
-                </p>
+              <span className="eyebrow-chip">
+                <i />
+                {sections.journeyEyebrow ?? "Player journey"}
+              </span>
+              <h2>{sections.journeyTitle ?? "From browse to live draw."}</h2>
+              <p>
+                {sections.journeyIntro ??
+                  "Four steps, optimised for mobile traffic arriving during draw-night pushes."}
+              </p>
             </div>
 
             <div className="csd-steps">
@@ -276,7 +279,7 @@ export function CaseStudyDetailContent({ study, detail }: CaseStudyDetailContent
                 <h2>{sections.operationsTitle ?? "Built for draw night, not just launch day."}</h2>
                 <p>
                   {sections.operationsIntro ??
-                    "The admin layer handles the messy reality of running competitions at scale — accounting splits, prize claims, withdrawals, and staff workflows included."}
+                    "The admin layer handles the messy reality of running competitions at scale, accounting splits, prize claims, withdrawals, and staff workflows included."}
                 </p>
                 <ul className="csd-checklist">
                   {detail.adminHighlights.map((item) => (

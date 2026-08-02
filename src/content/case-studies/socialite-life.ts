@@ -6,7 +6,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
   liveUrlLabel: "Visit Socialite Life",
   heroAccent: "Entertainment publishing · Since 2003",
   overviewLead:
-    "Socialite Life is a long-running pop culture and celebrity news destination — an editorial publishing platform built for high-volume entertainment coverage, social sharing, and the fast scroll habits of readers who expect fresh stories throughout the day.",
+    "Socialite Life is a long-running pop culture and celebrity news destination, an editorial publishing platform built for high-volume entertainment coverage, social sharing, and the fast scroll habits of readers who expect fresh stories throughout the day.",
   overviewBody: [
     "From breaking celebrity news and red-carpet coverage to interviews, RuPaul's Drag Race recaps, Real Housewives commentary, and the signature Socialite Seven Q&A series, the site gives entertainment fans a lively feed across entertainment, eye candy, lifestyle, and fashion.",
     "We designed and developed the experience end to end: editorial article templates, category and tag architecture, homepage discovery, readable typography for long-form posts, and publishing workflows that support a daily cadence without sacrificing performance on mobile.",
@@ -15,13 +15,13 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
     title: "The brief",
     paragraphs: [
       "Socialite Life needed more than a generic blog theme. Entertainment readers discover stories on social feeds and expect headline clarity, fast page loads, and layouts that surface related content the moment one article ends.",
-      "The editorial team publishes across dozens of recurring franchises — Celeb Snaps, Instahottie, Male Model Monday, Quick Drag, SL Flashback, and more — each with its own audience. The platform had to organise that volume without burying breaking news, while keeping a brand identity that has evolved since 2003.",
+      "The editorial team publishes across dozens of recurring franchises, Celeb Snaps, Instahottie, Male Model Monday, Quick Drag, SL Flashback, and more, each with its own audience. The platform had to organise that volume without burying breaking news, while keeping a brand identity that has evolved since 2003.",
     ],
   },
   solution: {
     title: "What we delivered",
     paragraphs: [
-      "A custom WordPress publishing experience with bold editorial layouts, category-led navigation, and article templates tuned for discovery — hero imagery, share prompts, related stories, and sidebar modules that keep readers clicking.",
+      "A custom WordPress publishing experience with bold editorial layouts, category-led navigation, and article templates tuned for discovery, hero imagery, share prompts, related stories, and sidebar modules that keep readers clicking.",
       "The result is a content site that feels lively and current: searchable archives, tag-driven franchises, interview formats, and a homepage that balances trending stories with franchise sections readers return to every week.",
     ],
   },
@@ -36,7 +36,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
     showcaseEyebrow: "Site screens",
     showcaseTitle: "Inside the newsroom.",
     showcaseIntro:
-      "Screens captured from the live site — homepage, category archives, article detail, blog feed, interviews, and about pages.",
+      "Screens captured from the live site, homepage, category archives, article detail, blog feed, interviews, and about pages.",
     featuresEyebrow: "Publishing features",
     featuresTitle: "Everything an entertainment blog needs online.",
     featuresIntro:
@@ -47,7 +47,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       "Four steps, optimised for mobile readers arriving from social feeds and expecting instant context.",
     operationsTitle: "Built for daily publishing, not just launch day.",
     operationsIntro:
-      "The content layer supports breaking news, recurring franchises, interviews, and seasonal coverage — without a developer for every post.",
+      "The content layer supports breaking news, recurring franchises, interviews, and seasonal coverage, without a developer for every post.",
     techIntro:
       "WordPress with a custom theme, category and tag taxonomies, editorial templates, social sharing, and performance-tuned assets for high-traffic publishing.",
     ctaTitle: "Need a publishing platform like this?",
@@ -61,7 +61,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       caption: "Homepage",
       title: "Homepage & breaking news",
       description:
-        "A bold homepage hero surfacing the latest celebrity stories — with department navigation across Entertainment, Eye Candy, Lifestyle, Shopping, and Videos for readers who browse by mood.",
+        "A bold homepage hero surfacing the latest celebrity stories, with department navigation across Entertainment, Eye Candy, Lifestyle, Shopping, and Videos for readers who browse by mood.",
     },
     {
       src: "/work/socialite-life/category.png",
@@ -69,7 +69,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       caption: "Entertainment",
       title: "Category archives",
       description:
-        "Dedicated entertainment category pages with a dense article grid — celebrity, movies, TV, and music coverage organised for readers who want the full feed in one place.",
+        "Dedicated entertainment category pages with a dense article grid, celebrity, movies, TV, and music coverage organised for readers who want the full feed in one place.",
     },
     {
       src: "/work/socialite-life/article.png",
@@ -77,7 +77,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       caption: "Article",
       title: "Editorial article templates",
       description:
-        "Individual story pages with headline hierarchy, byline and date, hero imagery, share prompts, and readable body copy — structured for social referrals and long-form reading alike.",
+        "Individual story pages with headline hierarchy, byline and date, hero imagery, share prompts, and readable body copy, structured for social referrals and long-form reading alike.",
     },
     {
       src: "/work/socialite-life/blog.png",
@@ -85,7 +85,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       caption: "Latest",
       title: "Latest stories feed",
       description:
-        "The main blog archive surfacing the newest posts across franchises — Socialite Seven interviews, podcast picks, drag coverage, and breaking entertainment news in chronological order.",
+        "The main blog archive surfacing the newest posts across franchises, Socialite Seven interviews, podcast picks, drag coverage, and breaking entertainment news in chronological order.",
     },
     {
       src: "/work/socialite-life/interviews.png",
@@ -93,7 +93,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       caption: "Interviews",
       title: "Interview & franchise sections",
       description:
-        "Dedicated interview archives for the Socialite Seven Q&A series and long-form profiles — giving recurring franchises their own discovery pages beyond the main entertainment feed.",
+        "Dedicated interview archives for the Socialite Seven Q&A series and long-form profiles, giving recurring franchises their own discovery pages beyond the main entertainment feed.",
     },
     {
       src: "/work/socialite-life/about.png",
@@ -101,7 +101,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       caption: "About",
       title: "Brand story & masthead",
       description:
-        "The About page traces Socialite Life's history since August 2003 and introduces the editorial team — building the credibility readers expect from an established entertainment publication.",
+        "The About page traces Socialite Life's history since August 2003 and introduces the editorial team, building the credibility readers expect from an established entertainment publication.",
     },
   ],
   features: [
@@ -109,19 +109,19 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       icon: "ticket",
       title: "Deep category taxonomy",
       description:
-        "Top-level departments — Entertainment, Eye Candy, Lifestyle, Fashion, Shopping — with subcategories for celebrity, movies, TV, music, and recurring franchises.",
+        "Top-level departments, Entertainment, Eye Candy, Lifestyle, Fashion, Shopping, with subcategories for celebrity, movies, TV, music, and recurring franchises.",
     },
     {
       icon: "wallet",
       title: "Franchise tag pages",
       description:
-        "Dedicated tags for Socialite Seven, Celeb Snaps, Instahottie, Male Model Monday, Quick Drag, and RuPaul's Drag Race — so loyal readers jump straight to their favourite columns.",
+        "Dedicated tags for Socialite Seven, Celeb Snaps, Instahottie, Male Model Monday, Quick Drag, and RuPaul's Drag Race, so loyal readers jump straight to their favourite columns.",
     },
     {
       icon: "instant",
       title: "Editorial article templates",
       description:
-        "Story pages with hero imagery, bylines, share buttons, highlights, and related content modules — tuned for readers arriving from Twitter, Facebook, and search.",
+        "Story pages with hero imagery, bylines, share buttons, highlights, and related content modules, tuned for readers arriving from Twitter, Facebook, and search.",
     },
     {
       icon: "account",
@@ -133,13 +133,13 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       icon: "referral",
       title: "Trending & latest modules",
       description:
-        "Homepage and sidebar widgets surfacing trending stories and the latest posts — keeping the site feeling current for returning readers.",
+        "Homepage and sidebar widgets surfacing trending stories and the latest posts, keeping the site feeling current for returning readers.",
     },
     {
       icon: "loyalty",
       title: "Interview formats",
       description:
-        "Structured Q&A templates for the Socialite Seven series and long-form celebrity profiles — consistent presentation across hundreds of interviews.",
+        "Structured Q&A templates for the Socialite Seven series and long-form celebrity profiles, consistent presentation across hundreds of interviews.",
     },
     {
       icon: "draw",
@@ -165,7 +165,7 @@ export const socialiteLifeCaseStudy: CaseStudyDetail = {
       step: "01",
       title: "Discover a headline",
       description:
-        "Land from social search or referral, scan the homepage hero and trending modules, and pick a story that matches their interest — celebrity news, drag, or interviews.",
+        "Land from social search or referral, scan the homepage hero and trending modules, and pick a story that matches their interest, celebrity news, drag, or interviews.",
     },
     {
       step: "02",

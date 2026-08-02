@@ -6,7 +6,7 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
   liveUrlLabel: "Visit CompetitionGo",
   heroAccent: "UK prize competition platform",
   overviewLead:
-    "CompetitionGo is a full-scale UK skill-based competition platform — built to sell tickets from 10p, run live draws twice a week, and keep players coming back through wallets, referrals, and gamified prize reveals.",
+    "CompetitionGo is a full-scale UK skill-based competition platform, built to sell tickets from 10p, run live draws twice a week, and keep players coming back through wallets, referrals, and gamified prize reveals.",
   overviewBody: [
     "Operated by CompetitionGo Ltd (Company No. 13200620), the platform handles everything from qualifying-question entry and multi-competition checkout to instant wins, prize fulfilment, and a multi-role admin back office.",
     "We designed and developed the experience end to end: the public storefront, account hub, payment routing, loyalty mechanics, and operational tooling the team relies on every draw night.",
@@ -14,14 +14,14 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
   challenge: {
     title: "The brief",
     paragraphs: [
-      "Competition sites live or die on trust and speed. Players need to understand the prize, answer a skill question, and checkout in seconds — especially on mobile during a live draw push from Facebook or YouTube.",
+      "Competition sites live or die on trust and speed. Players need to understand the prize, answer a skill question, and checkout in seconds, especially on mobile during a live draw push from Facebook or YouTube.",
       "Behind the storefront, the business needed far more than a brochure site: ticket inventory with caps, wallet balances split between cash and site credit, referral commissions, instant-win reveals, accounting that reconciles card vs wallet revenue, and admin workflows that don't break when volume spikes on a Wednesday night.",
     ],
   },
   solution: {
     title: "What we delivered",
     paragraphs: [
-      "A custom competition commerce engine — not a WordPress theme with a payment plugin. Every flow, from cart merge on login to guaranteed-winner redraws, was built for how UK competition operators actually run campaigns.",
+      "A custom competition commerce engine. Not a WordPress theme with a payment plugin. Every flow, from cart merge on login to guaranteed-winner redraws, was built for how UK competition operators actually run campaigns.",
       "The result is a polished player experience that converts first-time visitors, plus an operations layer that gives the team full control over competitions, claims, withdrawals, and reporting without developer hand-holding.",
     ],
   },
@@ -38,13 +38,13 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
       caption: "Competition detail",
       title: "Competition detail page",
       description:
-        "Each prize draw gets its own landing page — hero imagery, ticket pricing, a live countdown, sold-ticket progress bar, instant-win breakdown, and the qualifying skill question built into the purchase flow.",
+        "Each prize draw gets its own landing page, hero imagery, ticket pricing, a live countdown, sold-ticket progress bar, instant-win breakdown, and the qualifying skill question built into the purchase flow.",
     },
     {
       src: "/work/competitiongo/profile.png",
       alt: "CompetitionGo My Account profile tab with user details and balances",
       caption: "Player profile",
-      title: "My Account — profile hub",
+      title: "My Account, profile hub",
       description:
         "Logged-in players manage their identity from one dashboard: cash and Go Credit balances, contact details, billing address, and quick access to tickets, orders, wallet, and referrals.",
     },
@@ -70,7 +70,7 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
       caption: "Referrals",
       title: "Referral programme",
       description:
-        "Every player gets a personal referral link with a 7% commission on referred orders. The dashboard tracks referrals, earnings, and available balance — convertible to wallet credit for repeat play.",
+        "Every player gets a personal referral link with a 7% commission on referred orders. The dashboard tracks referrals, earnings, and available balance, convertible to wallet credit for repeat play.",
     },
     {
       src: "/work/competitiongo/account-control.png",
@@ -78,7 +78,7 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
       caption: "Account control",
       title: "Responsible play controls",
       description:
-        "Players set weekly, monthly, or longer spending limits from Account Control. Self-exclusion and account-disable options give users full control over their play — built into the platform, not bolted on.",
+        "Players set weekly, monthly, or longer spending limits from Account Control. Self-exclusion and account-disable options give users full control over their play, built into the platform, not bolted on.",
     },
   ],
   features: [
@@ -86,7 +86,7 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
       icon: "ticket",
       title: "Skill-based entry flow",
       description:
-        "Qualifying questions on every competition, ticket caps, and per-user limits — structured to meet UK skill-based competition requirements while keeping checkout fast.",
+        "Qualifying questions on every competition, ticket caps, and per-user limits, structured to meet UK skill-based competition requirements while keeping checkout fast.",
     },
     {
       icon: "wallet",
@@ -110,7 +110,7 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
       icon: "referral",
       title: "Referral programme",
       description:
-        "Personal referral links with 7% commission on every referred order — earnings convertible to wallet balance for repeat play.",
+        "Personal referral links with 7% commission on every referred order, earnings convertible to wallet balance for repeat play.",
     },
     {
       icon: "loyalty",
@@ -128,7 +128,7 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
       icon: "account",
       title: "My Account hub",
       description:
-        "Tickets, orders, prize claims, shipping addresses, notifications, spending limits, and self-exclusion — all in one player dashboard.",
+        "Tickets, orders, prize claims, shipping addresses, notifications, spending limits, and self-exclusion, all in one player dashboard.",
     },
     {
       icon: "compliance",
@@ -140,7 +140,7 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
       icon: "admin",
       title: "Multi-role admin",
       description:
-        "Separate admin, staff, and viewer portals with 2FA — competition lifecycle, accounting, prize claims, withdrawals, coupons, and reporting.",
+        "Separate admin, staff, and viewer portals with 2FA, competition lifecycle, accounting, prize claims, withdrawals, coupons, and reporting.",
     },
   ],
   playerSteps: [
@@ -160,13 +160,13 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
       step: "03",
       title: "Answer the question",
       description:
-        "A qualifying skill question gates every purchase — quick, clear, and built into the checkout path.",
+        "A qualifying skill question gates every purchase, quick, clear, and built into the checkout path.",
     },
     {
       step: "04",
       title: "Watch the live draw",
       description:
-        "Winners revealed live every Wednesday and Sunday at 8PM UK time on Facebook and YouTube — with a published winners gallery on-site.",
+        "Winners revealed live every Wednesday and Sunday at 8PM UK time on Facebook and YouTube, with a published winners gallery on-site.",
     },
   ],
   adminHighlights: [
@@ -194,7 +194,7 @@ export const competitionGoCaseStudy: CaseStudyDetail = {
     { metric: "Full-stack", label: "custom platform build" },
   ],
   quote: {
-    text: "A competition platform that handles the full loop — from a 10p ticket purchase to live draw night accounting — without duct-taping plugins together.",
+    text: "A competition platform that handles the full loop. From a 10p ticket purchase to live draw night accounting, without duct-taping plugins together.",
     attribution: "Hostyler project summary",
   },
 };

@@ -54,7 +54,7 @@ export default async function PortalInvoiceDetailPage({ params }: Props) {
             </div>
             {isPaid ? (
               <p className="max-w-xl text-sm text-muted">
-                Thank you — this invoice is paid
+ Thank you, this invoice is paid
                 {invoice.paid_at ? ` on ${formatDate(invoice.paid_at)}` : ""}.
               </p>
             ) : isCancelled ? (
@@ -100,7 +100,7 @@ export default async function PortalInvoiceDetailPage({ params }: Props) {
             <div>
               <h2 className="font-display text-lg">Payment method</h2>
               <p className="mt-1 text-sm text-muted">
-                Pay with card or PayPal — checkout is processed securely by PayPal.
+ Pay with card or PayPal, checkout is processed securely by PayPal.
               </p>
             </div>
             <PayPalCheckout

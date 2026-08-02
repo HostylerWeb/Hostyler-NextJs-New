@@ -67,7 +67,7 @@ export default async function AdminSupportPage() {
                     {ticket.ticket_number}
                   </Link>
                 </TableCell>
-                <TableCell>{clientMap.get(ticket.user_id) ?? "—"}</TableCell>
+                <TableCell>{clientMap.get(ticket.user_id) ?? "-"}</TableCell>
                 <TableCell>{ticket.subject}</TableCell>
                 <TableCell>
                   <StatusBadge status={ticket.status} kind="ticket" />

@@ -7,16 +7,15 @@ export const contactProjectTypeOptions = [
 ] as const;
 
 export const contactBudgetOptions = [
-  { value: "web_from_3500", label: "Web development — from $3,500" },
-  { value: "app_from_6000", label: "Mobile apps (iOS & Android) — from $6,000" },
-  { value: "ai_from_7500", label: "Advanced AI — from $7,500" },
+  { value: "web_from_3500", label: "Web development. From $3,500" },
+  { value: "app_from_6000", label: "Mobile apps (iOS & Android). From $6,000" },
+  { value: "ai_from_7500", label: "Advanced AI. From $7,500" },
   { value: "range_10_25k", label: "$10,000–$25,000" },
   { value: "range_25k_plus", label: "$25,000+" },
   { value: "exploring", label: "Just exploring" },
 ] as const;
 
-export type ContactProjectTypeValue =
-  (typeof contactProjectTypeOptions)[number]["value"];
+export type ContactProjectTypeValue = (typeof contactProjectTypeOptions)[number]["value"];
 
 export type ContactBudgetValue = (typeof contactBudgetOptions)[number]["value"];
 

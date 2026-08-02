@@ -48,7 +48,7 @@ export function AdminInvoicesTable({ invoices }: AdminInvoicesTableProps) {
     {
       key: "client",
       header: "Client",
-      cell: (row) => row.client?.name ?? "—",
+      cell: (row) => row.client?.name ?? "-",
     },
     {
       key: "total",
@@ -68,7 +68,7 @@ export function AdminInvoicesTable({ invoices }: AdminInvoicesTableProps) {
     {
       key: "paid",
       header: "Paid",
-      cell: (row) => (row.paid_at ? formatDate(row.paid_at) : "—"),
+      cell: (row) => (row.paid_at ? formatDate(row.paid_at) : "-"),
     },
   ];
 

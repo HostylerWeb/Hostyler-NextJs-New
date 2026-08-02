@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!study) return { title: "Work" };
   return buildPageMetadata({
     title: study.title,
-    description: study.excerpt ?? `${study.title} — ${study.client_name}`,
+ description: study.excerpt ?? `${study.title}, ${study.client_name}`,
     path: `/work/${slug}`,
   });
 }

@@ -20,11 +20,11 @@ export const privacyPolicy: LegalDocument = {
         "Depending on how you interact with us, we may collect the following categories of data:",
       ],
       list: [
-        "Identity and contact details — name, email address, phone number, company name, and job title.",
-        "Account data — login credentials (stored as hashed passwords), session identifiers, and portal preferences.",
-        "Project and communication data — enquiry messages, support tickets, proposals, deliverables feedback, and email correspondence.",
-        "Billing data — invoice records, payment status, transaction references, and billing contact details. Card or wallet details are processed by payment providers such as PayPal and are not stored on our servers.",
-        "Technical and security data — IP address, browser type, device information, request logs, and security events used for fraud prevention, rate limiting, and abuse detection.",
+        "Identity and contact details, name, email address, phone number, company name, and job title.",
+        "Account data, login credentials (stored as hashed passwords), session identifiers, and portal preferences.",
+        "Project and communication data, enquiry messages, support tickets, proposals, deliverables feedback, and email correspondence.",
+        "Billing data, invoice records, payment status, transaction references, and billing contact details. Card or wallet details are processed by payment providers such as PayPal and are not stored on our servers.",
+        "Technical and security data, IP address, browser type, device information, request logs, and security events used for fraud prevention, rate limiting, and abuse detection.",
       ],
     },
     {

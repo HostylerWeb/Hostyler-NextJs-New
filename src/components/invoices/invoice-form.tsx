@@ -120,9 +120,9 @@ export function InvoiceForm({
             }
             required
           >
-            <option value="USD">USD — US Dollar</option>
-            <option value="EUR">EUR — Euro</option>
-            <option value="GBP">GBP — British Pound</option>
+ <option value="USD">USD: US Dollar</option>
+ <option value="EUR">EUR: Euro</option>
+ <option value="GBP">GBP: British Pound</option>
           </Select>
         </Field>
         <Field label="Tax rate (%)" htmlFor="tax_rate">

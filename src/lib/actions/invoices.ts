@@ -13,6 +13,7 @@ import {
 } from "@/lib/mail";
 import {
   createInvoice,
+  deleteInvoice,
   getInvoiceById,
   listAllInvoices,
   updateInvoice,
@@ -205,6 +206,28 @@ export async function cancelInvoiceAction(
   revalidatePath(`/admin/invoices/${invoiceId}`);
   revalidatePath("/admin/invoices");
   return { success: "Invoice cancelled." };
+}
+
+export async function deleteInvoiceAction(
+  invoiceId: string,
+): Promise<InvoiceActionState> {
+  const session = await auth();
+  if (!isAdmin(session?.user)) {
+    return { error: "Unauthorized" };
+  }
+
+  const invoice = await getInvoiceById(invoiceId);
+  if (!invoice) return { error: "Invoice not found" };
+
+  try {
+    await deleteInvoice(invoiceId);
+  } catch {
+    return { error: "Could not delete this invoice." };
+  }
+
+  revalidatePath("/admin/invoices");
+  revalidatePath("/admin");
+  return { success: "Invoice deleted." };
 }
 
 export async function markInvoicePaidAction(

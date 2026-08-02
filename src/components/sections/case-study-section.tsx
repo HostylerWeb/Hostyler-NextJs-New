@@ -1,10 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  getFeaturedCaseStudy,
-  listPublishedCaseStudies,
-} from "@/lib/repositories/case-studies";
+import { getFeaturedCaseStudy, listPublishedCaseStudies } from "@/lib/repositories/case-studies";
 
 function ArrowIcon() {
   return (
@@ -57,9 +54,7 @@ export async function CaseStudySection() {
   if (!featured) return null;
 
   const allStudies = await listPublishedCaseStudies();
-  const miniCases = allStudies
-    .filter((study) => study.id !== featured.id)
-    .slice(0, 3);
+  const miniCases = allStudies.filter((study) => study.id !== featured.id).slice(0, 3);
 
   const tags = parseTags(featured.tags);
   const stats = parseStats(featured.stats);
@@ -101,11 +96,7 @@ export async function CaseStudySection() {
             </div>
           ) : null}
           <p>{featured.excerpt}</p>
-          <Button
-            href={`/work/${featured.slug}`}
-            variant="ghost"
-            className="btn btn-ghost"
-          >
+          <Button href={`/work/${featured.slug}`} variant="ghost" className="btn btn-ghost">
             Read the full case study
             <ArrowIcon />
           </Button>

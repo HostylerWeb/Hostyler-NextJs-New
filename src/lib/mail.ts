@@ -251,13 +251,13 @@ export async function sendContactNotification(input: {
 export async function sendContactAutoReply(input: { name: string; email: string }) {
   const body = `
     ${paragraph(`Hi ${escapeHtml(input.name)},`)}
-    ${paragraph("Thanks for reaching out to Hostyler. We received your message and will reply ASAP — usually within a few hours.")}
-    ${paragraph("— The Hostyler team")}
+    ${paragraph("Thanks for reaching out to Hostyler. We received your message and will reply ASAP, usually within a few hours.")}
+    ${paragraph("The Hostyler team")}
   `;
 
   await sendMail({
     to: input.email,
-    subject: "We got your message — Hostyler",
+    subject: "We got your message | Hostyler",
     html: emailTemplate({
       title: "Thanks for getting in touch",
       preheader: "We received your message and will reply ASAP",
@@ -389,7 +389,7 @@ export async function sendInvoicePaidReceipt(input: {
 
   await sendMail({
     to: input.clientEmail,
-    subject: `Payment received — ${input.invoiceNumber}`,
+    subject: `Payment received: ${input.invoiceNumber}`,
     html: emailTemplate({
       title: "Payment received",
       preheader: `Payment received for invoice ${input.invoiceNumber}`,
@@ -585,8 +585,8 @@ export async function sendSecurityIncidentAlert(input: {
         <tr>
           <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.createdAt)}</td>
           <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.kind)}</td>
-          <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.email ?? "—")}</td>
-          <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.attemptedValue ?? "—")}</td>
+          <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.email ?? "-")}</td>
+          <td style="padding:8px 10px;border-bottom:1px solid #E8E5DC;font-size:13px;">${escapeHtml(attempt.attemptedValue ?? "-")}</td>
         </tr>
       `,
     )

@@ -25,9 +25,9 @@ export const cookiePolicy: LegalDocument = {
         "These cookies are required for the website and client portal to function. Without them, features such as login, session management, and secure form submission may not work.",
       ],
       list: [
-        "Authentication and session cookies — keep you signed in to the client portal securely.",
-        "Security cookies — help protect against cross-site request forgery and abuse.",
-        "Preference cookies — remember basic settings needed for site operation.",
+        "Authentication and session cookies, keep you signed in to the client portal securely.",
+        "Security cookies, help protect against cross-site request forgery and abuse.",
+        "Preference cookies, remember basic settings needed for site operation.",
       ],
     },
     {

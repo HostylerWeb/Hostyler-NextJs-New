@@ -8,7 +8,7 @@ export const processSteps = [
   {
     number: "02",
     title: "Design & scope",
-    description: "Flows, UI, and a fixed scope doc — no vague SOWs.",
+    description: "Flows, UI, and a fixed scope doc. No vague SOWs.",
     tag: "1–2 weeks",
   },
   {

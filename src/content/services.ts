@@ -12,7 +12,7 @@ export const services = [
     tag: "02 · APP",
     title: "App Development",
     description:
-      "Native and cross-platform mobile apps with the polish users expect — onboarding, push, offline, and app store launch included.",
+      "Native and cross-platform mobile apps with the polish users expect, onboarding, push, offline, and app store launch included.",
     tint: "coral" as const,
   },
   {
@@ -20,7 +20,7 @@ export const services = [
     tag: "03 · AI",
     title: "AI Development",
     description:
-      "Custom AI for websites, apps, chatbots, advisors, scanners, and trained models — scoped, evaluated, and built for production.",
+      "Custom AI for websites, apps, chatbots, advisors, scanners, and trained models, scoped, evaluated, and built for production.",
     tint: "lime" as const,
   },
 ] as const;
@@ -30,7 +30,7 @@ export const serviceCards = [
     title: "Web",
     packageTag: "Websites & SaaS",
     description: "Marketing sites, dashboards, and full-stack web platforms.",
-    features: ["Next.js / React", "SEO & performance", "CMS integration"],
+    features: ["PHP · Python · TypeScript", "React · Next.js · Nuxt", "SEO & performance"],
     tint: "violet" as const,
   },
   {

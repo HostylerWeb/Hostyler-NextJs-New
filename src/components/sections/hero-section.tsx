@@ -42,8 +42,8 @@ export function HeroSection() {
               <span>Products shipped</span>
             </div>
             <div className="stat-chip reveal">
-              <b>10+</b>
-              <span>Technologies used</span>
+              <b>3</b>
+              <span>Core stacks · PHP · Python · TS</span>
             </div>
             <div className="stat-chip reveal">
               <b>8</b>

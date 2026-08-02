@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { site } from "@/content/site";
 
-export const alt = `${site.name} — ${site.tagline}`;
+export const alt = `${site.name}, ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -192,7 +192,7 @@ export default async function OgImage() {
                   maxWidth: 560,
                 }}
               >
-                Senior web, app, and AI development for founders — fixed timelines, full code
+ Senior web, app, and AI development for founders, fixed timelines, full code
                 ownership, no junior handoffs.
               </div>
             </div>
@@ -200,7 +200,7 @@ export default async function OgImage() {
             <div style={{ display: "flex", gap: 14 }}>
               {[
                 { value: "550+", label: "Products shipped" },
-                { value: "10+", label: "Technologies" },
+                { value: "3", label: "Core stacks" },
                 { value: "8 yrs", label: "Since 2019" },
               ].map((stat) => (
                 <div

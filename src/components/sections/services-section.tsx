@@ -29,7 +29,7 @@ export function ServicesSection() {
         </span>
         <h2>Three disciplines, one build process.</h2>
         <p>
-          Every engagement draws on the same core team — no handoffs between a &quot;web agency&quot;
+          Every engagement draws on the same core team. No handoffs between a &quot;web agency&quot;
           and an &quot;AI vendor.&quot; Here&apos;s exactly what each discipline covers.
         </p>
       </div>

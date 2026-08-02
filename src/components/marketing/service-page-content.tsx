@@ -34,12 +34,12 @@ function OverviewParagraph({ text, isLead }: { text: string; isLead?: boolean })
     return <p>{text}</p>;
   }
 
-  const dashIndex = text.indexOf(" — ");
-  if (dashIndex > 0) {
+  const colonIndex = text.indexOf(": ");
+  if (colonIndex > 0 && colonIndex < 140) {
     return (
       <p>
-        <strong>{text.slice(0, dashIndex)}</strong>
-        {text.slice(dashIndex)}
+        <strong>{text.slice(0, colonIndex)}</strong>
+        {text.slice(colonIndex)}
       </p>
     );
   }
@@ -94,7 +94,7 @@ function PathVisual({
           <div className="service-path-chat">
             <div className="service-path-chat-bubble user">Why was this flagged?</div>
             <div className="service-path-chat-bubble ai">
-              Policy threshold exceeded — review required.
+              Policy threshold exceeded: review required.
               <span>✦ grounded in ticket data</span>
             </div>
           </div>
@@ -207,7 +207,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
           </nav>
         </div>
 
-        {/* Hero — research-first: no CTAs */}
+        {/* Hero: research-first, no CTAs */}
         <section className="service-page-hero wrap">
           <div className="dots" aria-hidden="true" />
           <div className="service-page-hero-grid">
@@ -285,7 +285,9 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
                 <div className="service-overview-audiences">
                   {page.overviewSection.spotlight.audiences.map((audience, index) => (
                     <article key={audience.tag} className="service-audience-card">
-                      <span className="service-audience-tag">0{index + 1} · {audience.tag}</span>
+                      <span className="service-audience-tag">
+                        0{index + 1} · {audience.tag}
+                      </span>
                       <h3>{audience.title}</h3>
                       <p>{audience.description}</p>
                     </article>
@@ -295,7 +297,10 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
 
               <div className="service-path-grid">
                 {page.overviewSection.paths.map((path) => (
-                  <article key={path.title} className={`service-path-card reveal is-${path.variant}`}>
+                  <article
+                    key={path.title}
+                    className={`service-path-card reveal is-${path.variant}`}
+                  >
                     <div className="service-path-card-copy">
                       <h3>{path.title}</h3>
                       <p>{path.description}</p>
@@ -537,7 +542,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
             <article className="service-td-card reveal">
               <p className="service-td-label">Technologies</p>
               <h3>Chosen for your product</h3>
-              <p>Battle-tested tools — not whatever is trending this week.</p>
+              <p>Battle-tested tools. Not whatever is trending this week.</p>
               <div className="service-tech-chips">
                 {page.technologies.map((tech) => (
                   <span key={tech}>{tech}</span>
@@ -560,7 +565,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
           </div>
         </section>
 
-        {/* Business value — app & AI pages */}
+        {/* Business value: app and AI pages */}
         {page.businessValue ? (
           <section className="service-page-section wrap" id="value">
             <div className="head reveal">
@@ -589,7 +594,7 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
               </span>
               <h2>Examples for your business.</h2>
               <p>
-                Practical use cases we deliver — from customer-facing apps to internal automations.
+                Practical use cases we deliver. From customer-facing apps to internal automations.
               </p>
             </div>
             <div className="service-build-grid">
@@ -698,19 +703,23 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
           </section>
         ) : null}
 
-        {/* Single CTA — after the reader has the full picture */}
+        {/* Single CTA after the reader has the full picture */}
         <section className="wrap service-page-cta-wrap">
           <div className="cta-section reveal">
             <h2>Ready when you are.</h2>
             <p>
-              If this sounds like the right fit, tell us what you&apos;re building — we&apos;ll reply
+              If this sounds like the right fit, tell us what you&apos;re building, we&apos;ll reply
               within one business day with next steps, not a sales pitch.
             </p>
             <div className="cta-actions">
               <Button href="/contact" variant="lime" className="btn btn-ghost">
                 {page.cta}
               </Button>
-              <Button href={`mailto:support@hostyler.com`} variant="ghost" className="btn btn-ghost">
+              <Button
+                href={`mailto:support@hostyler.com`}
+                variant="ghost"
+                className="btn btn-ghost"
+              >
                 Or email us directly
               </Button>
             </div>

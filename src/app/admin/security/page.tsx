@@ -133,21 +133,21 @@ export default async function AdminSecurityPage() {
                       {formatEventKind(event.kind)}
                     </TableCell>
                     <TableCell className="font-mono text-xs">{event.ip_address}</TableCell>
-                    <TableCell>{event.email ?? "—"}</TableCell>
+                    <TableCell>{event.email ?? "-"}</TableCell>
                     <TableCell className="max-w-[140px] truncate font-mono text-xs">
-                      {event.attempted_value ?? "—"}
+                      {event.attempted_value ?? "-"}
                     </TableCell>
                     <TableCell className="max-w-[120px] truncate font-mono text-xs">
-                      {event.device_fingerprint ?? "—"}
+                      {event.device_fingerprint ?? "-"}
                     </TableCell>
                     <TableCell className="max-w-[220px] truncate text-xs" title={event.browser_details ?? undefined}>
-                      {event.browser_details ?? event.user_agent ?? "—"}
+                      {event.browser_details ?? event.user_agent ?? "-"}
                     </TableCell>
                     <TableCell>
                       {event.is_incident ? (
                         <StatusBadge status="overdue" kind="invoice" />
                       ) : (
-                        <span className="text-xs text-muted">—</span>
+                        <span className="text-xs text-muted">-</span>
                       )}
                     </TableCell>
                   </TableRow>

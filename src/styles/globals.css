@@ -63,7 +63,7 @@
     overflow-x: clip;
   }
 
-  /* Branded scrollbar — mirrors the top scroll-progress gradient */
+  /* Branded scrollbar: mirrors the top scroll-progress gradient */
   html::-webkit-scrollbar {
     width: 13px;
   }

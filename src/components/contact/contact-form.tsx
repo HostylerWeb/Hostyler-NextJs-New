@@ -100,7 +100,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
           </div>
           <p className="cta-form-success__title">Message received</p>
           <p className="cta-form-success__body">
-            We&apos;ll get back to you <strong>ASAP</strong> — usually within a few hours.
+            We&apos;ll get back to you <strong>ASAP</strong>, usually within a few hours.
           </p>
         </div>
       </div>

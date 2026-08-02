@@ -6,7 +6,17 @@ export type CaseStudyStat = {
 export type CaseStudyFeature = {
   title: string;
   description: string;
-  icon: "ticket" | "wallet" | "draw" | "instant" | "referral" | "loyalty" | "account" | "admin" | "compliance" | "spin";
+  icon:
+    | "ticket"
+    | "wallet"
+    | "draw"
+    | "instant"
+    | "referral"
+    | "loyalty"
+    | "account"
+    | "admin"
+    | "compliance"
+    | "spin";
 };
 
 export type CaseStudyStep = {

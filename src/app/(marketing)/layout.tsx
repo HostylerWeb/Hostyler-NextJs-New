@@ -17,8 +17,8 @@ import { WebsiteJsonLd } from "@/components/seo/website-json-ld";
 export const metadata: Metadata = {
   metadataBase: new URL(clientEnv.NEXT_PUBLIC_SITE_URL),
   title: {
-    default: `${site.name} — ${site.tagline}`,
-    template: `%s — ${site.name}`,
+ default: `${site.name}, ${site.tagline}`,
+ template: `%s, ${site.name}`,
   },
   description: site.description,
   alternates: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: `${site.name} — ${site.tagline}`,
+ title: `${site.name}, ${site.tagline}`,
     description: site.description,
     type: "website",
     url: clientEnv.NEXT_PUBLIC_SITE_URL,
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${site.name} — ${site.tagline}`,
+ alt: `${site.name}, ${site.tagline}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
+ title: `${site.name}, ${site.tagline}`,
     description: site.description,
     images: ["/opengraph-image"],
   },

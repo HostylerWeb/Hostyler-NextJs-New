@@ -561,7 +561,7 @@ html {
  .svc-cols .svc-col-label{font-family:var(--f-mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:12px; font-weight:700;}
  .svc-list{display:flex; flex-direction:column; gap:9px;}
  .svc-list li{font-size:13.5px; padding-left:16px; position:relative; font-weight:500; line-height:1.4;}
- .svc-list li::before{content:'—'; position:absolute; left:0; color:var(--accent); font-weight:700;}
+ .svc-list li::before{content:'-'; position:absolute; left:0; color:var(--accent); font-weight:700;}
  
  .svc-cta{margin-top:54px; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; text-align:center;}
  .svc-cta p{font-family:var(--f-mono); font-size:13px; color:var(--muted);}
@@ -890,7 +890,7 @@ html {
  }
 
  .service-detail[data-tint="lime"] {
-   /* Lime is too light for text on paper — use ink for labels, lime for fills */
+   /* Lime is too light for text on paper: use ink for labels, lime for fills */
    --sp-accent: var(--ink);
    --sp-accent-fill: var(--lime);
    --sp-tint: var(--lime-tint);
@@ -1036,7 +1036,7 @@ html {
    padding-block-start: 80px;
  }
 
- /* Snapshot strip — static spec bar, not homepage marquee */
+ /* Snapshot strip: static spec bar, not homepage marquee */
  .service-snapshot {
    padding-block-end: 48px;
  }
@@ -1463,7 +1463,7 @@ html {
    margin-top: 5px;
  }
 
- /* What we build — image cards */
+ /* What we build: image cards */
  .service-build-grid {
    display: grid;
    grid-template-columns: 1fr 1fr;
@@ -1969,7 +1969,7 @@ html {
  }
 
  .service-page-list li::before {
-   content: "—";
+   content: "-";
    position: absolute;
    left: 0;
    color: var(--sp-accent);
@@ -3077,7 +3077,7 @@ html {
   }
 }
 
-/* PayPal checkout — stretch SDK web components to full container width */
+/* PayPal checkout: stretch SDK web components to full container width */
 .paypal-checkout-slot {
   width: 100%;
 }

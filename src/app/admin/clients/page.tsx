@@ -67,7 +67,7 @@ export default async function AdminClientsPage() {
                     </Link>
                   </TableCell>
                   <TableCell>{client.email}</TableCell>
-                  <TableCell>{client.company ?? "—"}</TableCell>
+                  <TableCell>{client.company ?? "-"}</TableCell>
                   <TableCell>
                     <StatusBadge
                       status={client.is_active ? "paid" : "cancelled"}

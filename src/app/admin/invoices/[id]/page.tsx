@@ -51,7 +51,11 @@ export default async function AdminInvoiceDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <InvoiceAdminActions invoiceId={invoice.id} status={invoice.status} />
+        <InvoiceAdminActions
+          invoiceId={invoice.id}
+          invoiceNumber={invoice.invoice_number}
+          status={invoice.status}
+        />
 
         <InvoiceClientPreview invoice={invoice} client={client} />
 

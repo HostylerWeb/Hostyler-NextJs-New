@@ -34,7 +34,7 @@ export function FaqSection() {
             <h2>Answers before you ask.</h2>
           </div>
           <p>
-            Everything founders usually want to know before a first call — pricing, process,
+            Everything founders usually want to know before a first call: pricing, process,
             ownership, and how we work with existing teams.
           </p>
           <div className="faq-cta-card">
