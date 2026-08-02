@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { AdminShell } from "@/components/admin/admin-shell";
 import { AdminTicketPanel } from "@/components/admin/admin-ticket-panel";
+import { TicketDeleteButton } from "@/components/admin/ticket-delete-button";
 import { Card } from "@/components/ui/card";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { isAdmin } from "@/lib/permissions";
@@ -55,6 +56,12 @@ export default async function AdminTicketDetailPage({ params }: Props) {
               </p>
             ) : null}
           </div>
+          <TicketDeleteButton
+            ticketId={ticket.id}
+            ticketNumber={ticket.ticket_number}
+            redirectTo="/admin/support"
+            size="default"
+          />
         </div>
 
         <Card className="space-y-4 p-6">

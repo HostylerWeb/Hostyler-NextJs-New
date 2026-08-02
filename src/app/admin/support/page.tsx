@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { AdminShell } from "@/components/admin/admin-shell";
+import { TicketDeleteButton } from "@/components/admin/ticket-delete-button";
 import { StatusBadge } from "@/components/ui/status-badge";
 import {
   Table,
@@ -51,6 +52,7 @@ export default async function AdminSupportPage() {
               <TableHeader scope="col">Status</TableHeader>
               <TableHeader scope="col">Priority</TableHeader>
               <TableHeader scope="col">Updated</TableHeader>
+              <TableHeader scope="col">Actions</TableHeader>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -74,6 +76,12 @@ export default async function AdminSupportPage() {
                 </TableCell>
                 <TableCell className="capitalize">{ticket.priority}</TableCell>
                 <TableCell>{formatDateTime(ticket.last_reply_at)}</TableCell>
+                <TableCell>
+                  <TicketDeleteButton
+                    ticketId={ticket.id}
+                    ticketNumber={ticket.ticket_number}
+                  />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -13,6 +13,7 @@ import { canReplyTicket, canViewTicket, isAdmin } from "@/lib/permissions";
 import {
   addTicketMessage,
   createSupportTicket,
+  deleteSupportTicket,
   getTicketWithRelations,
   updateTicket,
 } from "@/lib/repositories/support";
@@ -196,4 +197,23 @@ export async function updateTicketAdminAction(
   revalidatePath(`/admin/support/${ticketId}`);
   revalidatePath("/admin/support");
   return { success: "Ticket updated." };
+}
+
+export async function deleteSupportTicketAction(
+  ticketId: string,
+): Promise<SupportActionState> {
+  const session = await auth();
+  if (!isAdmin(session?.user)) return { error: "Unauthorized" };
+
+  const ticket = await getTicketWithRelations(ticketId);
+  if (!ticket) return { error: "Ticket not found" };
+
+  try {
+    await deleteSupportTicket(ticketId);
+  } catch {
+    return { error: "Ticket could not be deleted." };
+  }
+
+  revalidatePath("/admin/support");
+  return { success: "Ticket deleted." };
 }

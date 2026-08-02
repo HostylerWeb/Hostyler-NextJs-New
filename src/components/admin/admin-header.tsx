@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdminFrontendLink } from "@/components/admin/admin-frontend-link";
 import { AdminLogoutButton } from "@/components/admin/admin-logout-button";
 
 type AdminHeaderProps = {
@@ -22,7 +23,8 @@ export function AdminHeader({ breadcrumbs = [] }: AdminHeaderProps) {
           </span>
         ))}
       </nav>
-      <div className="shrink-0 md:hidden">
+      <div className="flex shrink-0 items-center gap-2 md:hidden">
+        <AdminFrontendLink variant="header" />
         <AdminLogoutButton variant="header" />
       </div>
     </header>

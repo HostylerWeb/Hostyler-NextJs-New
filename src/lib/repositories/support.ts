@@ -203,3 +203,7 @@ export async function updateTicket(
 ): Promise<support_tickets> {
   return prisma.support_tickets.update({ where: { id }, data });
 }
+
+export async function deleteSupportTicket(id: string): Promise<void> {
+  await prisma.support_tickets.delete({ where: { id } });
+}

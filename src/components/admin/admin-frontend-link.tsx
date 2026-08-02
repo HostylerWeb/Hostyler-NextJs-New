@@ -35,7 +35,7 @@ export function AdminFrontendLink({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          "mt-2 flex w-full items-center gap-2 rounded-full border-2 border-transparent px-4 py-2.5 text-sm font-semibold text-paper/80 transition hover:border-paper hover:bg-paper/10",
+          "flex w-full items-center gap-2 rounded-full border-2 border-transparent px-4 py-2.5 text-sm font-semibold text-paper/80 transition hover:border-paper hover:bg-paper/10",
           className,
         )}
       >

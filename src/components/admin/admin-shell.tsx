@@ -40,9 +40,9 @@ export function AdminShell({ children, breadcrumbs }: AdminShellProps) {
               </Link>
             ))}
           </nav>
-          <div className="mt-auto border-t border-paper/15 pt-4">
-            <AdminLogoutButton variant="sidebar" />
+          <div className="mt-auto space-y-2 border-t border-paper/15 pt-4">
             <AdminFrontendLink variant="sidebar" />
+            <AdminLogoutButton variant="sidebar" />
           </div>
         </aside>
 
