@@ -369,10 +369,6 @@ html {
  .work-card:hover{transform:rotate(0) translate(-4px,-4px); box-shadow:var(--shadow-hover);}
  .work-thumb{height:220px; border-bottom:2.5px solid var(--ink); position:relative; overflow:hidden; background:var(--ink);}
  .work-thumb .dots-bg{display:none;}
- .work-thumb .work-mark{
-   position:absolute; left:16px; bottom:14px; z-index:2; font-family:var(--f-display); font-weight:700;
-   font-size:22px; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.45);
- }
  .work-thumb::after{
    content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(18,18,20,.55), transparent 55%); z-index:1;
  }

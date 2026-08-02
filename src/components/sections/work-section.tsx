@@ -10,10 +10,6 @@ function WorkArrowIcon() {
   );
 }
 
-function getShortMark(clientName: string) {
-  return clientName.split(" ")[0] ?? clientName;
-}
-
 function parseTags(tags: unknown): string[] {
   if (Array.isArray(tags)) {
     return tags.filter((tag): tag is string => typeof tag === "string");
@@ -51,7 +47,6 @@ export async function WorkSection() {
                   loading="lazy"
                   unoptimized
                 />
-                <span className="work-mark">{getShortMark(study.client_name)}</span>
               </div>
               <div className="work-body">
                 <div className="work-meta">

@@ -637,7 +637,6 @@ export function ServicePageContent({ page, relatedWork = [] }: ServicePageConten
                       height={220}
                       loading="lazy"
                     />
-                    <span className="work-mark">{study.client_name.split(" ")[0]}</span>
                   </div>
                   <div className="work-body">
                     <div className="work-meta">
