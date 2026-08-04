@@ -4,9 +4,8 @@ const modernPolyfill = "./src/lib/modern-polyfill.ts";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  experimental: {
-    inlineCss: true,
-  },
+  compress: true,
+  poweredByHeader: false,
   turbopack: {
     resolveAlias: {
       "../build/polyfills/polyfill-module": modernPolyfill,

@@ -1,18 +1,13 @@
-import { AiSection } from "@/components/sections/ai-section";
-import { CaseStudySection } from "@/components/sections/case-study-section";
-import { ContactSection } from "@/components/sections/contact-section";
-import { FaqSection } from "@/components/sections/faq-section";
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/hero-section";
 import { LogosSection } from "@/components/sections/logos-section";
 import { MarqueeSection } from "@/components/sections/marquee-section";
-import { PricingSection } from "@/components/sections/pricing-section";
-import { ProcessSection } from "@/components/sections/process-section";
 import { RevealInit } from "@/components/sections/reveal-init";
 import { ServicesSection } from "@/components/sections/services-section";
-import { TeamSection } from "@/components/sections/team-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
-import { WhySection } from "@/components/sections/why-section";
-import { WorkSection } from "@/components/sections/work-section";
+
+const HomeBelowFold = dynamic(
+  () => import("@/components/sections/home-below-fold").then((mod) => mod.HomeBelowFold),
+);
 
 export function HomeSections() {
   return (
@@ -21,16 +16,7 @@ export function HomeSections() {
       <MarqueeSection />
       <LogosSection />
       <ServicesSection />
-      <ProcessSection />
-      <WorkSection />
-      <CaseStudySection />
-      <AiSection />
-      <TestimonialsSection />
-      <PricingSection />
-      <TeamSection />
-      <WhySection />
-      <FaqSection />
-      <ContactSection />
+      <HomeBelowFold />
     </RevealInit>
   );
 }

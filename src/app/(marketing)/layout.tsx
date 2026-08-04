@@ -5,7 +5,6 @@ import { TawkChatLoader } from "@/components/chat/tawk-chat-loader";
 import { HashScroll } from "@/components/layout/hash-scroll";
 import { Header } from "@/components/layout/header";
 import { ScrollToTopOnNavigate } from "@/components/layout/scroll-to-top-on-navigate";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { SkipLink } from "@/components/ui/skip-link";
 import { Footer } from "@/components/layout/footer";
 import { site } from "@/content/site";
@@ -80,7 +79,6 @@ export default function MarketingLayout({
       <SkipLink />
       <ScrollToTopOnNavigate />
       <HashScroll />
-      <ScrollProgress />
       <Header />
       <main id="main-content" className="site-main">{children}</main>
       <Footer />
