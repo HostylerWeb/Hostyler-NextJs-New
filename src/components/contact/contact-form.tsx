@@ -79,7 +79,8 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
     }
   };
 
-  const formClassName = variant === "cta" ? "cta-form" : "cta-form";
+  const formClassName =
+    variant === "cta" ? "cta-form" : "cta-form cta-form--light";
 
   if (status === "success") {
     return (

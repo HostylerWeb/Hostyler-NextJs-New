@@ -478,6 +478,7 @@ html {
  .cta-form input:focus, .cta-form select:focus, .cta-form textarea:focus{outline:3px solid var(--lime); outline-offset:1px;}
  .cta-form .field{display:flex; flex-direction:column; gap:6px; text-align:left;}
  .cta-form label{font-size:12px; font-weight:700; color:#E6E1FE; padding-left:4px;}
+ .cta-form--light label{color:var(--ink);}
  .cta-actions{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:8px;}
  .cta-actions .btn{flex:1; min-width:200px; justify-content:center;}
  .cta-alt{
