@@ -54,7 +54,6 @@ export function Header() {
             <SiteLogo
               height={80}
               className="h-20 w-auto max-[940px]:h-11"
-              priority
             />
 
             <nav

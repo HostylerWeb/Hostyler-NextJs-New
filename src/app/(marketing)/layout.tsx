@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import "@/styles/marketing.css";
 import { UmamiAnalyticsLoader } from "@/components/analytics/umami-analytics-loader";
 import { TawkChatLoader } from "@/components/chat/tawk-chat-loader";
-import { HashScroll } from "@/components/layout/hash-scroll";
 import { Header } from "@/components/layout/header";
-import { ScrollToTopOnNavigate } from "@/components/layout/scroll-to-top-on-navigate";
-import { SkipLink } from "@/components/ui/skip-link";
 import { Footer } from "@/components/layout/footer";
+import { SkipLink } from "@/components/ui/skip-link";
 import { site } from "@/content/site";
 import { clientEnv } from "@/lib/env";
 import { FaqJsonLd } from "@/components/seo/faq-json-ld";
 import { WebsiteJsonLd } from "@/components/seo/website-json-ld";
+
+const HashScroll = dynamic(() =>
+  import("@/components/layout/hash-scroll").then((mod) => ({
+    default: mod.HashScroll,
+  })),
+);
+
+const ScrollToTopOnNavigate = dynamic(() =>
+  import("@/components/layout/scroll-to-top-on-navigate").then((mod) => ({
+    default: mod.ScrollToTopOnNavigate,
+  })),
+);
 
 export const metadata: Metadata = {
   metadataBase: new URL(clientEnv.NEXT_PUBLIC_SITE_URL),

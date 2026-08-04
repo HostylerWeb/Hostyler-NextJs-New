@@ -11,6 +11,8 @@ export function LogosSection() {
             <img
               src={logo.src}
               alt={logo.alt}
+              width={logo.width}
+              height={logo.height}
               className="logo-image-tech"
               style={{ height: logo.height, maxWidth: logo.maxWidth }}
               loading="lazy"

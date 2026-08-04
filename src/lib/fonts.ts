@@ -15,7 +15,7 @@ export const fontBody = Inter({
   variable: "--font-body",
   display: "swap",
   adjustFontFallback: true,
-  preload: true,
+  preload: false,
 });
 
 export const fontMono = Space_Mono({

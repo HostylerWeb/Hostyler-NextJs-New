@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Highlight } from "@/components/ui/highlight";
+import { HeroCriticalStyles } from "@/components/sections/hero-critical-styles";
 import { site } from "@/content/site";
 
 function ArrowIcon() {
@@ -13,6 +13,7 @@ function ArrowIcon() {
 export function HeroSection() {
   return (
     <section className="hero wrap" id="top">
+      <HeroCriticalStyles />
       <div className="dots" aria-hidden="true" />
       <div className="hero-grid">
         <div className="hero-copy">
@@ -21,7 +22,7 @@ export function HeroSection() {
             Web · App · AI · {site.legalName}
           </span>
           <h1>
-            Big ideas, <Highlight>built</Highlight> and shipped fast.
+            Big ideas, <span className="highlight on"><span>built</span></span> and shipped fast.
           </h1>
           <p>
             {site.legalName} is a senior team that designs and builds web platforms, mobile apps,
