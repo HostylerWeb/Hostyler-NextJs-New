@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/marketing.css";
+import { UmamiAnalyticsLoader } from "@/components/analytics/umami-analytics-loader";
 import { TawkChatLoader } from "@/components/chat/tawk-chat-loader";
 import { HashScroll } from "@/components/layout/hash-scroll";
 import { Header } from "@/components/layout/header";
@@ -85,6 +86,7 @@ export default function MarketingLayout({
       <Header />
       <main id="main-content" className="site-main">{children}</main>
       <Footer />
+      <UmamiAnalyticsLoader />
       <TawkChatLoader />
     </>
   );

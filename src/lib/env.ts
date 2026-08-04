@@ -43,6 +43,8 @@ const clientSchema = z.object({
   NEXT_PUBLIC_PAYPAL_MODE: z.enum(["sandbox", "live"]).default("sandbox"),
   NEXT_PUBLIC_TAWK_PROPERTY_ID: z.string().optional(),
   NEXT_PUBLIC_TAWK_WIDGET_ID: z.string().optional(),
+  NEXT_PUBLIC_UMAMI_WEBSITE_ID: z.string().optional(),
+  NEXT_PUBLIC_UMAMI_SCRIPT_URL: z.string().url().optional(),
 });
 
 const productionRequired = [
@@ -84,6 +86,8 @@ function parseClientEnv() {
     NEXT_PUBLIC_PAYPAL_MODE: process.env.NEXT_PUBLIC_PAYPAL_MODE,
     NEXT_PUBLIC_TAWK_PROPERTY_ID: process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID,
     NEXT_PUBLIC_TAWK_WIDGET_ID: process.env.NEXT_PUBLIC_TAWK_WIDGET_ID,
+    NEXT_PUBLIC_UMAMI_WEBSITE_ID: process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID,
+    NEXT_PUBLIC_UMAMI_SCRIPT_URL: process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL,
   });
 
   if (!parsed.success) {

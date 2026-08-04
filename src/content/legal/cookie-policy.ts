@@ -31,8 +31,9 @@ export const cookiePolicy: LegalDocument = {
       ],
     },
     {
-      title: "Live Chat on Public Pages",
+      title: "Analytics and Live Chat on Public Pages",
       paragraphs: [
+        "We use Umami, self-hosted on analytics.hostyler.cloud, on public marketing pages to understand traffic and improve the website. Umami is cookieless and does not use advertising trackers.",
         "We use Tawk.to live chat on public marketing pages so visitors can contact us. Tawk may use cookies and similar technologies to operate the chat widget, remember conversation context, and support chat functionality.",
         "We do not use Google Analytics, Meta Pixel, or advertising cookies on this website.",
       ],

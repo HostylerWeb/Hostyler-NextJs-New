@@ -37,7 +37,7 @@ export const privacyPolicy: LegalDocument = {
         "Operating the client portal, including invoices, payments, and support.",
         "Sending transactional communications such as password resets, payment confirmations, and service notices.",
         "Maintaining website security, monitoring abuse, and protecting our systems.",
-        "Operating the live chat widget on public marketing pages.",
+        "Operating the live chat widget and privacy-friendly analytics on public marketing pages.",
         "Complying with legal, tax, and accounting obligations.",
       ],
     },
@@ -51,6 +51,7 @@ export const privacyPolicy: LegalDocument = {
       title: "Cookies and Similar Technologies",
       paragraphs: [
         "We use essential cookies and similar technologies required for authentication, session management, security, and core website functionality. These are necessary for the client portal to work.",
+        "We use Umami analytics on public marketing pages. Umami is self-hosted, cookieless, and is not used for advertising.",
         "We use Tawk.to live chat on public marketing pages. Tawk may set cookies to operate the chat widget and support conversations. It is not used for advertising.",
         "We do not use Google Analytics or third-party marketing cookies on this website.",
         "For more detail, see our Cookie Policy.",
