@@ -19,6 +19,5 @@ export default function robots(): MetadataRoute.Robots {
       ],
     },
     sitemap: `${clientEnv.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
-    host: clientEnv.NEXT_PUBLIC_SITE_URL.replace(/^https?:\/\//, ""),
   };
 }
