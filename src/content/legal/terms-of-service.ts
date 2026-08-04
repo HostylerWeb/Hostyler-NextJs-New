@@ -69,7 +69,7 @@ export const termsOfService: LegalDocument = {
       title: "6. Cookies and Website Use",
       paragraphs: [
         "Our website uses essential cookies and similar technologies required for authentication, session management, security, and core site functionality when you use the client portal.",
-        "We may use privacy-friendly, cookieless analytics on public pages to understand traffic patterns and improve the website. We do not use third-party advertising cookies on this site.",
+        "We may use a live chat widget on public marketing pages so visitors can contact us. We do not use third-party advertising cookies on this site.",
         "For more detail, see our Privacy Policy and Cookie Policy.",
       ],
     },

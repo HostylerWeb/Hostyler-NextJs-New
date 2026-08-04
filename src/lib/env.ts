@@ -41,7 +41,8 @@ const clientSchema = z.object({
   NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
   NEXT_PUBLIC_PAYPAL_CLIENT_ID: z.string().optional(),
   NEXT_PUBLIC_PAYPAL_MODE: z.enum(["sandbox", "live"]).default("sandbox"),
-  NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN: z.string().optional(),
+  NEXT_PUBLIC_TAWK_PROPERTY_ID: z.string().optional(),
+  NEXT_PUBLIC_TAWK_WIDGET_ID: z.string().optional(),
 });
 
 const productionRequired = [
@@ -81,8 +82,8 @@ function parseClientEnv() {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_PAYPAL_CLIENT_ID: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
     NEXT_PUBLIC_PAYPAL_MODE: process.env.NEXT_PUBLIC_PAYPAL_MODE,
-    NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN:
-      process.env.NEXT_PUBLIC_CF_WEB_ANALYTICS_TOKEN,
+    NEXT_PUBLIC_TAWK_PROPERTY_ID: process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID,
+    NEXT_PUBLIC_TAWK_WIDGET_ID: process.env.NEXT_PUBLIC_TAWK_WIDGET_ID,
   });
 
   if (!parsed.success) {

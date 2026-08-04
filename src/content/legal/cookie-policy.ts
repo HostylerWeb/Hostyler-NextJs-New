@@ -31,9 +31,9 @@ export const cookiePolicy: LegalDocument = {
       ],
     },
     {
-      title: "Analytics on Public Pages",
+      title: "Live Chat on Public Pages",
       paragraphs: [
-        "We use Cloudflare Web Analytics on public marketing pages to understand traffic volume and page performance. This service is cookieless and does not track you across other websites.",
+        "We use Tawk.to live chat on public marketing pages so visitors can contact us. Tawk may use cookies and similar technologies to operate the chat widget, remember conversation context, and support chat functionality.",
         "We do not use Google Analytics, Meta Pixel, or advertising cookies on this website.",
       ],
     },
@@ -46,8 +46,7 @@ export const cookiePolicy: LegalDocument = {
     {
       title: "Managing Cookies",
       paragraphs: [
-        "You can control or delete cookies through your browser settings. Blocking essential cookies may prevent the client portal from working correctly.",
-        "Because our public analytics approach is cookieless, no analytics opt-out banner is required for Cloudflare Web Analytics on marketing pages.",
+        "You can control or delete cookies through your browser settings. Blocking essential cookies may prevent the client portal from working correctly. Blocking chat cookies may prevent the live chat widget from working on marketing pages.",
       ],
     },
     {

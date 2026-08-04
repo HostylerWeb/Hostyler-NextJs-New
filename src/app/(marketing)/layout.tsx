@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import "@/styles/marketing.css";
-import { CloudflareWebAnalyticsLoader } from "@/components/analytics/cloudflare-web-analytics-loader";
-import { BackToTop } from "@/components/ui/back-to-top";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
-import { SkipLink } from "@/components/ui/skip-link";
-import { Footer } from "@/components/layout/footer";
+import { TawkChatLoader } from "@/components/chat/tawk-chat-loader";
 import { HashScroll } from "@/components/layout/hash-scroll";
 import { Header } from "@/components/layout/header";
 import { HeaderOffsetSync } from "@/components/layout/header-offset-sync";
 import { ScrollToTopOnNavigate } from "@/components/layout/scroll-to-top-on-navigate";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { SkipLink } from "@/components/ui/skip-link";
+import { Footer } from "@/components/layout/footer";
 import { site } from "@/content/site";
 import { clientEnv } from "@/lib/env";
 import { FaqJsonLd } from "@/components/seo/faq-json-ld";
@@ -86,8 +85,7 @@ export default function MarketingLayout({
       <Header />
       <main id="main-content" className="site-main">{children}</main>
       <Footer />
-      <BackToTop />
-      <CloudflareWebAnalyticsLoader />
+      <TawkChatLoader />
     </>
   );
 }

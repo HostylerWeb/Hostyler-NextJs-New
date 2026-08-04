@@ -26,7 +26,7 @@ const requiredFiles = [
   "src/components/ui/alert.tsx",
   "src/components/ui/skip-link.tsx",
   "src/components/ui/scroll-progress.tsx",
-  "src/components/ui/back-to-top.tsx",
+  "src/components/chat/tawk-chat-loader.tsx",
   "src/components/ui/pagination.tsx",
   "src/components/ui/dialog.tsx",
   "src/components/layout/header.tsx",
