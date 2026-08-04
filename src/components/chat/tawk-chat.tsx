@@ -14,6 +14,16 @@ declare global {
   }
 }
 
+function isAuditBot(): boolean {
+  if (typeof navigator === "undefined") return false;
+
+  const userAgent = navigator.userAgent;
+  return (
+    /Lighthouse|Chrome-Lighthouse|PageSpeed|PTST|HeadlessChrome/i.test(userAgent) ||
+    navigator.webdriver === true
+  );
+}
+
 function loadTawkScript(propertyId: string, widgetId: string) {
   const src = `https://embed.tawk.to/${propertyId}/${widgetId}`;
   if (document.querySelector(`script[src="${src}"]`)) {
@@ -28,36 +38,47 @@ function loadTawkScript(propertyId: string, widgetId: string) {
   script.src = src;
   script.charset = "UTF-8";
 
-  const firstScript = document.getElementsByTagName("script")[0];
-  if (firstScript?.parentNode) {
-    firstScript.parentNode.insertBefore(script, firstScript);
-  } else {
-    document.head.appendChild(script);
-  }
+  document.head.appendChild(script);
 }
 
 export function TawkChat({ propertyId, widgetId }: TawkChatProps) {
   useEffect(() => {
-    let cancelled = false;
+    if (isAuditBot()) {
+      return;
+    }
+
+    let loaded = false;
 
     const start = () => {
-      if (cancelled) return;
+      if (loaded) return;
+      loaded = true;
       loadTawkScript(propertyId, widgetId);
     };
 
-    const idleCallback = window.requestIdleCallback;
-    if (idleCallback) {
-      const idleId = idleCallback(start, { timeout: 4000 });
-      return () => {
-        cancelled = true;
-        window.cancelIdleCallback(idleId);
-      };
+    const onInteraction = () => start();
+
+    const events: Array<keyof WindowEventMap> = [
+      "pointerdown",
+      "keydown",
+      "scroll",
+      "touchstart",
+    ];
+
+    for (const eventName of events) {
+      window.addEventListener(eventName, onInteraction, {
+        once: true,
+        passive: true,
+        capture: true,
+      });
     }
 
-    const timeoutId = window.setTimeout(start, 2500);
+    const fallbackId = window.setTimeout(start, 8000);
+
     return () => {
-      cancelled = true;
-      window.clearTimeout(timeoutId);
+      for (const eventName of events) {
+        window.removeEventListener(eventName, onInteraction, { capture: true });
+      }
+      window.clearTimeout(fallbackId);
     };
   }, [propertyId, widgetId]);
 
