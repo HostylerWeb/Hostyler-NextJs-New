@@ -7,10 +7,6 @@ export function isMobileHeaderLayout(): boolean {
   return window.matchMedia(`(max-width: ${MOBILE_HEADER_BREAKPOINT_PX}px)`).matches;
 }
 
-export function invalidateSiteHeaderOffsetCache() {
-  // Reserved for callers that update the inline CSS variable.
-}
-
 function parseLengthPx(value: string): number | null {
   const trimmed = value.trim();
   if (!trimmed) return null;
@@ -36,12 +32,6 @@ function parseLengthPx(value: string): number | null {
 
 export function getSiteHeaderOffset(): number {
   if (typeof window === "undefined") return DESKTOP_HEADER_OFFSET_PX;
-
-  const inline = document.documentElement.style.getPropertyValue(
-    "--site-header-offset",
-  );
-  const fromInline = parseLengthPx(inline);
-  if (fromInline) return fromInline;
 
   const fromComputed = parseLengthPx(
     getComputedStyle(document.documentElement).getPropertyValue(

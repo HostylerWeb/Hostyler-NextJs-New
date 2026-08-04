@@ -4,7 +4,6 @@ import { UmamiAnalyticsLoader } from "@/components/analytics/umami-analytics-loa
 import { TawkChatLoader } from "@/components/chat/tawk-chat-loader";
 import { HashScroll } from "@/components/layout/hash-scroll";
 import { Header } from "@/components/layout/header";
-import { HeaderOffsetSync } from "@/components/layout/header-offset-sync";
 import { ScrollToTopOnNavigate } from "@/components/layout/scroll-to-top-on-navigate";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { SkipLink } from "@/components/ui/skip-link";
@@ -79,7 +78,6 @@ export default function MarketingLayout({
       <WebsiteJsonLd />
       <FaqJsonLd />
       <SkipLink />
-      <HeaderOffsetSync />
       <ScrollToTopOnNavigate />
       <HashScroll />
       <ScrollProgress />
