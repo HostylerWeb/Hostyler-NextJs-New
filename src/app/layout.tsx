@@ -5,7 +5,7 @@ import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Hostyler",
-  description: `${site.legalName}: ${site.tagline}`,
+  description: site.metaDescription,
 };
 
 export default function RootLayout({

@@ -4,7 +4,7 @@ export const fontDisplay = Unbounded({
   subsets: ["latin"],
   weight: ["700"],
   variable: "--font-display",
-  display: "swap",
+  display: "optional",
   adjustFontFallback: true,
   preload: true,
 });

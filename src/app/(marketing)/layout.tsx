@@ -29,7 +29,7 @@ export const metadata: Metadata = {
  default: `${site.name}, ${site.tagline}`,
  template: `%s, ${site.name}`,
   },
-  description: site.description,
+  description: site.metaDescription,
   alternates: {
     canonical: clientEnv.NEXT_PUBLIC_SITE_URL,
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
  title: `${site.name}, ${site.tagline}`,
-    description: site.description,
+    description: site.metaDescription,
     type: "website",
     url: clientEnv.NEXT_PUBLIC_SITE_URL,
     images: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
  title: `${site.name}, ${site.tagline}`,
-    description: site.description,
+    description: site.metaDescription,
     images: ["/opengraph-image"],
   },
 };
@@ -66,7 +66,7 @@ function OrganizationJsonLd() {
     name: site.name,
     url: clientEnv.NEXT_PUBLIC_SITE_URL,
     email: site.email,
-    description: site.description,
+    description: site.metaDescription,
   };
 
   return (
