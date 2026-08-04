@@ -33,51 +33,27 @@ type TestimonialsCarouselProps = {
 
 export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const activeIndexRef = useRef(0);
 
-  const getCardOffsets = useCallback(() => {
+  const scrollToIndex = useCallback((index: number) => {
     const track = trackRef.current;
-    if (!track) return [];
+    if (!track) return;
 
-    return Array.from(track.querySelectorAll<HTMLElement>(".testi-card")).map(
-      (card) => card.offsetLeft,
-    );
-  }, []);
+    const cards = track.querySelectorAll<HTMLElement>(".testi-card");
+    if (!cards.length) return;
 
-  const getActiveIndex = useCallback(() => {
-    const track = trackRef.current;
-    const offsets = getCardOffsets();
-    if (!track || offsets.length === 0) return 0;
-
-    const position = track.scrollLeft;
-    let activeIndex = 0;
-    let smallestDistance = Number.POSITIVE_INFINITY;
-
-    offsets.forEach((offset, index) => {
-      const distance = Math.abs(offset - position);
-      if (distance < smallestDistance) {
-        smallestDistance = distance;
-        activeIndex = index;
-      }
+    const nextIndex = Math.max(0, Math.min(index, cards.length - 1));
+    activeIndexRef.current = nextIndex;
+    cards[nextIndex]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "start",
+      block: "nearest",
     });
-
-    return activeIndex;
-  }, [getCardOffsets]);
-
-  const scrollToIndex = useCallback(
-    (index: number) => {
-      const track = trackRef.current;
-      const offsets = getCardOffsets();
-      if (!track || offsets.length === 0) return;
-
-      const nextIndex = Math.max(0, Math.min(index, offsets.length - 1));
-      track.scrollTo({ left: offsets[nextIndex], behavior: "smooth" });
-    },
-    [getCardOffsets],
-  );
+  }, []);
 
   const scroll = (direction: "prev" | "next") => {
     const delta = direction === "next" ? 1 : -1;
-    scrollToIndex(getActiveIndex() + delta);
+    scrollToIndex(activeIndexRef.current + delta);
   };
 
   if (testimonials.length === 0) {

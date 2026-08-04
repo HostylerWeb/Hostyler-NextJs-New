@@ -2,38 +2,53 @@ export const MOBILE_HEADER_BREAKPOINT_PX = 940;
 /** Desktop sticky header height in px (matches marketing.css --site-header-offset: 7.75rem). */
 export const DESKTOP_HEADER_OFFSET_PX = 124;
 
-let cachedHeaderOffsetPx: number | undefined;
-
 export function isMobileHeaderLayout(): boolean {
   if (typeof window === "undefined") return false;
   return window.matchMedia(`(max-width: ${MOBILE_HEADER_BREAKPOINT_PX}px)`).matches;
 }
 
 export function invalidateSiteHeaderOffsetCache() {
-  cachedHeaderOffsetPx = undefined;
+  // Reserved for callers that update the inline CSS variable.
+}
+
+function parseLengthPx(value: string): number | null {
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+
+  if (trimmed.endsWith("px")) {
+    const parsed = Number.parseFloat(trimmed);
+    return Number.isFinite(parsed) && parsed > 0 ? Math.ceil(parsed) : null;
+  }
+
+  if (trimmed.endsWith("rem")) {
+    const parsed = Number.parseFloat(trimmed);
+    if (!Number.isFinite(parsed) || parsed <= 0) return null;
+    const rootSize = Number.parseFloat(
+      getComputedStyle(document.documentElement).fontSize,
+    );
+    return Number.isFinite(rootSize) && rootSize > 0
+      ? Math.ceil(parsed * rootSize)
+      : null;
+  }
+
+  return null;
 }
 
 export function getSiteHeaderOffset(): number {
   if (typeof window === "undefined") return DESKTOP_HEADER_OFFSET_PX;
 
-  const inline = document.documentElement.style
-    .getPropertyValue("--site-header-offset")
-    .trim();
+  const inline = document.documentElement.style.getPropertyValue(
+    "--site-header-offset",
+  );
+  const fromInline = parseLengthPx(inline);
+  if (fromInline) return fromInline;
 
-  if (inline.endsWith("px")) {
-    const parsed = Number.parseFloat(inline);
-    if (Number.isFinite(parsed) && parsed > 0) {
-      return Math.ceil(parsed);
-    }
-  }
+  const fromComputed = parseLengthPx(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--site-header-offset",
+    ),
+  );
+  if (fromComputed) return fromComputed;
 
-  if (cachedHeaderOffsetPx !== undefined) {
-    return cachedHeaderOffsetPx;
-  }
-
-  const header = document.querySelector("header");
-  cachedHeaderOffsetPx = header
-    ? Math.ceil(header.getBoundingClientRect().height)
-    : DESKTOP_HEADER_OFFSET_PX;
-  return cachedHeaderOffsetPx;
+  return DESKTOP_HEADER_OFFSET_PX;
 }

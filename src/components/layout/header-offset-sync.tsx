@@ -5,6 +5,16 @@ import {
   invalidateSiteHeaderOffsetCache,
   MOBILE_HEADER_BREAKPOINT_PX,
 } from "@/lib/site-header-offset";
+import { scheduleFrame } from "@/lib/schedule-frame";
+
+function readResizeObserverHeight(entry: ResizeObserverEntry): number {
+  const blockSize = entry.borderBoxSize?.[0]?.blockSize;
+  if (typeof blockSize === "number" && blockSize > 0) {
+    return Math.ceil(blockSize);
+  }
+
+  return Math.ceil(entry.contentRect.height);
+}
 
 export function HeaderOffsetSync() {
   useEffect(() => {
@@ -17,16 +27,8 @@ export function HeaderOffsetSync() {
       invalidateSiteHeaderOffsetCache();
     };
 
-    const sync = () => {
-      if (mobileQuery.matches) {
-        clearInlineOffset();
-        return;
-      }
-
-      const header = document.querySelector("header");
-      if (!header) return;
-
-      const height = Math.ceil(header.getBoundingClientRect().height);
+    const applyHeight = (height: number) => {
+      if (height <= 0) return;
       document.documentElement.style.setProperty(
         "--site-header-offset",
         `${height}px`,
@@ -36,44 +38,54 @@ export function HeaderOffsetSync() {
 
     const header = document.querySelector("header");
     let resizeObserver: ResizeObserver | null = null;
+    const scheduleSync = scheduleFrame(() => {
+      if (!header) return;
+      applyHeight(header.offsetHeight);
+    });
 
     const startDesktopObserver = () => {
-      if (!header || typeof ResizeObserver === "undefined") return;
+      if (!header || typeof ResizeObserver === "undefined") {
+        scheduleSync();
+        return;
+      }
+
       resizeObserver?.disconnect();
-      resizeObserver = new ResizeObserver(sync);
+      resizeObserver = new ResizeObserver((entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        applyHeight(readResizeObserverHeight(entry));
+      });
       resizeObserver.observe(header);
     };
 
     const stopDesktopObserver = () => {
       resizeObserver?.disconnect();
       resizeObserver = null;
+      scheduleSync.cancel();
     };
 
     const onBreakpointChange = () => {
       if (mobileQuery.matches) {
         stopDesktopObserver();
-        window.removeEventListener("resize", sync);
         clearInlineOffset();
       } else {
-        sync();
         startDesktopObserver();
-        window.addEventListener("resize", sync);
       }
     };
 
-    if (mobileQuery.matches) {
-      clearInlineOffset();
-    } else {
-      sync();
-      startDesktopObserver();
-      window.addEventListener("resize", sync);
-    }
+    const bootstrapFrame = window.requestAnimationFrame(() => {
+      if (mobileQuery.matches) {
+        clearInlineOffset();
+      } else {
+        startDesktopObserver();
+      }
+    });
 
     mobileQuery.addEventListener("change", onBreakpointChange);
 
     return () => {
+      window.cancelAnimationFrame(bootstrapFrame);
       stopDesktopObserver();
-      window.removeEventListener("resize", sync);
       mobileQuery.removeEventListener("change", onBreakpointChange);
     };
   }, []);

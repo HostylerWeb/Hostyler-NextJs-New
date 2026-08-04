@@ -3,32 +3,30 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { subscribeScrollFrame } from "@/lib/raf-scroll";
+import { scheduleFrame } from "@/lib/schedule-frame";
 
 export function ScrollProgress({ className }: { className?: string }) {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
     let docHeight = 0;
-
-    const updateDocHeight = () => {
+    const scheduleMeasure = scheduleFrame(() => {
       docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    };
+      setWidth(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
+    });
 
     const updateWidth = () => {
       setWidth(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
     };
 
-    updateDocHeight();
-    updateWidth();
-
+    scheduleMeasure();
     const unsubscribeScroll = subscribeScrollFrame(updateWidth);
-    window.addEventListener("resize", updateDocHeight, { passive: true });
-    window.addEventListener("resize", updateWidth, { passive: true });
+    window.addEventListener("resize", scheduleMeasure, { passive: true });
 
     return () => {
+      scheduleMeasure.cancel();
       unsubscribeScroll();
-      window.removeEventListener("resize", updateDocHeight);
-      window.removeEventListener("resize", updateWidth);
+      window.removeEventListener("resize", scheduleMeasure);
     };
   }, []);
 

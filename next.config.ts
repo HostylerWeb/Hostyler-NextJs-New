@@ -25,7 +25,37 @@ const nextConfig: NextConfig = {
     ],
   },
   async headers() {
+    const staticAssetCache = "public, max-age=31536000, immutable";
+
     return [
+      {
+        source: "/logos/:path*",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }],
+      },
+      {
+        source: "/team/:path*",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }],
+      },
+      {
+        source: "/:path*.svg",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }],
+      },
+      {
+        source: "/:path*.webp",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }],
+      },
+      {
+        source: "/:path*.png",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }],
+      },
+      {
+        source: "/:path*.jpg",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }],
+      },
+      {
+        source: "/:path*.ico",
+        headers: [{ key: "Cache-Control", value: staticAssetCache }],
+      },
       {
         source: "/(.*)",
         headers: [

@@ -11,7 +11,6 @@ export function TawkChat({ propertyId, widgetId }: TawkChatProps) {
       id="tawk-chat"
       strategy="afterInteractive"
       src={`https://embed.tawk.to/${propertyId}/${widgetId}`}
-      crossOrigin="anonymous"
       charSet="UTF-8"
     />
   );
