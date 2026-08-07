@@ -10,17 +10,17 @@ export function ServiceVisual({ type }: ServiceVisualProps) {
           <i />
           <i />
           <i />
+          <span className="mock-address">client-site.com</span>
         </div>
         <div className="body">
-          <div className="fake-h" />
-          <div className="fake-l" />
-          <div className="fake-l" style={{ width: "60%" }} />
+          <p className="mock-title">Business website we built</p>
+          <p className="mock-line">Clear messaging, fast pages, easy to update</p>
           <div className="fake-grid">
-            <span />
-            <span />
-            <span />
+            <span className="fake-grid-item">SEO</span>
+            <span className="fake-grid-item">Fast</span>
+            <span className="fake-grid-item">Secure</span>
           </div>
-          <div className="fake-btn" />
+          <span className="mock-pill">Contact · Pricing · Blog</span>
         </div>
       </div>
     );
@@ -34,9 +34,12 @@ export function ServiceVisual({ type }: ServiceVisualProps) {
             <span />
             <span />
           </div>
-          <div className="bubble">Order confirmed ✓</div>
-          <div className="bubble">Delivery: 12 min</div>
-          <div className="fake-btn-sm" />
+          <div className="bubble">Push: 2 new sign-ups</div>
+          <div className="bubble">Revenue up 12% this week</div>
+          <div className="bubble subtle">Team synced · 4 updates</div>
+          <div className="fake-btn-sm">
+            <span>Open dashboard</span>
+          </div>
         </div>
       </div>
     );
@@ -46,14 +49,12 @@ export function ServiceVisual({ type }: ServiceVisualProps) {
     <div className="svc-visual sv-ai">
       <div className="bar">
         <i />
-        hostyler-ai
+        Hostyler AI
       </div>
       <div className="body">
-        <div className="chat-bubble user" style={{ marginBottom: 10 }}>
-          Summarize this week&apos;s tickets
-        </div>
+        <div className="chat-bubble user">Sort these 8 client emails by topic</div>
         <div className="chat-bubble ai">
-          3 recurring issues found. Drafting a fix doc now
+          4 sales · 2 support · 2 billing. Draft replies are ready.
           <div className="typing">
             <span />
             <span />

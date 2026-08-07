@@ -71,37 +71,45 @@ export function HeroSection() {
           </div>
 
           <div className="card-float card-browser">
+            <span className="card-type">Website</span>
             <div className="bar">
               <i />
               <i />
               <i />
+              <span className="mock-address">yourbrand.com</span>
             </div>
             <div className="body">
-              <div className="fake-h" />
-              <div className="fake-l" />
-              <div className="fake-l" />
-              <div className="fake-btn" />
+              <p className="mock-title">Launch your product online</p>
+              <p className="mock-line">Marketing site · SEO · CMS</p>
+              <p className="mock-line">Book demos, capture leads, rank on Google</p>
+              <span className="mock-pill">Go live in weeks</span>
             </div>
           </div>
 
           <div className="card-float card-phone">
+            <span className="card-type">Mobile app</span>
             <div className="screen">
               <div className="dot-row">
                 <span />
                 <span />
               </div>
-              <div className="bubble">Order confirmed ✓</div>
-              <div className="bubble">Delivery: 12 min</div>
+              <div className="bubble">New lead · Acme Co.</div>
+              <div className="bubble">Invoice #1042 paid ✓</div>
+              <div className="bubble subtle">3 tasks due today</div>
             </div>
           </div>
 
           <div className="card-float card-ai">
+            <span className="card-type">AI assistant</span>
             <div className="bar">
               <i />
-              hostyler-ai
+              Hostyler AI
             </div>
             <div className="body">
-              Analyzing your data
+              <p className="mock-prompt">Turn this brief into a project scope</p>
+              <p className="mock-reply">
+                MVP: login, dashboard, billing. Estimate: 6 weeks.
+              </p>
               <div className="typing">
                 <span />
                 <span />
