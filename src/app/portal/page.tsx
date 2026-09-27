@@ -26,11 +26,6 @@ export default async function PortalDashboardPage() {
   const overdueInvoices = openInvoices.filter(
     (invoice) => new Date(invoice.due_date) < new Date(),
   );
-  const totalDue = openInvoices.reduce(
-    (sum, invoice) =>
-      sum + (Number(invoice.total) - Number(invoice.amount_paid)),
-    0,
-  );
   const openTickets = tickets.filter(
     (ticket) => !["resolved", "closed"].includes(ticket.status),
   );
@@ -44,7 +39,6 @@ export default async function PortalDashboardPage() {
               Open invoices
             </p>
             <p className="mt-2 font-display text-2xl">{openInvoices.length}</p>
-            <p className="text-sm text-muted">{formatCurrency(totalDue)} due</p>
           </Card>
           <Card tint="coral" className="p-5">
             <p className="font-mono text-[10px] font-bold uppercase text-muted">
